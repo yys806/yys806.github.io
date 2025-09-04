@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: SHEN-BLOG
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Leo shen
+language: zh-CN
 timezone: ''
 
 # URL
@@ -96,9 +96,26 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repository: git@github.com:yys806/yys806.github.io.git
+  branch: main
+
+## discuss
+## discuss
+post:
+  comments:
+  enable: true
+  type: utterances
+
+utterances:
+  repo: syuanyuan708/syuanyuan708.github.io
+  issue_term: title
+  label: utterances
+  theme: github-light
+  theme_dark: github-dark
+  crossorigin: anonymous
