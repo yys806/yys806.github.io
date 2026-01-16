@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件</title>
+    <link href="/2026/01/16/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/"/>
+    <url>/2026/01/16/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="💡-起因：长对话的“迷路”困境"><a href="#💡-起因：长对话的“迷路”困境" class="headerlink" title="💡 起因：长对话的“迷路”困境"></a>💡 起因：长对话的“迷路”困境</h2><p>作为一名重度 AI 用户，我每天都在 Google Gemini 上进行大量的长文本对话。无论是写代码、分析文档还是头脑风暴，一个 Session 往往会拖得很长。</p><p>这时候，DeepSeek 的 UI 设计给了我很大的触动。它的右侧有一个极简的 <strong>Minimap（缩略图导航）</strong>：平时只是一排低调的刻度，鼠标放上去就能看到所有提问的目录，点击即达。</p><p>反观 Gemini，虽然模型强大，但在长对话的导航体验上略显原始——想找前天问的第 3 个代码片段？请疯狂滚动滚轮吧。</p><p><strong>“为什么不自己动手做一个呢？”</strong></p><p>于是，我决定开发一个 Edge 扩展，把 DeepSeek 那个丝滑的侧边栏“移植”到 Gemini 上。有趣的是，这次开发的“结对编程”伙伴，正是 AI 自己。</p><hr><h2 id="🛠️-从-0-到-1：逆向与-MVP"><a href="#🛠️-从-0-到-1：逆向与-MVP" class="headerlink" title="🛠️ 从 0 到 1：逆向与 MVP"></a>🛠️ 从 0 到 1：逆向与 MVP</h2><h3 id="第一步：寻找“钩子”"><a href="#第一步：寻找“钩子”" class="headerlink" title="第一步：寻找“钩子”"></a>第一步：寻找“钩子”</h3><p>Google 的网页通常使用了大量的混淆类名（比如 <code>ng-star-inserted</code>, <code>jsaction</code>），直接通过 CSS 选择器定位并不容易。</p><p>我首先利用 Chrome DevTools 也是配合 AI 进行“地毯式搜索”，最终锁定了用户的提问气泡容器：<code>.user-query-container</code>。这就像找到了迷宫的入口，只要拿到了这些元素，我就能提取出所有的提问文本。</p><h3 id="第二步：MVP（最小可行性产品）"><a href="#第二步：MVP（最小可行性产品）" class="headerlink" title="第二步：MVP（最小可行性产品）"></a>第二步：MVP（最小可行性产品）</h3><p>最初的版本非常简陋。我只是简单地把抓取到的标题列在了一个侧边栏里。虽然能用，但有两个大问题：</p><ol><li><strong>太丑了</strong>：像是一个贴在屏幕上的记事本，完全破坏了 Gemini 的美感。</li><li><strong>数据重复</strong>：Gemini 的页面渲染机制会导致 DOM 中存在大量“隐形”的重复元素，导致目录里出现了重复的标题。</li></ol><hr><h2 id="🎨-进化：打造-DeepSeek-风格-UI"><a href="#🎨-进化：打造-DeepSeek-风格-UI" class="headerlink" title="🎨 进化：打造 DeepSeek 风格 UI"></a>🎨 进化：打造 DeepSeek 风格 UI</h2><p>为了追求极致的体验，我开始对 UI 进行大刀阔斧的改造。</p><h3 id="1-隐形刻度设计"><a href="#1-隐形刻度设计" class="headerlink" title="1. 隐形刻度设计"></a>1. 隐形刻度设计</h3><p>我参考 DeepSeek，将侧边栏设计为**“平时隐形，悬停展开”**。</p><p><img src="/images/260116hide.png" alt="隐藏式刻度" title="隐藏式刻度"></p><ul><li><strong>默认状态</strong>：屏幕右侧只有一排细小的灰色短横线（Marker），宽度仅 28px，完全不遮挡内容。</li><li><strong>悬停状态</strong>：鼠标移入，面板平滑展开至 200px，显示提问的前 12 个字，并配有**毛玻璃（Frosted Glass）**特效。</li></ul><h3 id="2-霓虹紫的“赛博”美学"><a href="#2-霓虹紫的“赛博”美学" class="headerlink" title="2. 霓虹紫的“赛博”美学"></a>2. 霓虹紫的“赛博”美学</h3><p>在配色上，我经历了一番波折。最初我想用 CSS 变量自适应 Gemini 的主题，但发现 Google 的变量作用域限制较多。</p><p>为了确保视觉上的绝对清晰，我最终选择了一套**“暴力美学”**方案：</p><p><img src="/images/260116active.png" alt="展开展示" title="展开展示"></p><ul><li><strong>Active 状态</strong>：无论背景是黑是白，当前激活的条目都会变成<strong>亮眼的霓虹紫 (#d946ef)</strong>，并带有发光呼吸效果（Glow Effect）。</li><li><strong>Dark Mode 适配</strong>：通过监听 <code>body</code> 和 <code>html</code> 的类名变化，强制深色模式下背景变为深灰，文字变白，确保夜间使用不刺眼。</li></ul><hr><h2 id="⚙️-核心技术难点：如何让高亮“稳如老狗”？"><a href="#⚙️-核心技术难点：如何让高亮“稳如老狗”？" class="headerlink" title="⚙️ 核心技术难点：如何让高亮“稳如老狗”？"></a>⚙️ 核心技术难点：如何让高亮“稳如老狗”？</h2><p>在开发过程中，最让我头疼的是**“当前阅读位置的高亮同步”**。</p><h3 id="方案-A：IntersectionObserver（失败）"><a href="#方案-A：IntersectionObserver（失败）" class="headerlink" title="方案 A：IntersectionObserver（失败）"></a>方案 A：IntersectionObserver（失败）</h3><p>最初我使用了交叉观察器。逻辑是：“当提问气泡进入屏幕，就点亮侧边栏”。<br><strong>Bug</strong>：如果两个提问之间隔得太远（比如 AI 回复了一篇 5000 字的论文），屏幕中间会是一片空白。此时，上一个气泡出去了，下一个还没进来，侧边栏的高亮就会消失。</p><h3 id="方案-B：霸道占位算法（成功）"><a href="#方案-B：霸道占位算法（成功）" class="headerlink" title="方案 B：霸道占位算法（成功）"></a>方案 B：霸道占位算法（成功）</h3><p>我重写了逻辑，改为<strong>基于坐标的检测</strong>。<br>不再问“谁在屏幕里”，而是问**“我现在滚到了哪里”**。</p><ul><li>设定一条基准线（屏幕顶部向下 30% 处）。</li><li>遍历所有提问，找到<strong>位于基准线之上且距离最近</strong>的那一个。</li><li>只要你没滚到下一个问题，上一个高亮就<strong>死死地钉在那里</strong>，绝不消失。</li></ul><hr><h2 id="🎹-极客模式：Vim-风格键盘流"><a href="#🎹-极客模式：Vim-风格键盘流" class="headerlink" title="🎹 极客模式：Vim 风格键盘流"></a>🎹 极客模式：Vim 风格键盘流</h2><p>作为一个开发者，手离开键盘去摸鼠标是无法忍受的。于是我加入了键盘监听模块。</p><p>为了避免和 Gemini 原生的输入框冲突（比如方向键移动光标），我采用了 Vim 用户的肌肉记忆快捷键：</p><ul><li>**<code>Alt</code> + <code>J**</code>：跳转到下一条 👇</li><li>**<code>Alt</code> + <code>K**</code>：跳转到上一条 👆</li></ul><p>配合平滑滚动（Smooth Scrolling）和目标区域的<strong>紫色闪烁</strong>提示，现在的体验简直是指哪打哪。</p><hr><h2 id="🚀-最终功能清单"><a href="#🚀-最终功能清单" class="headerlink" title="🚀 最终功能清单"></a>🚀 最终功能清单</h2><p>经过几个晚上的迭代，这个插件已经具备了以下完整能力：</p><ol><li><strong>自动目录生成</strong>：实时抓取对话，去重处理。</li><li><strong>双向同步</strong>：点击跳转 + 滚动跟随。</li><li><strong>智能主题</strong>：完美适配 Light&#x2F;Dark 模式。</li><li><strong>极致 UI</strong>：呼吸灯特效、毛玻璃背景、极简刻度。</li><li><strong>键盘操控</strong>：无冲突的快捷键支持。</li></ol><h2 id="📝-结语"><a href="#📝-结语" class="headerlink" title="📝 结语"></a>📝 结语</h2><p>这个项目的开发过程，其实也是一次与 AI 深度协作的实验。从 DOM 分析到 CSS 动画，再到高亮算法的优化，AI 展现了惊人的辅助能力。</p><p>现在，我的 Gemini 终于拥有了 DeepSeek 那样优雅的导航体验。如果你也像我一样受困于长对话的翻页苦恼，不妨也尝试一下这个解决方案。</p><h2 id="附：百度网盘链接"><a href="#附：百度网盘链接" class="headerlink" title="附：百度网盘链接"></a>附：百度网盘链接</h2><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">https</span>://pan.baidu.com/s/<span class="hljs-number">1</span>Qe9SzUnthsM5x78hzk5QBQ?pwd=<span class="hljs-number">8</span>qie 提取码: <span class="hljs-number">8</span>qie<br></code></pre></td></tr></table></figure><p>解压后里面的README有使用说明</p><hr><h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ul><li>Vanilla JavaScript (无框架，纯原生)</li><li>CSS3 (Animation, Flexbox, Backdrop-filter)</li><li>Chrome Extension Manifest V3</li></ul><blockquote><p><strong>Happy Coding!</strong></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>公用</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>我有服务器啦</title>
     <link href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/"/>
     <url>/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/</url>
