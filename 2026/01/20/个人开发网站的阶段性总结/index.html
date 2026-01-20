@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Leo shen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="总述从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看； 后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。 这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人开发网站的阶段性总结">
+<meta property="og:url" content="http://example.com/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="SHEN-BLOG">
+<meta property="og:description" content="总述从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看； 后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。 这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/260120-1.png">
+<meta property="og:image" content="http://example.com/images/260120-2.png">
+<meta property="og:image" content="http://example.com/images/260120-3.png">
+<meta property="og:image" content="http://example.com/images/260120-4.png">
+<meta property="og:image" content="http://example.com/images/260120-5.png">
+<meta property="og:image" content="http://example.com/images/260120-6.png">
+<meta property="og:image" content="http://example.com/images/260120-7.png">
+<meta property="og:image" content="http://example.com/images/260120-8.png">
+<meta property="og:image" content="http://example.com/images/260120-9.png">
+<meta property="og:image" content="http://example.com/images/260120-10.png">
+<meta property="og:image" content="http://example.com/images/260120-11.png">
+<meta property="og:image" content="http://example.com/images/260120-12.png">
+<meta property="og:image" content="http://example.com/images/260120-13.png">
+<meta property="article:published_time" content="2026-01-20T06:07:21.000Z">
+<meta property="article:modified_time" content="2026-01-20T07:36:53.699Z">
+<meta property="article:author" content="Leo shen">
+<meta property="article:tag" content="公用">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/260120-1.png">
+  
+  
+  
+  <title>个人开发网站的阶段性总结 - SHEN-BLOG</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>shen&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="个人开发网站的阶段性总结"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-20 14:07" pubdate>
+          2026年1月20日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">个人开发网站的阶段性总结</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p>从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看；</p>
+<p>后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。</p>
+<p>这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，我就改为netlify了。</p>
+<h1 id="网站总结"><a href="#网站总结" class="headerlink" title="网站总结"></a>网站总结</h1><h2 id="1-个人博客"><a href="#1-个人博客" class="headerlink" title="1.个人博客"></a>1.个人博客</h2><p>网址是：<a target="_blank" rel="noopener" href="https://yys806.github.io/">https://yys806.github.io/</a></p>
+<p>我是部署在github page上面的，是一个hexo框架的纯静态的网页，是复刻的网上比较好的风格，用来记录我的一些开发过程，并且写一些感想，比较实用的！</p>
+<p><img src="/images/260120-1.png" srcset="/img/loading.gif" lazyload alt="个人博客" title="个人博客"></p>
+<h2 id="2-个人介绍"><a href="#2-个人介绍" class="headerlink" title="2.个人介绍"></a>2.个人介绍</h2><p>网址是：<a target="_blank" rel="noopener" href="https://shen-intro.de5.net/">https://shen-intro.de5.net/</a></p>
+<p>这是一个个人介绍的网页，里面写了我的一些介绍，我获得的奖项以及我做的一些项目，可以用作简历的介绍以及对外的一张名片。</p>
+<p>这是我从一个MP1的项目里面复刻下来的，然后替换上了我自己的一些信息。</p>
+<p><img src="/images/260120-2.png" srcset="/img/loading.gif" lazyload alt="个人介绍网页" title="个人介绍"></p>
+<h2 id="3-个人导航"><a href="#3-个人导航" class="headerlink" title="3.个人导航"></a>3.个人导航</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-navi.de5.net/">https://shen-navi.de5.net/</a></p>
+<p>这是一个个人导航的网页，是hugo框架的，纯静态，比较方便维护，里面分模块记录了我的常用的一些网站，我把它作为我的导航站，比较方便。</p>
+<p><img src="/images/260120-3.png" srcset="/img/loading.gif" lazyload alt="个人导航" title="个人导航"></p>
+<h2 id="4-情侣博客页"><a href="#4-情侣博客页" class="headerlink" title="4.情侣博客页"></a>4.情侣博客页</h2><p>网址：<a target="_blank" rel="noopener" href="https://zchyys.de5.net/">https://zchyys.de5.net/</a></p>
+<p>这是我的情侣博客，是从一个Likegirl的项目复刻下来的，具体的项目链接在我前面的博客有，主要就是记录我和我女朋友的点点滴滴，情侣相册，大事件等等。</p>
+<p>不同于部署在服务器上面的，因为服务器会过期，后面可能迁移比较麻烦，所以我干脆本地部署了，然后后端用的就是supbase来存储信息。</p>
+<p><img src="/images/260120-4.png" srcset="/img/loading.gif" lazyload alt="情侣博客" title="情侣博客"></p>
+<h2 id="5-deep-research"><a href="#5-deep-research" class="headerlink" title="5.deep-research"></a>5.deep-research</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-ai.de5.net/">https://shen-ai.de5.net/</a></p>
+<p>这是一个深度研究的网页，是我复刻的，可以填入自己的API-key，然后传入一些资料，选定一个主题，就可以自己出来深度报告。</p>
+<p><img src="/images/260120-5.png" srcset="/img/loading.gif" lazyload alt="深度研究" title="深度研究"></p>
+<h2 id="6-TV网站"><a href="#6-TV网站" class="headerlink" title="6.TV网站"></a>6.TV网站</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen806.de5.net/">https://shen806.de5.net/</a></p>
+<p>这是一个免费的在线TV网站，也是我复刻的，有多种API资源，可以看基本上能搜到的所有视频，而且免费，电影院正在上映的也可以正常看。</p>
+<p><img src="/images/260120-6.png" srcset="/img/loading.gif" lazyload alt="TV网站" title="TV网站"></p>
+<h2 id="7-乐趣极客网站（开发中）"><a href="#7-乐趣极客网站（开发中）" class="headerlink" title="7.乐趣极客网站（开发中）"></a>7.乐趣极客网站（开发中）</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-play.de5.net/">https://shen-play.de5.net/</a></p>
+<p>这个网站是我自己做出来玩的，就是可以比较极客风格，有临时剪贴板，图片信息加密和注入，进制转换，AI语音聊天等多种功能，比较像贾维斯的感觉。</p>
+<p><img src="/images/260120-7.png" srcset="/img/loading.gif" lazyload alt="乐趣极客网站" title="乐趣极客网站"></p>
+<h2 id="8-个人主页"><a href="#8-个人主页" class="headerlink" title="8.个人主页"></a>8.个人主页</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen806.dpdns.org/">https://shen806.dpdns.org/</a></p>
+<p>这是我的个人主页网站，是一个前后端应用，后端用的也是supbase，可以存储我的待办事项，日记，个人说明，日历日程，比较方便，而且确实挺实用，有登录的功能，可以实时多端同步。</p>
+<p><img src="/images/260120-8.png" srcset="/img/loading.gif" lazyload alt="个人主页" title="个人主页"></p>
+<h2 id="9-金匮"><a href="#9-金匮" class="headerlink" title="9.金匮"></a>9.金匮</h2><p>网址：<a target="_blank" rel="noopener" href="https://shentv.dpdns.org/">https://shentv.dpdns.org/</a></p>
+<p>这是一个个人信息存储网站，可以存储个人的一些密钥，资金情况，各种会员的续费情况，比较方便的是也可以用作记账的工具，而且可以分类查找，特别方便。</p>
+<p><img src="/images/260120-9.png" srcset="/img/loading.gif" lazyload alt="金匮" title="金匮"></p>
+<h2 id="10-428806二维码小工具"><a href="#10-428806二维码小工具" class="headerlink" title="10.428806二维码小工具"></a>10.428806二维码小工具</h2><p>网址：<a target="_blank" rel="noopener" href="https://428806.xyz/">https://428806.xyz/</a></p>
+<p>这是我自己开发的一个二维码制作的小工具，可以用来定制二维码，而且可以插入图片，并且可以选择字点的形状。</p>
+<p><img src="/images/260120-10.png" srcset="/img/loading.gif" lazyload alt="二维码小工具" title="二维码小工具"></p>
+<h2 id="11-图片去黑边"><a href="#11-图片去黑边" class="headerlink" title="11.图片去黑边"></a>11.图片去黑边</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-photo.de5.net/">https://shen-photo.de5.net/</a></p>
+<p>这个网站是我用Google AI Studio的build开发的图片去黑边工具，因为我有时候要处理一些截屏，就是去除上下的黑边，转为文档，但是一个一个操作太慢了，所以就有了这个小工具。</p>
+<p><img src="/images/260120-11.png" srcset="/img/loading.gif" lazyload alt="图片去黑边" title="图片去黑边"></p>
+<h2 id="12-赛博算命网站"><a href="#12-赛博算命网站" class="headerlink" title="12.赛博算命网站"></a>12.赛博算命网站</h2><p>网址：<a target="_blank" rel="noopener" href="https://fpga.de5.net/">https://fpga.de5.net/</a></p>
+<p>这是一个AI算命的网站，包含小六壬，梅花易数，算卦，星盘，周公解梦，伴侣分析，电子木鱼，答案之书，AI画符等多种功能，主要是为了体验一下AI的强大能力，输入个人的APIkey，个人出生年月，并且登录后即可使用。</p>
+<p><img src="/images/260120-12.png" srcset="/img/loading.gif" lazyload alt="赛博算命网站" title="赛博算命网站"></p>
+<h2 id="13-Shen’tool-珅哥工具（开发中）"><a href="#13-Shen’tool-珅哥工具（开发中）" class="headerlink" title="13.Shen’tool-珅哥工具（开发中）"></a>13.Shen’tool-珅哥工具（开发中）</h2><p>网址：<a target="_blank" rel="noopener" href="http://riscv.de5.net/">http://riscv.de5.net/</a></p>
+<p>这是一个个人常用工具的集合网站，主要包括公式翻译，架构图生成，代码解析，图片转Latex公式，提示词结构化，报错分析，进制转换，二维码生成等多种功能，方便我这个人工智能专业的学生进行开发，提升日常效率，输入APIKey后即可使用。</p>
+<p><img src="/images/260120-13.png" srcset="/img/loading.gif" lazyload alt="工具" title="工具"></p>
+<h1 id="域名说明"><a href="#域名说明" class="headerlink" title="域名说明"></a>域名说明</h1><h2 id="（1）DNSHE（永久免费）"><a href="#（1）DNSHE（永久免费）" class="headerlink" title="（1）DNSHE（永久免费）"></a>（1）DNSHE（永久免费）</h2><p>这是一个免费的域名网站，我用三个邮箱号注册了三个账户，从而获得了15个免费的域名，而且都可以正常托管到cloudflare上面。</p>
+<p><a href="mailto:&#x33;&#x34;&#57;&#50;&#x36;&#55;&#53;&#53;&#x36;&#x38;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">3492675568@qq.com</a>:</p>
+<ul>
+<li>2352396.de5.net</li>
+<li>zch428.de5.net</li>
+<li>shen806.de5.net（TV项目）</li>
+<li>zchyys.de5.net（情侣博客）</li>
+<li>shen806.us.ci</li>
+</ul>
+<p><a href="mailto:&#121;&#117;&#x78;&#x69;&#97;&#111;&#x6b;&#117;&#110;&#x38;&#52;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#x6d;">yuxiaokun84@gmail.com</a>:</p>
+<ul>
+<li>yxn1228.de5.net</li>
+<li>szq821.de5.net</li>
+<li>yly113.de5.net</li>
+<li>riscv.de5.net （shen工具）</li>
+<li>fpga.de5.net（AI算命）</li>
+</ul>
+<p><a href="mailto:&#121;&#117;&#120;&#105;&#x61;&#111;&#107;&#117;&#x6e;&#x38;&#x39;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#x6d;">yuxiaokun89@gmail.com</a>:</p>
+<ul>
+<li>shen-ai.de5.net（deep-research）</li>
+<li>shen-intro.de5.net（个人介绍）</li>
+<li>shen-play.de5.net（Nexus-terminal）</li>
+<li>shen-photo.de5.net（处理图片）</li>
+<li>shen-navi.de5.net（导航站）</li>
+</ul>
+<h2 id="（2）us-kg（180天续费）"><a href="#（2）us-kg（180天续费）" class="headerlink" title="（2）us.kg（180天续费）"></a>（2）us.kg（180天续费）</h2><p>这是另一个免费域名，就是用github账户登录，然后点一个star，就可以有两个免费的域名，但是要每隔180续费一下。</p>
+<p>shen806.dpdns.org （个人近期主页）<br>shentv.dpdns.org （信息存储）</p>
+<h2 id="（3）spaceship（十年免费）"><a href="#（3）spaceship（十年免费）" class="headerlink" title="（3）spaceship（十年免费）"></a>（3）spaceship（十年免费）</h2><p>这是数字域名，也算是一级域名了，就是购买了之后40多块，管10年，对于免费一级域名来说，还是比较划算的。</p>
+<p>428806.xyz （二维码小工具）</p>
+<h2 id="（4）付费"><a href="#（4）付费" class="headerlink" title="（4）付费"></a>（4）付费</h2><p>这些都是我在腾讯云或者其他付费网站上面买的域名，都是一年到期，后面我也不打算续费了。</p>
+<p>shen.chat(2026.09.04)<br>shen806.icu(2026.3.18)<br>rainbow-shen.cn(2026.12.04)（四周年纪念）<br>yaoshen806.sys（2026.05.24 不打算续费了）</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>对于我来说，虽然这些网站大部分都是复刻别人的或者用AI做的，但是在做的过程中，我积累了思路，激发了创意，还是算收获满满的！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%85%AC%E7%94%A8/" class="print-no-link">#公用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>个人开发网站的阶段性总结</div>
+      <div>http://example.com/2026/01/20/个人开发网站的阶段性总结/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Leo shen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/01/16/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" title="给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件">
+                        <span class="hidden-mobile">给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'syuanyuan708/syuanyuan708.github.io');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a> <i class="iconfont icon-love"></i> <a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
