@@ -149,16 +149,16 @@ body.page-home #board {
   align-items: center;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  color: inherit;
+  background: rgba(46, 144, 240, 0.16);
+  border: 1px solid rgba(46, 144, 240, 0.42);
+  color: #245ea0;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .index-btm .post-meta a.tag-pill:hover {
-  background: rgba(46, 144, 240, 0.18);
-  border-color: rgba(46, 144, 240, 0.35);
-  color: var(--accent);
+  background: rgba(46, 144, 240, 0.26);
+  border-color: rgba(46, 144, 240, 0.6);
+  color: #1f4e88;
 }
 
 .post-content {
