@@ -40,8 +40,14 @@
     window.addEventListener('scroll', toggle, { passive: true });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function bootstrap() {
     initReadingProgress();
     initTocButton();
-  });
+  }
+
+  if (document.readyState !== 'loading') {
+    bootstrap();
+  } else {
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  }
 })();
