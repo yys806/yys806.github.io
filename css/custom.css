@@ -4,15 +4,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: transparent;
   transform-origin: left center;
   transform: scaleX(0);
-  z-index: 1200;
+  z-index: 4000;
   pointer-events: none;
   transition: transform 0.1s linear;
   background-image: linear-gradient(90deg, #2e90f0, #5ac8ff);
-  box-shadow: 0 0 12px rgba(46, 144, 240, 0.35);
+  box-shadow: 0 0 12px rgba(46, 144, 240, 0.45);
+  opacity: 0.95;
+  will-change: transform;
 }
 
 #toc-fab {
