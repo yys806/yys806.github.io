@@ -144,7 +144,7 @@ body.page-home #board {
   border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.index-btm .post-meta a.tag-pill {
+.index-btm .post-meta .pill {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.65rem;
@@ -155,19 +155,19 @@ body.page-home #board {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.index-btm .post-meta a.tag-pill:hover {
+.index-btm .post-meta .pill:hover {
   background: rgba(0, 0, 0, 0.12);
   border-color: rgba(0, 0, 0, 0.2);
   color: #143058;
 }
 
-[data-user-color-scheme='dark'] .index-btm .post-meta a.tag-pill {
+[data-user-color-scheme='dark'] .index-btm .post-meta .pill {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #dfe7ff;
 }
 
-[data-user-color-scheme='dark'] .index-btm .post-meta a.tag-pill:hover {
+[data-user-color-scheme='dark'] .index-btm .post-meta .pill:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.32);
   color: #ffffff;
