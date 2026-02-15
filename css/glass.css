@@ -65,6 +65,16 @@ body.page-post #board {
   -webkit-backdrop-filter: none !important;
 }
 
+body.page-post #board > .container,
+body.page-post #board > .container-fluid,
+body.page-post #board > .row {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 @media (max-width: 767px) {
   #board {
     padding-top: 2.25rem;

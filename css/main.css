@@ -400,8 +400,9 @@ sup > a::before,
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
-  transition: 0.25s ease-in-out;
-  background: #fff;
+}
+.navbar .animated-icon span transition .25s ease-in-out {
+  background: var(--navbar-text-color);
 }
 .navbar .animated-icon span:nth-child(1) {
   top: 0;
