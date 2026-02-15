@@ -79,7 +79,6 @@ body.page-home #board {
   position: relative;
   padding: 1.35rem 1.2rem;
   margin-bottom: 2rem;
-  gap: 1.25rem;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 18px;
