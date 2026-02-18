@@ -19,18 +19,40 @@
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言">
+    <meta name="description" content="前言前面了解到可以做discord机器人，可以直接使用命令聊天，我就做了一个，基本上复现了我前面在服务器上面部署的AStrBot的QQ机器人，包含多种功能，而且这个我可以自己DIY，添加自己想要的功能，而不用被插件市场限制住，我前面也做了一个机器人，但是当时vibe coding还不是很成熟，我自己也不是很精通代码，所以就搁置了，随着各种code工具和AI的兴起，我也应着openclaw的热潮做了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="discord机器人开发历程">
 <meta property="og:url" content="http://example.com/2026/02/18/discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/index.html">
 <meta property="og:site_name" content="SHEN-BLOG">
-<meta property="og:description" content="前言">
+<meta property="og:description" content="前言前面了解到可以做discord机器人，可以直接使用命令聊天，我就做了一个，基本上复现了我前面在服务器上面部署的AStrBot的QQ机器人，包含多种功能，而且这个我可以自己DIY，添加自己想要的功能，而不用被插件市场限制住，我前面也做了一个机器人，但是当时vibe coding还不是很成熟，我自己也不是很精通代码，所以就搁置了，随着各种code工具和AI的兴起，我也应着openclaw的热潮做了">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/260218-1.png">
+<meta property="og:image" content="http://example.com/images/260218-2.png">
+<meta property="og:image" content="http://example.com/images/260218-3.png">
+<meta property="og:image" content="http://example.com/images/260218-4.png">
+<meta property="og:image" content="http://example.com/images/260218-5.png">
+<meta property="og:image" content="http://example.com/images/260218-6.png">
+<meta property="og:image" content="http://example.com/images/260218-7.png">
+<meta property="og:image" content="http://example.com/images/260218-8.png">
+<meta property="og:image" content="http://example.com/images/260218-9.png">
+<meta property="og:image" content="http://example.com/images/260218-10.png">
+<meta property="og:image" content="http://example.com/images/260218-11.png">
+<meta property="og:image" content="http://example.com/images/260218-12.png">
+<meta property="og:image" content="http://example.com/images/260218-13.png">
+<meta property="og:image" content="http://example.com/images/260218-14.png">
+<meta property="og:image" content="http://example.com/images/260218-15.png">
+<meta property="og:image" content="http://example.com/images/260218-16.png">
+<meta property="og:image" content="http://example.com/images/260218-17.png">
+<meta property="og:image" content="http://example.com/images/260218-18.png">
+<meta property="og:image" content="http://example.com/images/260218-19.png">
+<meta property="og:image" content="http://example.com/images/260218-20.png">
+<meta property="og:image" content="http://example.com/images/260218-21.png">
 <meta property="article:published_time" content="2026-02-18T07:47:58.000Z">
-<meta property="article:modified_time" content="2026-02-18T07:54:06.786Z">
+<meta property="article:modified_time" content="2026-02-18T12:19:48.254Z">
 <meta property="article:author" content="Leo shen">
 <meta property="article:tag" content="公用">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/260218-1.png">
   
   
   
@@ -228,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2 字
+          1.7k 字
         
       </span>
     
@@ -239,7 +261,7 @@
         
         
         
-          1 分钟
+          14 分钟
         
       </span>
     
@@ -281,7 +303,130 @@
             
               <div class="markdown-body">
                 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面了解到可以做discord机器人，可以直接使用命令聊天，我就做了一个，基本上复现了我前面在服务器上面部署的AStrBot的QQ机器人，包含多种功能，而且这个我可以自己DIY，添加自己想要的功能，而不用被插件市场限制住，我前面也做了一个机器人，但是当时vibe coding还不是很成熟，我自己也不是很精通代码，所以就搁置了，随着各种code工具和AI的兴起，我也应着openclaw的热潮做了一个类似的。</p>
+<h1 id="一、shen-test"><a href="#一、shen-test" class="headerlink" title="一、shen-test"></a>一、shen-test</h1><p>这是我做的第一个正式的机器人，包含多种功能，可以AI对话，它也可以用命令，并且对接了多种API。</p>
+<h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>首先，使用&#x2F;help命令可以显示出可以使用的所有内容。</p>
+<p><img src="/images/260218-1.png" srcset="/img/loading.gif" lazyload alt="help命令" title="help命令"></p>
+<h2 id="基础功能"><a href="#基础功能" class="headerlink" title="基础功能"></a>基础功能</h2><p>基础功能包括如下部分</p>
+<h3 id="（1）status"><a href="#（1）status" class="headerlink" title="（1）status"></a>（1）status</h3><p>这是查看服务器的状态的命令，可以显示出链接状态，运行时间和当前的时间。</p>
+<p><img src="/images/260218-2.png" srcset="/img/loading.gif" lazyload alt="status命令" title="status命令"></p>
+<h3 id="（2）models"><a href="#（2）models" class="headerlink" title="（2）models"></a>（2）models</h3><p>这个命令可以切换AI对话所使用的模型，支持多种模型切换，包括硅基流动的各种模型、OpenRouter、DeepSeek等。</p>
+<p><img src="/images/260218-3.png" srcset="/img/loading.gif" lazyload alt="models命令" title="models命令"></p>
+<h2 id="AI对话功能"><a href="#AI对话功能" class="headerlink" title="AI对话功能"></a>AI对话功能</h2><p>这是机器人的核心功能，直接在频道里@机器人或者私信它，就可以进行AI对话。支持多轮对话上下文记忆，对话体验流畅自然。</p>
+<p><img src="/images/260218-4.png" srcset="/img/loading.gif" lazyload alt="AI对话" title="AI对话"></p>
+<p>值得一提的是，这个机器人还支持<strong>Mem0长期记忆</strong>功能，开启后AI可以记住你之前说过的内容，实现真正的个性化对话体验。</p>
+<h2 id="AI自动执行命令"><a href="#AI自动执行命令" class="headerlink" title="AI自动执行命令"></a>AI自动执行命令</h2><p>这是我非常喜欢的一个功能，AI可以识别用户意图并自动执行对应的命令，无需手动输入斜杠命令。</p>
+<p>比如：</p>
+<ul>
+<li>“上海的天气怎么样？” → 自动调用天气查询</li>
+<li>“给我看看今天的科技新闻” → 自动调用新闻</li>
+<li>“帮我画一只可爱的猫咪” → 自动调用生图</li>
+<li>“今天历史上发生了什么？” → 自动调用历史查询</li>
+<li>“10分钟后提醒我开会” → 自动设置提醒</li>
+</ul>
+<p><img src="/images/260218-5.png" srcset="/img/loading.gif" lazyload alt="AI自动执行" title="AI自动执行命令"></p>
+<h2 id="信息查询功能"><a href="#信息查询功能" class="headerlink" title="信息查询功能"></a>信息查询功能</h2><h3 id="（1）weather-天气查询（API）"><a href="#（1）weather-天气查询（API）" class="headerlink" title="（1）weather 天气查询（API）"></a>（1）weather 天气查询（API）</h3><p>查询指定城市的天气信息，显示温度、湿度、风力等详细数据。</p>
+<p><img src="/images/260218-6.png" srcset="/img/loading.gif" lazyload alt="weather命令" title="weather命令"></p>
+<h3 id="（2）news-新闻查询（API）"><a href="#（2）news-新闻查询（API）" class="headerlink" title="（2）news 新闻查询（API）"></a>（2）news 新闻查询（API）</h3><p>获取最新新闻，支持互联网、科技、世界等多个分类，可以指定数量和关键词搜索。</p>
+<p><img src="/images/260218-7.png" srcset="/img/loading.gif" lazyload alt="news命令" title="news命令"></p>
+<h3 id="（3）history-历史上的今天（API）"><a href="#（3）history-历史上的今天（API）" class="headerlink" title="（3）history 历史上的今天（API）"></a>（3）history 历史上的今天（API）</h3><p>查看历史上今天发生的重大事件，支持详细模式显示更多信息。</p>
+<p><img src="/images/260218-8.png" srcset="/img/loading.gif" lazyload alt="history命令" title="history命令"></p>
+<h2 id="娱乐功能"><a href="#娱乐功能" class="headerlink" title="娱乐功能"></a>娱乐功能</h2><h3 id="（1）海龟汤-turtle"><a href="#（1）海龟汤-turtle" class="headerlink" title="（1）海龟汤 turtle"></a>（1）海龟汤 turtle</h3><p>海龟汤是一种情境推理游戏，机器人会给出一道谜题，玩家通过提问来推理出完整的故事。</p>
+<ul>
+<li><code>/turtle_start</code> - 开始游戏</li>
+<li>直接提问 - 进行推理</li>
+<li><code>/turtle_reveal</code> - 揭晓答案</li>
+<li><code>/turtle_stop</code> - 结束游戏</li>
+</ul>
+<p><img src="/images/260218-9.png" srcset="/img/loading.gif" lazyload alt="海龟汤" title="海龟汤游戏"></p>
+<h3 id="（2）fortune-今日宜忌（API）"><a href="#（2）fortune-今日宜忌（API）" class="headerlink" title="（2）fortune 今日宜忌（API）"></a>（2）fortune 今日宜忌（API）</h3><p>查看今天的宜忌，类似老黄历的功能。</p>
+<p><img src="/images/260218-10.png" srcset="/img/loading.gif" lazyload alt="fortune命令" title="fortune命令"></p>
+<h3 id="（3）star-星座运势（API）"><a href="#（3）star-星座运势（API）" class="headerlink" title="（3）star 星座运势（API）"></a>（3）star 星座运势（API）</h3><p>查看指定星座的今日运势。</p>
+<p><img src="/images/260218-11.png" srcset="/img/loading.gif" lazyload alt="star命令" title="star命令"></p>
+<h3 id="（4）liuren-小六壬"><a href="#（4）liuren-小六壬" class="headerlink" title="（4）liuren 小六壬"></a>（4）liuren 小六壬</h3><p>传统占卜方式，随机给你一个卦象解读。</p>
+<p><img src="/images/260218-12.png" srcset="/img/loading.gif" lazyload alt="liuren命令" title="liuren命令"></p>
+<h3 id="（5）其他娱乐命令"><a href="#（5）其他娱乐命令" class="headerlink" title="（5）其他娱乐命令"></a>（5）其他娱乐命令</h3><ul>
+<li><code>/joke</code> - 讲笑话</li>
+<li><code>/roll</code> - 掷骰子</li>
+<li><code>/rps</code> - 石头剪刀布</li>
+<li><code>/guess</code> - 猜数字</li>
+<li><code>/quiz</code> - 知识问答（API）</li>
+<li><code>/slots</code> - 老虎机</li>
+<li><code>/girl</code> - 随机美女图（API）</li>
+<li><code>/drama</code> - 搜索短剧（API）</li>
+</ul>
+<p><img src="/images/260218-13.png" srcset="/img/loading.gif" lazyload alt="娱乐命令" title="娱乐命令合集"></p>
+<h2 id="实用功能"><a href="#实用功能" class="headerlink" title="实用功能"></a>实用功能</h2><h3 id="（1）reminder-提醒功能"><a href="#（1）reminder-提醒功能" class="headerlink" title="（1）reminder 提醒功能"></a>（1）reminder 提醒功能</h3><p>可以设置定时提醒，支持相对时间（如10分钟后）和绝对时间。</p>
+<ul>
+<li><code>/reminder_set_minutes</code> - 设置相对时间提醒</li>
+<li><code>/reminder_set_time</code> - 设置绝对时间提醒</li>
+<li><code>/reminder_list</code> - 查看提醒列表</li>
+<li><code>/reminder_delete</code> - 删除提醒</li>
+</ul>
+<p><img src="/images/260218-14.png" srcset="/img/loading.gif" lazyload alt="reminder命令" title="reminder命令"></p>
+<h3 id="（2）task-定时任务"><a href="#（2）task-定时任务" class="headerlink" title="（2）task 定时任务"></a>（2）task 定时任务</h3><p>可以设置每天定时执行的命令，比如每天早上自动推送天气或新闻。</p>
+<ul>
+<li><code>/task add_command</code> - 添加定时任务</li>
+<li><code>/task list</code> - 查看任务列表</li>
+<li><code>/task delete</code> - 删除任务</li>
+</ul>
+<p><img src="/images/260218-15.png" srcset="/img/loading.gif" lazyload alt="task命令" title="task命令"></p>
+<h3 id="（3）persona-人设系统"><a href="#（3）persona-人设系统" class="headerlink" title="（3）persona 人设系统"></a>（3）persona 人设系统</h3><p>可以切换不同的AI人设，让机器人以不同的性格和风格回复你。</p>
+<ul>
+<li><code>/persona list</code> - 查看所有人设</li>
+<li><code>/persona set</code> - 切换人设</li>
+<li><code>/persona add</code> - 添加新人设</li>
+<li><code>/persona delete</code> - 删除人设</li>
+</ul>
+<p><img src="/images/260218-16.png" srcset="/img/loading.gif" lazyload alt="persona命令" title="persona命令"></p>
+<h2 id="多媒体功能"><a href="#多媒体功能" class="headerlink" title="多媒体功能"></a>多媒体功能</h2><h3 id="（1）draw-AI生图"><a href="#（1）draw-AI生图" class="headerlink" title="（1）draw AI生图"></a>（1）draw AI生图</h3><p>使用Kolors模型进行AI绘图，支持多种尺寸。</p>
+<p><img src="/images/260218-17.png" srcset="/img/loading.gif" lazyload alt="draw命令" title="draw命令"></p>
+<h3 id="（2）tts-语音回复"><a href="#（2）tts-语音回复" class="headerlink" title="（2）tts 语音回复"></a>（2）tts 语音回复</h3><p>开启后，机器人会用Edge TTS将回复转换成语音发送，让对话更有趣味。</p>
+<h3 id="（3）asr-语音识别"><a href="#（3）asr-语音识别" class="headerlink" title="（3）asr 语音识别"></a>（3）asr 语音识别</h3><p>发送音频文件，机器人会自动识别语音内容并转成文字。</p>
+<h1 id="二、shen-play"><a href="#二、shen-play" class="headerlink" title="二、shen-play"></a>二、shen-play</h1><p>除了通用的助手机器人，我还做了一个AI对战的机器人，提供多种有趣的玩法。</p>
+<h2 id="（1）debate-多轮辩论"><a href="#（1）debate-多轮辩论" class="headerlink" title="（1）debate 多轮辩论"></a>（1）debate 多轮辩论</h2><p>让两个AI模型针对一个话题进行辩论，可以设置多个回合，观看AI之间的精彩交锋。</p>
+<p><img src="/images/260218-18.png" srcset="/img/loading.gif" lazyload alt="debate命令" title="debate辩论"></p>
+<h2 id="（2）stance-立场投票器"><a href="#（2）stance-立场投票器" class="headerlink" title="（2）stance 立场投票器"></a>（2）stance 立场投票器</h2><p>让多个AI模型对某个话题表达立场和理由，然后让用户进行投票。</p>
+<p><img src="/images/260218-19.png" srcset="/img/loading.gif" lazyload alt="stance命令" title="stance立场投票"></p>
+<h2 id="（3）story-三句接龙"><a href="#（3）story-三句接龙" class="headerlink" title="（3）story 三句接龙"></a>（3）story 三句接龙</h2><p>随机挑选三个AI模型，让它们依次续写一个故事，看看会产生什么样的创意。</p>
+<p><img src="/images/260218-20.png" srcset="/img/loading.gif" lazyload alt="story命令" title="story三句接龙"></p>
+<h2 id="（4）haiku俳句"><a href="#（4）haiku俳句" class="headerlink" title="（4）haiku俳句"></a>（4）haiku俳句</h2><p>给定主题，AI会生成5-7-5格式的俳句。</p>
+<p><img src="/images/260218-21.png" srcset="/img/loading.gif" lazyload alt="俳句" title="俳句"></p>
+<h1 id="三、技术实现"><a href="#三、技术实现" class="headerlink" title="三、技术实现"></a>三、技术实现</h1><h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p>整个项目使用Python开发，基于discord.py库实现Discord的交互。主要特点：</p>
+<ol>
+<li><strong>模块化设计</strong>：不同功能分离，便于维护和扩展</li>
+<li><strong>异步处理</strong>：使用async&#x2F;await实现高效并发</li>
+<li><strong>配置分离</strong>：敏感信息通过配置文件管理</li>
+<li><strong>数据持久化</strong>：使用JSON存储提醒、任务等数据</li>
+</ol>
+<h2 id="使用的API和服务"><a href="#使用的API和服务" class="headerlink" title="使用的API和服务"></a>使用的API和服务</h2><ul>
+<li><strong>硅基流动API</strong>：AI对话和生图</li>
+<li><strong>天行API</strong>：新闻、运势等功能</li>
+<li><strong>天气API</strong>：天气和历史查询</li>
+<li><strong>OpenRouter</strong>：多模型支持</li>
+<li><strong>Mem0</strong>：长期记忆功能</li>
+<li><strong>Edge TTS</strong>：语音合成</li>
+<li><strong>TeleSpeech</strong>：语音识别</li>
+</ul>
+<h2 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h2><p>项目结构清晰，可以直接在服务器上运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装依赖</span><br>pip install -r requirements.txt<br><br><span class="hljs-comment"># 配置API密钥</span><br><span class="hljs-comment"># 编辑 config/config.yaml</span><br><br><span class="hljs-comment"># 运行</span><br>python bot.py<br></code></pre></td></tr></table></figure>
+
+<h1 id="四、总结与展望"><a href="#四、总结与展望" class="headerlink" title="四、总结与展望"></a>四、总结与展望</h1><p>这个Discord机器人项目让我学到了很多，从最初的想法到现在的功能完善的机器人，过程中遇到了很多挑战，也收获了很多。主要成就感来自：</p>
+<ol>
+<li><strong>功能丰富</strong>：集成了聊天、查询、娱乐、实用工具等多种功能</li>
+<li><strong>用户友好</strong>：支持自然语言触发命令，降低了使用门槛</li>
+<li><strong>可扩展性强</strong>：模块化设计让添加新功能变得简单</li>
+</ol>
+<p>未来计划：</p>
+<ul>
+<li>添加更多API接口支持</li>
+<li>优化AI对话的响应速度</li>
+<li>增加更多娱乐玩法</li>
+<li>支持多语言</li>
+</ul>
+<p>如果你也想做一个自己的Discord机器人，欢迎参考这个项目，有问题可以一起交流！</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/yys806/discord-bot">https://github.com/yys806/discord-bot</a></p>
+
                 
               </div>
             
@@ -375,8 +520,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/18/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="AI工具使用指南">
-                        <span class="hidden-mobile">AI工具使用指南</span>
+                      <a href="/2026/02/18/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="AI工具使用指南（持续更新）">
+                        <span class="hidden-mobile">AI工具使用指南（持续更新）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
