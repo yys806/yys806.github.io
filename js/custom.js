@@ -1,5 +1,6 @@
 (function() {
   const isPost = document.body.classList.contains('page-post');
+  const isHome = document.body.classList.contains('page-home');
 
   function initReadingProgress() {
     if (!isPost) return;
@@ -40,9 +41,42 @@
     window.addEventListener('scroll', toggle, { passive: true });
   }
 
+  function initHomeAvatarCard() {
+    if (!isHome) return;
+    const board = document.getElementById('board');
+    if (!board) return;
+
+    const container = board.querySelector('.container');
+    if (!container) return;
+
+    const card = document.createElement('div');
+    card.className = 'home-avatar-card';
+    card.innerHTML = `
+      <img class="avatar-img" src="/images/avatar.gif" alt="avatar">
+      <div class="avatar-name">珅哥</div>
+      <div class="divider"></div>
+      <div class="contact-info">
+        <span>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=3492675568&site=qq&menu=yes" target="_blank">3492675568</a></span>
+        <span>微信: yys08060910</span>
+        <span>邮箱: <a href="mailto:3492675568@qq.com">3492675568@qq.com</a></span>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/yys806" target="_blank" title="GitHub">
+          <i class="iconfont icon-github-fill"></i>
+        </a>
+        <a href="https://shen-intro.de5.net/" target="_blank" title="个人介绍">
+          <i class="iconfont icon-user-fill"></i>
+        </a>
+      </div>
+    `;
+
+    container.insertBefore(card, container.firstChild);
+  }
+
   function bootstrap() {
     initReadingProgress();
     initTocButton();
+    initHomeAvatarCard();
   }
 
   if (document.readyState !== 'loading') {
