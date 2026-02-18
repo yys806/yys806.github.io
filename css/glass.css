@@ -17,19 +17,16 @@
 }
 
 body {
-  background-image: url('/images/background.png');
-  background-size: cover;
-  background-position: center;
+  background-image: radial-gradient(circle at 12% 18%, rgba(46, 144, 240, 0.12), transparent 32%),
+    radial-gradient(circle at 82% 4%, rgba(16, 185, 129, 0.1), transparent 28%),
+    linear-gradient(135deg, #e8eef7 0%, #f5f8ff 100%);
   background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 
 [data-user-color-scheme='dark'] body {
-  background-image: url('/images/background.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-image: radial-gradient(circle at 18% 18%, rgba(90, 200, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 8%, rgba(16, 185, 129, 0.12), transparent 26%),
+    linear-gradient(140deg, #0b1220 0%, #0f172a 55%, #0b1220 100%);
 }
 
 body:not(.page-home) #board {
