@@ -324,6 +324,52 @@
       .catch(() => {});
   }
 
+  function initImageLazyLoad() {
+    const images = document.querySelectorAll('.markdown-body img, .index-img img');
+    
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              delete img.dataset.src;
+            }
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
+      });
+
+      images.forEach(img => {
+        observer.observe(img);
+      });
+    } else {
+      images.forEach(img => {
+        img.classList.add('loaded');
+      });
+    }
+  }
+
+  function initAnimationThrottle() {
+    let ticking = false;
+    
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll, { passive: true });
+  }
+
   function bootstrap() {
     initReadingProgress();
     initTocButton();
@@ -333,6 +379,8 @@
     initRewardButton();
     initSidebarToc();
     initArticleRecommend();
+    initImageLazyLoad();
+    initAnimationThrottle();
   }
 
   if (document.readyState !== 'loading') {

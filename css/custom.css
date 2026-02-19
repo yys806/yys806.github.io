@@ -721,3 +721,168 @@
 [data-user-color-scheme='dark'] .article-recommend-close:hover {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* ========== 渐变色标题 ========== */
+.index-header a {
+  background: linear-gradient(135deg, #2e90f0 0%, #5ac8ff 50%, #2e90f0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.4s ease;
+}
+
+.index-header a:hover {
+  background-position: right center;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  background: linear-gradient(135deg, #2e90f0 0%, #5ac8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-user-color-scheme='dark'] .index-header a,
+[data-user-color-scheme='dark'] .markdown-body h1,
+[data-user-color-scheme='dark'] .markdown-body h2 {
+  background: linear-gradient(135deg, #5ac8ff 0%, #a0e9ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* ========== Hover脉冲动画 ========== */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46, 144, 240, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(46, 144, 240, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 144, 240, 0); }
+}
+
+.index-card:hover {
+  animation: pulse 0.6s ease-out;
+}
+
+.home-avatar-card:hover {
+  animation: pulse 0.6s ease-out;
+}
+
+.home-avatar-card .social-links a:hover {
+  animation: pulse 0.5s ease-out;
+}
+
+.navbar .nav-link:hover {
+  position: relative;
+}
+
+.navbar .nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, #2e90f0, #5ac8ff);
+  border-radius: 1px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { width: 0; opacity: 0; }
+  to { width: 20px; opacity: 1; }
+}
+
+/* ========== 图片懒加载优化 ========== */
+img[data-src] {
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.98);
+}
+
+img[data-src].loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.index-img img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease;
+}
+
+.markdown-body img {
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  transform: scale(0.98);
+  border-radius: 10px;
+}
+
+.markdown-body img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ========== 动画性能优化 ========== */
+.cursor-glow {
+  will-change: left, top, opacity;
+}
+
+.page-transition {
+  will-change: opacity, visibility;
+}
+
+.sidebar-toc {
+  will-change: opacity, transform;
+}
+
+.article-recommend-float {
+  will-change: right;
+}
+
+.index-card {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.home-avatar-card {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+
+.reward-float-btn {
+  will-change: transform;
+}
+
+/* 减少动画层级提升 */
+.navbar,
+footer,
+#toc-fab {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 暗色模式脉冲动画调整 */
+[data-user-color-scheme='dark'] .index-card:hover,
+[data-user-color-scheme='dark'] .home-avatar-card:hover {
+  animation: pulse-dark 0.6s ease-out;
+}
+
+@keyframes pulse-dark {
+  0% { box-shadow: 0 0 0 0 rgba(90, 200, 255, 0.3); }
+  70% { box-shadow: 0 0 0 10px rgba(90, 200, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(90, 200, 255, 0); }
+}
+
+/* 尊重用户减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .cursor-glow {
+    display: none !important;
+  }
+}
