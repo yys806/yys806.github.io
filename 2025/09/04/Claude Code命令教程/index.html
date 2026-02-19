@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true},"share":{"enable":true,"wechat":true,"weibo":true,"twitter":true,"qq":true,"facebook":false,"linkedin":false,"copy":true,"qrcode":true}};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -385,6 +385,66 @@
 
 
               
+  <div class="post-share">
+    <div class="post-share-title">
+      <i class="iconfont icon-share-fill"></i>
+      <span>分享到</span>
+    </div>
+    <div class="post-share-buttons">
+      
+        <button class="share-btn share-wechat" data-share="wechat" title="微信">
+          <i class="iconfont icon-wechat-fill"></i>
+        </button>
+      
+      
+      
+        <button class="share-btn share-weibo" data-share="weibo" title="微博">
+          <i class="iconfont icon-weibo-fill"></i>
+        </button>
+      
+      
+      
+        <button class="share-btn share-twitter" data-share="twitter" title="Twitter">
+          <i class="iconfont icon-twitter-fill"></i>
+        </button>
+      
+      
+      
+        <button class="share-btn share-qq" data-share="qq" title="QQ">
+          <i class="iconfont icon-qq-fill"></i>
+        </button>
+      
+      
+      
+      
+      
+      
+      
+        <button class="share-btn share-copy" data-share="copy" title="复制链接">
+          <i class="iconfont icon-link-fill"></i>
+        </button>
+      
+      
+      
+        <button class="share-btn share-qrcode" data-share="qrcode" title="二维码">
+          <i class="iconfont icon-qrcode-fill"></i>
+        </button>
+      
+    </div>
+  </div>
+
+  <div class="qrcode-modal" id="qrcode-modal">
+    <div class="qrcode-content">
+      <div class="qrcode-title">微信扫一扫分享</div>
+      <div class="qrcode-container" id="qrcode-container"></div>
+      <div class="qrcode-tip">使用微信扫一扫即可分享</div>
+      <button class="qrcode-close">关闭</button>
+    </div>
+  </div>
+
+
+
+              
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
@@ -601,6 +661,10 @@
 
 
   <script  src="/js/reading-progress.js" ></script>
+
+
+
+  <script  src="/js/share.js" ></script>
 
 
 
