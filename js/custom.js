@@ -713,7 +713,6 @@
         </a>
       `).join('');
     }
-    }
 
     loadAllData();
   }
