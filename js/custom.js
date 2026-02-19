@@ -136,31 +136,7 @@
     });
   }
 
-  function initVisitorStats() {
-    if (!isHome) return;
-    
-    const card = document.querySelector('.home-avatar-card');
-    if (!card) return;
 
-    const stats = document.createElement('div');
-    stats.className = 'visitor-stats';
-    stats.innerHTML = `
-      <div class="stat-item">
-        <span class="stat-number" id="busuanzi_value_site_pv">--</span>
-        <span class="stat-label">访问量</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number" id="busuanzi_value_site_uv">--</span>
-        <span class="stat-label">访客数</span>
-      </div>
-    `;
-    
-    card.after(stats);
-
-    if (window.busuanzi) {
-      window.busuanzi.fetch();
-    }
-  }
 
   function initRewardButton() {
     const btn = document.createElement('button');
@@ -206,14 +182,157 @@
     });
   }
 
+  function initSidebarToc() {
+    if (!isPost) return;
+    if (window.innerWidth < 1400) return;
+
+    const tocEl = document.getElementById('toc');
+    if (!tocEl) return;
+
+    const tocList = tocEl.querySelector('.toc');
+    if (!tocList) return;
+
+    const sidebar = document.createElement('div');
+    sidebar.className = 'sidebar-toc';
+    sidebar.innerHTML = `
+      <div class="sidebar-toc-title">
+        <i class="iconfont icon-list"></i>
+        <span>目录</span>
+      </div>
+      <ul class="sidebar-toc-list">${tocList.innerHTML}</ul>
+    `;
+    document.body.appendChild(sidebar);
+
+    const toggle = () => {
+      const show = window.scrollY > 400;
+      sidebar.classList.toggle('visible', show);
+    };
+
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+
+    const headings = document.querySelectorAll('.markdown-body h1, .markdown-body h2, .markdown-body h3');
+    const tocLinks = sidebar.querySelectorAll('.sidebar-toc-list a');
+
+    const highlight = () => {
+      let current = '';
+      headings.forEach(h => {
+        const rect = h.getBoundingClientRect();
+        if (rect.top <= 100) {
+          current = h.id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', highlight, { passive: true });
+    highlight();
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+
+  function initArticleRecommend() {
+    if (!isPost) return;
+
+    fetch('/local-search.xml')
+      .then(res => res.text())
+      .then(str => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(str, 'text/xml');
+        const entries = xml.querySelectorAll('entry');
+        
+        const currentPath = window.location.pathname;
+        const articles = [];
+        
+        entries.forEach((entry, i) => {
+          const url = entry.querySelector('url')?.textContent || '';
+          if (url === currentPath) return;
+          if (articles.length >= 3) return;
+          
+          const title = entry.querySelector('title')?.textContent || '未命名';
+          const content = entry.querySelector('content')?.textContent || '';
+          const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+          const img = imgMatch ? imgMatch[1] : '/img/default.png';
+          
+          articles.push({ url, title, img, date: '' });
+        });
+        
+        if (articles.length === 0) return;
+        
+        const float = document.createElement('div');
+        float.className = 'article-recommend-float';
+        float.innerHTML = `
+          <div class="article-recommend-header">
+            <div class="article-recommend-title">
+              <i class="iconfont icon-archive-fill"></i>
+              <span>推荐阅读</span>
+            </div>
+            <button class="article-recommend-close" aria-label="关闭">
+              <i class="iconfont icon-arrowleft"></i>
+            </button>
+          </div>
+          <div class="article-recommend-list">
+            ${articles.map(item => `
+              <a href="${item.url}" class="article-recommend-item">
+                <img class="article-recommend-img" src="${item.img}" alt="${item.title}">
+                <div class="article-recommend-info">
+                  <div class="article-recommend-name">${item.title}</div>
+                </div>
+              </a>
+            `).join('')}
+          </div>
+        `;
+        document.body.appendChild(float);
+
+        let shown = false;
+        let closed = false;
+
+        const toggle = () => {
+          if (closed) return;
+          const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+          if (scrollPercent > 0.3 && !shown) {
+            float.classList.add('show');
+            shown = true;
+          }
+        };
+
+        window.addEventListener('scroll', toggle, { passive: true });
+
+        float.querySelector('.article-recommend-close').addEventListener('click', () => {
+          float.classList.remove('show');
+          closed = true;
+        });
+      })
+      .catch(() => {});
+  }
+
   function bootstrap() {
     initReadingProgress();
     initTocButton();
     initHomeAvatarCard();
     initCursorGlow();
     initPageTransition();
-    initVisitorStats();
     initRewardButton();
+    initSidebarToc();
+    initArticleRecommend();
   }
 
   if (document.readyState !== 'loading') {
