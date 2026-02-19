@@ -479,7 +479,7 @@
     window.addEventListener('scroll', throttledScroll, { passive: true });
   }
 
-  const API_KEY = 'cfa7d3f8839bb7bf118';
+  const API_KEY = 'cfa7d3f8839bb7bf11864a1fd8762421';
 
   function getTodayKey() {
     const today = new Date();
