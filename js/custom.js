@@ -620,7 +620,7 @@
         newsTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
         currentNewsType = tab.dataset.type;
-        renderNews(currentNewsType);
+        renderNews(currentNewsType, null);
       });
     });
 
@@ -628,26 +628,26 @@
       let cached = getCachedData();
       
       if (!cached) {
-        try {
-          const [lunar, keji, internet, world, general] = await Promise.all([
-            fetchLunarData(),
-            fetchNewsData('keji'),
-            fetchNewsData('internet'),
-            fetchNewsData('world'),
-            fetchNewsData('general')
-          ]);
-
-          cached = { lunar, news: { keji, internet, world, general } };
-          setCachedData(cached);
-        } catch (e) {
-          console.error('API加载失败:', e);
-        }
+        cached = { lunar: null, news: {} };
       }
 
-      if (cached) {
-        renderLunar(cached.lunar);
-        renderNews(currentNewsType);
+      if (!cached.lunar) {
+        cached.lunar = await fetchLunarData();
       }
+
+      const newsTypes = ['keji', 'internet', 'world', 'general'];
+      const needFetch = newsTypes.filter(type => !cached.news[type] || cached.news[type].length === 0);
+      
+      if (needFetch.length > 0) {
+        const results = await Promise.all(needFetch.map(type => fetchNewsData(type)));
+        needFetch.forEach((type, i) => {
+          cached.news[type] = results[i];
+        });
+      }
+
+      setCachedData(cached);
+      renderLunar(cached.lunar);
+      renderNews(currentNewsType, cached);
     }
 
     function renderLunar(data) {
@@ -689,14 +689,14 @@
       `).join('');
     }
 
-    const newsCache = {};
+    function renderNews(type, dataCache) {
+      const cached = dataCache || getCachedData();
+      const newsData = cached?.news?.[type] || [];
 
-    function renderNews(type) {
-      const cached = getCachedData();
-      const newsData = cached?.news?.[type] || newsCache[type] || [];
+      console.log(`渲染${type}新闻, 数据:`, newsData);
 
       if (!newsData || newsData.length === 0) {
-        newsList.innerHTML = '<div class="news-empty">暂无新闻数据</div>';
+        newsList.innerHTML = '<div class="news-empty">暂无新闻数据，请稍后刷新</div>';
         return;
       }
 
