@@ -643,6 +643,34 @@ sup > a::before,
   background-color: transparent;
   box-shadow: 0 0 20px -5px rgba(158,158,158,0.2);
 }
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--theme-primary, #29d), var(--theme-accent, #1abc9c));
+  z-index: 1031;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.reading-progress-bar[data-progress="99"],
+.reading-progress-bar[data-progress="100"] {
+  box-shadow: 0 0 8px rgba(41,221,221,0.6), 0 1px 3px rgba(0,0,0,0.2);
+}
+html[data-user-color-scheme="dark"] .reading-progress-bar {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+html[data-user-color-scheme="dark"] .reading-progress-bar[data-progress="99"],
+html[data-user-color-scheme="dark"] .reading-progress-bar[data-progress="100"] {
+  box-shadow: 0 0 10px rgba(79,172,254,0.5), 0 1px 3px rgba(0,0,0,0.4);
+}
+@media (max-width: 575px) {
+  .reading-progress-bar {
+    height: 2px;
+  }
+}
 .scroll-down-bar {
   position: absolute;
   width: 100%;
