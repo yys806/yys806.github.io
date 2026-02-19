@@ -34,10 +34,16 @@ Fluid.plugins.share = {
     });
 
     document.addEventListener('click', function(e) {
-      if (e.target.classList.contains('qrcode-modal') || 
-          e.target.classList.contains('qrcode-close')) {
+      if (e.target.classList.contains('qrcode-modal')) {
         self.hideQRCode();
       }
+    });
+
+    document.querySelectorAll('.qrcode-close').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        self.hideQRCode();
+      });
     });
 
     document.addEventListener('keydown', function(e) {
@@ -110,7 +116,12 @@ Fluid.plugins.share = {
 
   showQRCode: function() {
     var modal = document.getElementById('qrcode-modal');
-    if (!modal) return;
+    var container = document.getElementById('qrcode-container');
+    if (!modal || !container) return;
+
+    container.innerHTML = '';
+    container.dataset.generated = '';
+    container.dataset.retry = '0';
 
     this.generateQRCode();
     modal.classList.add('show');
@@ -127,31 +138,77 @@ Fluid.plugins.share = {
 
   generateQRCode: function() {
     var container = document.getElementById('qrcode-container');
-    if (!container || container.dataset.generated === 'true') return;
+    if (!container) return;
 
     var url = window.location.href;
 
-    if (typeof QRCode !== 'undefined') {
-      new QRCode(container, {
-        text: url,
-        width: 200,
-        height: 200,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.M
-      });
+    if (container.dataset.generated === 'true') {
+      return;
+    }
+
+    if (url.indexOf('localhost') !== -1 || url.indexOf('127.0.0.1') !== -1) {
+      container.innerHTML = '<div style="padding: 40px 0; color: #999; font-size: 14px;">本地环境无法生成二维码<br>部署到线上后即可正常显示<br><br><a href="' + url + '" target="_blank" style="color: var(--link-hover-color);">' + url + '</a></div>';
       container.dataset.generated = 'true';
-    } else {
-      var apiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
-      var img = document.createElement('img');
-      img.src = apiUrl;
-      img.alt = '二维码';
-      img.width = 200;
-      img.height = 200;
+      return;
+    }
+
+    container.innerHTML = '<div style="padding: 60px 0; color: #999;">加载中...</div>';
+
+    var self = this;
+    var apiUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=' + encodeURIComponent(url);
+    var img = new Image();
+
+    img.onload = function() {
       container.innerHTML = '';
+      img.alt = '微信扫一扫分享';
+      img.style.display = 'block';
       container.appendChild(img);
       container.dataset.generated = 'true';
+    };
+
+    img.onerror = function() {
+      self.showQRCodeFallback(container, url);
+    };
+
+    img.src = apiUrl;
+
+    setTimeout(function() {
+      if (!container.dataset.generated) {
+        self.showQRCodeFallback(container, url);
+      }
+    }, 5000);
+  },
+
+  showQRCodeFallback: function(container, url) {
+    var text = encodeURIComponent(url);
+    var fallbackApis = [
+      'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=' + text,
+      'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chld=M|2&chl=' + text
+    ];
+
+    var index = parseInt(container.dataset.retry || '0', 10);
+    if (index >= fallbackApis.length) {
+      container.innerHTML = '<div style="padding: 40px 0; color: #999; font-size: 14px;">二维码加载失败<br>请复制链接手动分享</div>';
+      return;
     }
+
+    container.dataset.retry = (index + 1).toString();
+    var img = new Image();
+
+    var self = this;
+    img.onload = function() {
+      container.innerHTML = '';
+      img.alt = '微信扫一扫分享';
+      img.style.display = 'block';
+      container.appendChild(img);
+      container.dataset.generated = 'true';
+    };
+
+    img.onerror = function() {
+      self.showQRCodeFallback(container, url);
+    };
+
+    img.src = fallbackApis[index];
   },
 
   showToast: function(message) {
