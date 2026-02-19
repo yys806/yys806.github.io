@@ -479,119 +479,6 @@
     window.addEventListener('scroll', throttledScroll, { passive: true });
   }
 
-  function initSocialShare() {
-    if (!isPost) return;
-
-    const postContent = document.querySelector('.post-content');
-    if (!postContent) return;
-
-    const title = document.title.split(' - ')[0] || document.title;
-    const url = window.location.href;
-
-    const container = document.createElement('div');
-    container.className = 'social-share-container';
-    container.innerHTML = `
-      <span class="social-share-label">分享到</span>
-      <button class="social-share-btn weibo" data-platform="weibo" title="分享到微博">
-        <i class="iconfont icon-weibo-fill"></i>
-      </button>
-      <button class="social-share-btn qq" data-platform="qq" title="分享到QQ">
-        <i class="iconfont icon-qq-fill"></i>
-      </button>
-      <button class="social-share-btn wechat" data-platform="wechat" title="分享到微信">
-        <i class="iconfont icon-wechat-fill"></i>
-        <div class="social-share-qrcode">
-          <canvas id="share-qrcode-canvas"></canvas>
-          <span>微信扫码分享</span>
-        </div>
-      </button>
-      <button class="social-share-btn copy" data-platform="copy" title="复制链接">
-        <i class="iconfont icon-link"></i>
-      </button>
-    `;
-
-    const divider = postContent.querySelector('hr');
-    if (divider) {
-      divider.after(container);
-    } else {
-      postContent.appendChild(container);
-    }
-
-    container.querySelectorAll('.social-share-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const platform = btn.dataset.platform;
-        const encodedTitle = encodeURIComponent(title);
-        const encodedUrl = encodeURIComponent(url);
-
-        switch (platform) {
-          case 'weibo':
-            window.open(`https://service.weibo.com/share/share.php?title=${encodedTitle}&url=${encodedUrl}`, '_blank', 'width=600,height=400');
-            break;
-          case 'qq':
-            window.open(`https://connect.qq.com/widget/shareqq/index.html?url=${encodedUrl}&title=${encodedTitle}`, '_blank', 'width=600,height=400');
-            break;
-          case 'wechat':
-            break;
-          case 'copy':
-            navigator.clipboard.writeText(url).then(() => {
-              showToast('链接已复制到剪贴板');
-            }).catch(() => {
-              showToast('复制失败，请手动复制');
-            });
-            break;
-        }
-      });
-    });
-
-    initWechatQRCode(url);
-  }
-
-  function initWechatQRCode(url) {
-    const canvas = document.getElementById('share-qrcode-canvas');
-    if (!canvas) return;
-
-    const size = 120;
-    canvas.width = size;
-    canvas.height = size;
-
-    const qr = new QRCode(canvas, {
-      text: url,
-      width: size,
-      height: size,
-      colorDark: '#1f3b57',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  }
-
-  function showToast(message) {
-    const existing = document.querySelector('.share-toast');
-    if (existing) existing.remove();
-
-    const toast = document.createElement('div');
-    toast.className = 'share-toast';
-    toast.textContent = message;
-    toast.style.cssText = `
-      position: fixed;
-      bottom: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      z-index: 9999;
-      animation: toastIn 0.3s ease;
-    `;
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-      toast.style.animation = 'toastOut 0.3s ease';
-      setTimeout(() => toast.remove(), 300);
-    }, 2000);
-  }
-
   function bootstrap() {
     initReadingProgress();
     initTocButton();
@@ -603,7 +490,6 @@
     initArticleRecommend();
     initImageLazyLoad();
     initAnimationThrottle();
-    initSocialShare();
   }
 
   if (document.readyState !== 'loading') {
