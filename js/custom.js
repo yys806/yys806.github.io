@@ -509,8 +509,12 @@
     try {
       const res = await fetch(`https://apis.tianapi.com/lunar/index?key=${API_KEY}`);
       const data = await res.json();
+      console.log('黄历API返回:', data);
       if (data.code === 200) return data.result;
-    } catch (e) {}
+      else console.error('黄历API错误:', data.msg);
+    } catch (e) {
+      console.error('黄历API调用失败:', e);
+    }
     return null;
   }
 
@@ -524,8 +528,12 @@
     try {
       const res = await fetch(urls[type]);
       const data = await res.json();
+      console.log(`${type}新闻API返回:`, data);
       if (data.code === 200) return data.result.list;
-    } catch (e) {}
+      else console.error(`${type}新闻API错误:`, data.msg);
+    } catch (e) {
+      console.error(`${type}新闻API调用失败:`, e);
+    }
     return [];
   }
 
@@ -620,24 +628,33 @@
       let cached = getCachedData();
       
       if (!cached) {
-        const [lunar, keji, internet, world, general] = await Promise.all([
-          fetchLunarData(),
-          fetchNewsData('keji'),
-          fetchNewsData('internet'),
-          fetchNewsData('world'),
-          fetchNewsData('general')
-        ]);
+        try {
+          const [lunar, keji, internet, world, general] = await Promise.all([
+            fetchLunarData(),
+            fetchNewsData('keji'),
+            fetchNewsData('internet'),
+            fetchNewsData('world'),
+            fetchNewsData('general')
+          ]);
 
-        cached = { lunar, news: { keji, internet, world, general } };
-        setCachedData(cached);
+          cached = { lunar, news: { keji, internet, world, general } };
+          setCachedData(cached);
+        } catch (e) {
+          console.error('API加载失败:', e);
+        }
       }
 
-      renderLunar(cached.lunar);
-      renderNews(currentNewsType);
+      if (cached) {
+        renderLunar(cached.lunar);
+        renderNews(currentNewsType);
+      }
     }
 
     function renderLunar(data) {
-      if (!data) return;
+      if (!data) {
+        panelsContainer.querySelector('.lunar-month').textContent = '加载失败';
+        return;
+      }
 
       const month = panelsContainer.querySelector('.lunar-month');
       const zodiac = panelsContainer.querySelector('.lunar-zodiac');
@@ -646,22 +663,22 @@
       const fitnessValue = panelsContainer.querySelector('.lunar-fitness-value');
       const tabooValue = panelsContainer.querySelector('.lunar-taboo-value');
 
-      month.textContent = data.lubarmonth + data.lunarday;
-      zodiac.textContent = data.shengxiao;
+      month.textContent = (data.lubarmonth || '') + (data.lunarday || '');
+      zodiac.textContent = data.shengxiao || '--';
       fitnessShort.textContent = data.fitness ? data.fitness.split('.')[0] : '--';
       
       fitnessValue.textContent = data.fitness || '诸事皆宜';
       tabooValue.textContent = data.taboo || '无';
 
       const details = [
-        { label: '公历', value: data.gregoriandate },
-        { label: '农历', value: data.lunardate },
-        { label: '天干地支', value: data.tiangandizhiyear },
-        { label: '五行', value: data.wuxingnayear },
+        { label: '公历', value: data.gregoriandate || '--' },
+        { label: '农历', value: data.lunardate || '--' },
+        { label: '天干地支', value: data.tiangandizhiyear || '--' },
+        { label: '五行', value: data.wuxingnayear || '--' },
         { label: '节气', value: data.jieqi || '无' },
-        { label: '星宿', value: data.xingsu },
-        { label: '冲煞', value: data.chongsha },
-        { label: '值神', value: data.jianshen }
+        { label: '星宿', value: data.xingsu || '--' },
+        { label: '冲煞', value: data.chongsha || '--' },
+        { label: '值神', value: data.jianshen || '--' }
       ];
 
       detailGrid.innerHTML = details.map(d => `
@@ -678,16 +695,16 @@
       const cached = getCachedData();
       const newsData = cached?.news?.[type] || newsCache[type] || [];
 
-      if (newsData.length === 0) {
+      if (!newsData || newsData.length === 0) {
         newsList.innerHTML = '<div class="news-empty">暂无新闻数据</div>';
         return;
       }
 
       newsList.innerHTML = newsData.map(item => `
-        <a href="${item.url}" class="news-item" target="_blank" rel="noopener">
-          <img class="news-item-img" src="${item.picUrl || '/img/default.png'}" alt="${item.title}" loading="lazy" onerror="this.src='/img/default.png'">
+        <a href="${item.url || '#'}" class="news-item" target="_blank" rel="noopener">
+          <img class="news-item-img" src="${item.picUrl || '/img/default.png'}" alt="${item.title || ''}" loading="lazy" onerror="this.src='/img/default.png'">
           <div class="news-item-content">
-            <div class="news-item-title">${item.title}</div>
+            <div class="news-item-title">${item.title || '无标题'}</div>
             <div class="news-item-meta">
               <span class="news-item-source">${item.source || '资讯'}</span>
               <span>${item.ctime || ''}</span>
@@ -695,6 +712,7 @@
           </div>
         </a>
       `).join('');
+    }
     }
 
     loadAllData();
