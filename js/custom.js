@@ -25,20 +25,129 @@
     const tocEl = document.getElementById('toc');
     if (!tocEl) return;
 
-    const btn = document.createElement('a');
+    const tocList = tocEl.querySelector('.toc');
+    if (!tocList) return;
+
+    const btn = document.createElement('div');
     btn.id = 'toc-fab';
-    btn.href = '#toc';
     btn.setAttribute('aria-label', '打开目录');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
     btn.innerHTML = '<i class="iconfont icon-list"></i>';
     document.body.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = 'toc-float-panel';
+    panel.innerHTML = `
+      <div class="toc-float-panel-header">
+        <div class="toc-float-panel-title">
+          <i class="iconfont icon-list"></i>
+          <span>目录</span>
+        </div>
+        <button class="toc-float-panel-close" aria-label="关闭">
+          <i class="iconfont icon-arrowleft"></i>
+        </button>
+      </div>
+      <div class="toc-float-panel-body">
+        <ul>${tocList.innerHTML}</ul>
+      </div>
+    `;
+    document.body.appendChild(panel);
+
+    let isOpen = false;
 
     const toggle = () => {
       const show = window.scrollY > 240;
       btn.classList.toggle('visible', show);
+      if (!show && isOpen) {
+        closePanel();
+      }
+    };
+
+    const openPanel = () => {
+      panel.classList.add('show');
+      btn.classList.add('active');
+      isOpen = true;
+    };
+
+    const closePanel = () => {
+      panel.classList.remove('show');
+      btn.classList.remove('active');
+      isOpen = false;
+    };
+
+    btn.addEventListener('click', () => {
+      if (isOpen) {
+        closePanel();
+      } else {
+        openPanel();
+      }
+    });
+
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (isOpen) {
+          closePanel();
+        } else {
+          openPanel();
+        }
+      }
+    });
+
+    panel.querySelector('.toc-float-panel-close').addEventListener('click', closePanel);
+
+    document.addEventListener('click', (e) => {
+      if (isOpen && !panel.contains(e.target) && !btn.contains(e.target)) {
+        closePanel();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        closePanel();
+      }
+    });
+
+    const tocLinks = panel.querySelectorAll('.toc-float-panel-body a');
+    const headings = document.querySelectorAll('.markdown-body h1, .markdown-body h2, .markdown-body h3');
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          closePanel();
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    const highlight = () => {
+      let current = '';
+      headings.forEach(h => {
+        const rect = h.getBoundingClientRect();
+        if (rect.top <= 100) {
+          current = h.id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
     };
 
     toggle();
     window.addEventListener('scroll', toggle, { passive: true });
+    window.addEventListener('scroll', highlight, { passive: true });
+    highlight();
   }
 
   function initHomeAvatarCard() {
