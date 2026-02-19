@@ -73,10 +73,147 @@
     container.insertBefore(card, container.firstChild);
   }
 
+  function initCursorGlow() {
+    if (window.innerWidth < 768) return;
+    
+    const glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+
+    let visible = false;
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!visible) {
+        glow.classList.add('active');
+        visible = true;
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      glow.classList.remove('active');
+      visible = false;
+    });
+
+    function animate() {
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  function initPageTransition() {
+    const transition = document.createElement('div');
+    transition.className = 'page-transition';
+    transition.innerHTML = '<div class="page-transition-spinner"></div>';
+    document.body.appendChild(transition);
+
+    setTimeout(() => {
+      transition.classList.add('hidden');
+    }, 100);
+
+    document.querySelectorAll('a[href^="/"], a[href^="' + window.location.origin + '"]').forEach(link => {
+      if (link.target === '_blank') return;
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript')) {
+          e.preventDefault();
+          transition.classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300);
+        }
+      });
+    });
+
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        transition.classList.add('hidden');
+      }
+    });
+  }
+
+  function initVisitorStats() {
+    if (!isHome) return;
+    
+    const card = document.querySelector('.home-avatar-card');
+    if (!card) return;
+
+    const stats = document.createElement('div');
+    stats.className = 'visitor-stats';
+    stats.innerHTML = `
+      <div class="stat-item">
+        <span class="stat-number" id="busuanzi_value_site_pv">--</span>
+        <span class="stat-label">访问量</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="busuanzi_value_site_uv">--</span>
+        <span class="stat-label">访客数</span>
+      </div>
+    `;
+    
+    card.after(stats);
+
+    if (window.busuanzi) {
+      window.busuanzi.fetch();
+    }
+  }
+
+  function initRewardButton() {
+    const btn = document.createElement('button');
+    btn.className = 'reward-float-btn';
+    btn.innerHTML = '<i class="iconfont icon-love"></i>';
+    btn.setAttribute('aria-label', '打赏');
+    document.body.appendChild(btn);
+
+    const modal = document.createElement('div');
+    modal.className = 'reward-modal';
+    modal.innerHTML = `
+      <div class="reward-modal-content">
+        <div class="reward-modal-title">请我喝杯咖啡 ☕</div>
+        <div class="reward-qrcodes">
+          <div class="reward-qrcode-item">
+            <img src="/images/微信.jpg" alt="微信">
+            <span>微信</span>
+          </div>
+          <div class="reward-qrcode-item">
+            <img src="/images/支付宝.jpg" alt="支付宝">
+            <span>支付宝</span>
+          </div>
+        </div>
+        <button class="reward-modal-close">关闭</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    btn.addEventListener('click', () => {
+      modal.classList.add('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target.classList.contains('reward-modal-close')) {
+        modal.classList.remove('show');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modal.classList.remove('show');
+      }
+    });
+  }
+
   function bootstrap() {
     initReadingProgress();
     initTocButton();
     initHomeAvatarCard();
+    initCursorGlow();
+    initPageTransition();
+    initVisitorStats();
+    initRewardButton();
   }
 
   if (document.readyState !== 'loading') {
