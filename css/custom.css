@@ -1025,3 +1025,200 @@ footer,
     display: none !important;
   }
 }
+
+/* ========== 社交分享按钮 ========== */
+.social-share-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.social-share-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sec-text-color, #718096);
+  margin-right: 0.5rem;
+}
+
+.social-share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.social-share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.social-share-btn.weibo {
+  background: linear-gradient(135deg, #e6162d 0%, #ff6b6b 100%);
+}
+
+.social-share-btn.qq {
+  background: linear-gradient(135deg, #12b7f5 0%, #4dd0e1 100%);
+}
+
+.social-share-btn.wechat {
+  background: linear-gradient(135deg, #07c160 0%, #4caf50 100%);
+  position: relative;
+}
+
+.social-share-btn.copy {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.social-share-btn.twitter {
+  background: linear-gradient(135deg, #1da1f2 0%, #0d95e8 100%);
+}
+
+.social-share-qrcode {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.social-share-qrcode::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+}
+
+.social-share-btn.wechat:hover .social-share-qrcode {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) scale(1);
+}
+
+.social-share-qrcode canvas {
+  display: block;
+  border-radius: 6px;
+}
+
+.social-share-qrcode span {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+/* ========== 留言板页面 ========== */
+.guestbook-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.guestbook-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.guestbook-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2e90f0 0%, #5ac8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.guestbook-header p {
+  color: var(--sec-text-color, #718096);
+  font-size: 0.95rem;
+}
+
+.guestbook-rules {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.guestbook-rules h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #1f3b57);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.guestbook-rules h3 i {
+  color: var(--accent, #2e90f0);
+}
+
+.guestbook-rules ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--sec-text-color, #718096);
+  line-height: 1.8;
+}
+
+@media (max-width: 767px) {
+  .social-share-container {
+    flex-wrap: wrap;
+  }
+
+  .social-share-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Toast动画 */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
