@@ -32,9 +32,10 @@
 <meta property="og:image" content="http://example.com/images/claude-code-og.png">
 <meta property="og:image" content="http://example.com/images/neon-og.png">
 <meta property="article:published_time" content="2026-03-14T18:05:00.000Z">
-<meta property="article:modified_time" content="2026-03-14T17:42:36.314Z">
+<meta property="article:modified_time" content="2026-03-14T18:06:47.422Z">
 <meta property="article:author" content="Leo shen">
 <meta property="article:tag" content="公用">
+<meta property="article:tag" content="AI生成">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/mcp-skills-cover.jpg">
   
@@ -234,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          592 字
+          1.1k 字
         
       </span>
     
@@ -245,7 +246,7 @@
         
         
         
-          5 分钟
+          9 分钟
         
       </span>
     
@@ -318,16 +319,62 @@
 <li>查仓库、查代码、提 PR、看 Review、回评论</li>
 <li>适合把“代码协作”流程化</li>
 </ul>
+<p>更细一点，我最常用这几组动作：</p>
+<ul>
+<li><strong>检索与定位</strong>：先查仓库&#x2F;代码，再定位文件与提交上下文</li>
+<li><strong>协作闭环</strong>：拉取 PR 详情 -&gt; 看 changed files -&gt; 回评论 -&gt; 补充结论</li>
+<li><strong>任务推进</strong>：创建 issue、拆子任务、关联 PR，保证可追踪</li>
+</ul>
+<p>典型流程（示意）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">search repo/code -&gt; read PR -&gt; add review comments -&gt; merge or request changes<br></code></pre></td></tr></table></figure>
+
 <p><img src="/images/mcp-servers-og.png" srcset="/img/loading.gif" lazyload alt="MCP Servers 仓库图" title="Model Context Protocol Servers"></p>
 <p>来源：modelcontextprotocol&#x2F;servers</p>
 <h3 id="2-代码与代理工作流：Claude-Code-生态"><a href="#2-代码与代理工作流：Claude-Code-生态" class="headerlink" title="2) 代码与代理工作流：Claude Code 生态"></a>2) 代码与代理工作流：Claude Code 生态</h3><ul>
 <li>适合做命令式开发、脚本化修改、自动验证</li>
+</ul>
+<p>这个场景的关键不是“会不会改代码”，而是：</p>
+<ul>
+<li><strong>改前有范围</strong>：先定位文件与依赖</li>
+<li><strong>改后有验证</strong>：至少跑相关命令&#x2F;测试</li>
+<li><strong>结果可复现</strong>：命令和输出都能追溯</li>
 </ul>
 <p><img src="/images/claude-code-og.png" srcset="/img/loading.gif" lazyload alt="Claude Code 仓库图" title="Claude Code"></p>
 <p>来源：anthropics&#x2F;claude-code</p>
 <h3 id="3-数据库自动化：Neon-MCP"><a href="#3-数据库自动化：Neon-MCP" class="headerlink" title="3) 数据库自动化：Neon MCP"></a>3) 数据库自动化：Neon MCP</h3><ul>
 <li>项目&#x2F;分支管理、SQL 执行、迁移验证、性能排查</li>
 </ul>
+<p>Neon 这块我建议严格走“临时分支验证”模式：</p>
+<ol>
+<li>创建临时分支</li>
+<li>在分支执行迁移 SQL</li>
+<li>做查询验证与回归</li>
+<li>再合并到主分支</li>
+</ol>
+<p>这样做可以明显降低误操作风险。</p>
+<h3 id="4-支付与业务：Stripe-MCP"><a href="#4-支付与业务：Stripe-MCP" class="headerlink" title="4) 支付与业务：Stripe MCP"></a>4) 支付与业务：Stripe MCP</h3><ul>
+<li>客户、产品、价格、支付链接、订阅、退款都能串起来</li>
+<li>适合把“财务动作”流程化，减少手工后台操作</li>
+</ul>
+<h3 id="5-安全治理：Semgrep-MCP"><a href="#5-安全治理：Semgrep-MCP" class="headerlink" title="5) 安全治理：Semgrep MCP"></a>5) 安全治理：Semgrep MCP</h3><ul>
+<li>SAST&#x2F;SCA 扫描</li>
+<li>自定义规则校验</li>
+<li>漏洞清单回看</li>
+</ul>
+<p>我一般会在“改依赖”和“上线前”各跑一轮。</p>
+<h3 id="6-文档与框架学习：Context7-MCP"><a href="#6-文档与框架学习：Context7-MCP" class="headerlink" title="6) 文档与框架学习：Context7 MCP"></a>6) 文档与框架学习：Context7 MCP</h3><ul>
+<li>先 resolve 目标库，再 query 文档</li>
+<li>适合查“真实可执行”的示例，不容易走偏</li>
+</ul>
+<h3 id="7-浏览器自动化：Playwright-DevTools-Puppeteer"><a href="#7-浏览器自动化：Playwright-DevTools-Puppeteer" class="headerlink" title="7) 浏览器自动化：Playwright &#x2F; DevTools &#x2F; Puppeteer"></a>7) 浏览器自动化：Playwright &#x2F; DevTools &#x2F; Puppeteer</h3><ul>
+<li>表单自动填充、页面截图、网络请求观察、性能排查</li>
+<li>对发布流程、回归验证、可视化取证都很有用</li>
+</ul>
+<h3 id="8-设计与素材链路：Figma-Replicate-MCP"><a href="#8-设计与素材链路：Figma-Replicate-MCP" class="headerlink" title="8) 设计与素材链路：Figma &#x2F; Replicate MCP"></a>8) 设计与素材链路：Figma &#x2F; Replicate MCP</h3><ul>
+<li>Figma：节点与资源提取</li>
+<li>Replicate：图像生成与变体</li>
+</ul>
+<p>这两个适合做“设计稿 -&gt; 内容产物”的半自动流水线。</p>
 <p><img src="/images/neon-og.png" srcset="/img/loading.gif" lazyload alt="Neon 仓库图" title="Neon Database"></p>
 <p>来源：neondatabase&#x2F;neon</p>
 <h2 id="✅-我当前的落地原则"><a href="#✅-我当前的落地原则" class="headerlink" title="✅ 我当前的落地原则"></a>✅ 我当前的落地原则</h2><p>为避免“越自动化越混乱”，我固定了三条规则：</p>
@@ -335,6 +382,10 @@
 <li><strong>先验证后执行</strong>：发布、迁移、删除都要先检查</li>
 <li><strong>强约束可追溯</strong>：关键动作必须有日志与结果状态</li>
 <li><strong>保留人工确认闸门</strong>：自动化不等于无审核</li>
+</ol>
+<p>再补一条我自己踩坑后的规则：</p>
+<ol start="4">
+<li><strong>高风险动作必须有回滚路径</strong>：例如数据库迁移、批量发布、支付操作。</li>
 </ol>
 <h2 id="📝-给未来自己的操作清单"><a href="#📝-给未来自己的操作清单" class="headerlink" title="📝 给未来自己的操作清单"></a>📝 给未来自己的操作清单</h2><ul>
 <li>每月更新一次 Skills&#x2F;MCP 清单</li>
@@ -376,6 +427,8 @@
       <i class="iconfont icon-tags"></i>
       
         <a href="/tags/%E5%85%AC%E7%94%A8/" class="print-no-link">#公用</a>
+      
+        <a href="/tags/AI%E7%94%9F%E6%88%90/" class="print-no-link">#AI生成</a>
       
     </div>
   
