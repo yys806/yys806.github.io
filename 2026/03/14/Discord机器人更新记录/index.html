@@ -19,36 +19,24 @@
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="总述从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看； 后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。 这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，">
+    <meta name="description" content="从 Discord 单平台迁移到 QQ 双端联动的实战更新记录，重点覆盖桥接接入、鉴权兼容与稳定性修复。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个人开发网站的阶段性总结">
-<meta property="og:url" content="http://example.com/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Discord机器人更新记录">
+<meta property="og:url" content="http://example.com/2026/03/14/Discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="SHEN-BLOG">
-<meta property="og:description" content="总述从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看； 后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。 这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，">
+<meta property="og:description" content="从 Discord 单平台迁移到 QQ 双端联动的实战更新记录，重点覆盖桥接接入、鉴权兼容与稳定性修复。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/260120-1.png">
-<meta property="og:image" content="http://example.com/images/260120-2.png">
-<meta property="og:image" content="http://example.com/images/260120-3.png">
-<meta property="og:image" content="http://example.com/images/260120-4.png">
-<meta property="og:image" content="http://example.com/images/260120-5.png">
-<meta property="og:image" content="http://example.com/images/260120-6.png">
-<meta property="og:image" content="http://example.com/images/260120-7.png">
-<meta property="og:image" content="http://example.com/images/260120-8.png">
-<meta property="og:image" content="http://example.com/images/260120-9.png">
-<meta property="og:image" content="http://example.com/images/260120-10.png">
-<meta property="og:image" content="http://example.com/images/260120-11.png">
-<meta property="og:image" content="http://example.com/images/260120-12.png">
-<meta property="og:image" content="http://example.com/images/260120-13.png">
-<meta property="article:published_time" content="2026-01-20T06:07:21.000Z">
-<meta property="article:modified_time" content="2026-01-20T07:40:25.005Z">
+<meta property="og:image" content="http://example.com/images/background.png">
+<meta property="article:published_time" content="2026-03-14T10:22:53.000Z">
+<meta property="article:modified_time" content="2026-03-14T10:26:51.174Z">
 <meta property="article:author" content="Leo shen">
 <meta property="article:tag" content="公用">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/images/260120-1.png">
+<meta name="twitter:image" content="http://example.com/images/background.png">
   
   
   
-  <title>个人开发网站的阶段性总结 - SHEN-BLOG</title>
+  <title>Discord机器人更新记录 - SHEN-BLOG</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -219,7 +207,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="个人开发网站的阶段性总结"></span>
+            <span id="subtitle" data-typed-text="Discord机器人更新记录"></span>
           
         </div>
 
@@ -230,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-20 14:07" pubdate>
-          2026年1月20日 下午
+        <time datetime="2026-03-14 18:22" pubdate>
+          2026年3月14日 晚上
         </time>
       </span>
     
@@ -242,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          886 字
         
       </span>
     
@@ -253,7 +241,7 @@
         
         
         
-          14 分钟
+          8 分钟
         
       </span>
     
@@ -290,87 +278,55 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">个人开发网站的阶段性总结</h1>
+            <h1 id="seo-header">Discord机器人更新记录</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1><p>从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看；</p>
-<p>后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。</p>
-<p>这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，我就改为netlify了。</p>
-<h1 id="网站总结"><a href="#网站总结" class="headerlink" title="网站总结"></a>网站总结</h1><h2 id="1-个人博客"><a href="#1-个人博客" class="headerlink" title="1.个人博客"></a>1.个人博客</h2><p>网址是：<a target="_blank" rel="noopener" href="https://yys806.github.io/">https://yys806.github.io/</a></p>
-<p>我是部署在github page上面的，是一个hexo框架的纯静态的网页，是复刻的网上比较好的风格，用来记录我的一些开发过程，并且写一些感想，比较实用的！</p>
-<p><img src="/images/260120-1.png" srcset="/img/loading.gif" lazyload alt="个人博客" title="个人博客"></p>
-<h2 id="2-个人介绍"><a href="#2-个人介绍" class="headerlink" title="2.个人介绍"></a>2.个人介绍</h2><p>网址是：<a target="_blank" rel="noopener" href="https://shen-intro.de5.net/">https://shen-intro.de5.net/</a></p>
-<p>这是一个个人介绍的网页，里面写了我的一些介绍，我获得的奖项以及我做的一些项目，可以用作简历的介绍以及对外的一张名片。</p>
-<p>这是我从一个MP1的项目里面复刻下来的，然后替换上了我自己的一些信息。</p>
-<p><img src="/images/260120-2.png" srcset="/img/loading.gif" lazyload alt="个人介绍网页" title="个人介绍"></p>
-<h2 id="3-个人导航"><a href="#3-个人导航" class="headerlink" title="3.个人导航"></a>3.个人导航</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-navi.de5.net/">https://shen-navi.de5.net/</a></p>
-<p>这是一个个人导航的网页，是hugo框架的，纯静态，比较方便维护，里面分模块记录了我的常用的一些网站，我把它作为我的导航站，比较方便。</p>
-<p><img src="/images/260120-3.png" srcset="/img/loading.gif" lazyload alt="个人导航" title="个人导航"></p>
-<h2 id="4-情侣博客页"><a href="#4-情侣博客页" class="headerlink" title="4.情侣博客页"></a>4.情侣博客页</h2><p>网址：<a target="_blank" rel="noopener" href="https://zchyys.de5.net/">https://zchyys.de5.net/</a></p>
-<p>这是我的情侣博客，是从一个Likegirl的项目复刻下来的，具体的项目链接在我前面的博客有，主要就是记录我和我女朋友的点点滴滴，情侣相册，大事件等等。</p>
-<p>不同于部署在服务器上面的，因为服务器会过期，后面可能迁移比较麻烦，所以我干脆本地部署了，然后后端用的就是supbase来存储信息。</p>
-<p><img src="/images/260120-4.png" srcset="/img/loading.gif" lazyload alt="情侣博客" title="情侣博客"></p>
-<h2 id="5-deep-research"><a href="#5-deep-research" class="headerlink" title="5.deep-research"></a>5.deep-research</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-ai.de5.net/">https://shen-ai.de5.net/</a></p>
-<p>这是一个深度研究的网页，是我复刻的，可以填入自己的API-key，然后传入一些资料，选定一个主题，就可以自己出来深度报告。</p>
-<p><img src="/images/260120-5.png" srcset="/img/loading.gif" lazyload alt="深度研究" title="深度研究"></p>
-<h2 id="6-TV网站"><a href="#6-TV网站" class="headerlink" title="6.TV网站"></a>6.TV网站</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen806.de5.net/">https://shen806.de5.net/</a></p>
-<p>这是一个免费的在线TV网站，也是我复刻的，有多种API资源，可以看基本上能搜到的所有视频，而且免费，电影院正在上映的也可以正常看。</p>
-<p><img src="/images/260120-6.png" srcset="/img/loading.gif" lazyload alt="TV网站" title="TV网站"></p>
-<h2 id="7-乐趣极客网站（开发中）"><a href="#7-乐趣极客网站（开发中）" class="headerlink" title="7.乐趣极客网站（开发中）"></a>7.乐趣极客网站（开发中）</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-play.de5.net/">https://shen-play.de5.net/</a></p>
-<p>这个网站是我自己做出来玩的，就是可以比较极客风格，有临时剪贴板，图片信息加密和注入，进制转换，AI语音聊天等多种功能，比较像贾维斯的感觉。</p>
-<p><img src="/images/260120-7.png" srcset="/img/loading.gif" lazyload alt="乐趣极客网站" title="乐趣极客网站"></p>
-<h2 id="8-个人主页"><a href="#8-个人主页" class="headerlink" title="8.个人主页"></a>8.个人主页</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen806.dpdns.org/">https://shen806.dpdns.org/</a></p>
-<p>这是我的个人主页网站，是一个前后端应用，后端用的也是supbase，可以存储我的待办事项，日记，个人说明，日历日程，比较方便，而且确实挺实用，有登录的功能，可以实时多端同步。</p>
-<p><img src="/images/260120-8.png" srcset="/img/loading.gif" lazyload alt="个人主页" title="个人主页"></p>
-<h2 id="9-金匮"><a href="#9-金匮" class="headerlink" title="9.金匮"></a>9.金匮</h2><p>网址：<a target="_blank" rel="noopener" href="https://shentv.dpdns.org/">https://shentv.dpdns.org/</a></p>
-<p>这是一个个人信息存储网站，可以存储个人的一些密钥，资金情况，各种会员的续费情况，比较方便的是也可以用作记账的工具，而且可以分类查找，特别方便。</p>
-<p><img src="/images/260120-9.png" srcset="/img/loading.gif" lazyload alt="金匮" title="金匮"></p>
-<h2 id="10-428806二维码小工具"><a href="#10-428806二维码小工具" class="headerlink" title="10.428806二维码小工具"></a>10.428806二维码小工具</h2><p>网址：<a target="_blank" rel="noopener" href="https://428806.xyz/">https://428806.xyz/</a></p>
-<p>这是我自己开发的一个二维码制作的小工具，可以用来定制二维码，而且可以插入图片，并且可以选择字点的形状。</p>
-<p><img src="/images/260120-10.png" srcset="/img/loading.gif" lazyload alt="二维码小工具" title="二维码小工具"></p>
-<h2 id="11-图片去黑边"><a href="#11-图片去黑边" class="headerlink" title="11.图片去黑边"></a>11.图片去黑边</h2><p>网址：<a target="_blank" rel="noopener" href="https://shen-photo.de5.net/">https://shen-photo.de5.net/</a></p>
-<p>这个网站是我用Google AI Studio的build开发的图片去黑边工具，因为我有时候要处理一些截屏，就是去除上下的黑边，转为文档，但是一个一个操作太慢了，所以就有了这个小工具。</p>
-<p><img src="/images/260120-11.png" srcset="/img/loading.gif" lazyload alt="图片去黑边" title="图片去黑边"></p>
-<h2 id="12-赛博算命网站"><a href="#12-赛博算命网站" class="headerlink" title="12.赛博算命网站"></a>12.赛博算命网站</h2><p>网址：<a target="_blank" rel="noopener" href="https://fpga.de5.net/">https://fpga.de5.net/</a></p>
-<p>这是一个AI算命的网站，包含小六壬，梅花易数，算卦，星盘，周公解梦，伴侣分析，电子木鱼，答案之书，AI画符等多种功能，主要是为了体验一下AI的强大能力，输入个人的APIkey，个人出生年月，并且登录后即可使用。</p>
-<p><img src="/images/260120-12.png" srcset="/img/loading.gif" lazyload alt="赛博算命网站" title="赛博算命网站"></p>
-<h2 id="13-Shen’tool-珅哥工具（开发中）"><a href="#13-Shen’tool-珅哥工具（开发中）" class="headerlink" title="13.Shen’tool-珅哥工具（开发中）"></a>13.Shen’tool-珅哥工具（开发中）</h2><p>网址：<a target="_blank" rel="noopener" href="http://riscv.de5.net/">http://riscv.de5.net/</a></p>
-<p>这是一个个人常用工具的集合网站，主要包括公式翻译，架构图生成，代码解析，图片转Latex公式，提示词结构化，报错分析，进制转换，二维码生成等多种功能，方便我这个人工智能专业的学生进行开发，提升日常效率，输入APIKey后即可使用。</p>
-<p><img src="/images/260120-13.png" srcset="/img/loading.gif" lazyload alt="工具" title="工具"></p>
-<h1 id="域名说明"><a href="#域名说明" class="headerlink" title="域名说明"></a>域名说明</h1><h2 id="（1）DNSHE（永久免费）"><a href="#（1）DNSHE（永久免费）" class="headerlink" title="（1）DNSHE（永久免费）"></a>（1）DNSHE（永久免费）</h2><p>这是一个免费的域名网站，我用三个邮箱号注册了三个账户，从而获得了15个免费的域名，而且都可以正常托管到cloudflare上面。</p>
-<p><a href="mailto:&#x33;&#x34;&#x39;&#50;&#54;&#55;&#x35;&#x35;&#x36;&#56;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">3492675568@qq.com</a>:</p>
-<ul>
-<li>2352396.de5.net</li>
-<li>zch428.de5.net</li>
-<li>shen806.de5.net（TV项目）</li>
-<li>zchyys.de5.net（情侣博客）</li>
-<li>shen806.us.ci</li>
+                <h1 id="Discord-机器人更新纪要：从单平台到-QQ-双端联动"><a href="#Discord-机器人更新纪要：从单平台到-QQ-双端联动" class="headerlink" title="Discord 机器人更新纪要：从单平台到 QQ 双端联动"></a>Discord 机器人更新纪要：从单平台到 QQ 双端联动</h1><p>这次更新的核心目标很明确：在尽量不重写既有业务逻辑的前提下，把原本运行在 Discord 的机器人能力扩展到 QQ（NapCat + OneBot v11），并解决接入过程中出现的稳定性与鉴权问题。</p>
+<span id="more"></span>
+
+<h2 id="这次更新了什么"><a href="#这次更新了什么" class="headerlink" title="这次更新了什么"></a>这次更新了什么</h2><h3 id="1-新增-QQ-桥接入口（最小侵入）"><a href="#1-新增-QQ-桥接入口（最小侵入）" class="headerlink" title="1) 新增 QQ 桥接入口（最小侵入）"></a>1) 新增 QQ 桥接入口（最小侵入）</h3><ul>
+<li>新增 <code>qq_bridge.py</code>，作为 OneBot v11 HTTP 上报接收端。</li>
+<li>NapCat 负责接收 QQ 消息并上报给桥接，桥接再调用 NapCat HTTP API 回发消息。</li>
+<li>业务上复用了原有主链路：<code>_call_ai -&gt; _parse_command_intent -&gt; _execute_command_from_intent</code>。</li>
 </ul>
-<p><a href="mailto:&#x79;&#x75;&#x78;&#105;&#x61;&#x6f;&#x6b;&#x75;&#110;&#x38;&#52;&#x40;&#103;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">yuxiaokun84@gmail.com</a>:</p>
-<ul>
-<li>yxn1228.de5.net</li>
-<li>szq821.de5.net</li>
-<li>yly113.de5.net</li>
-<li>riscv.de5.net （shen工具）</li>
-<li>fpga.de5.net（AI算命）</li>
+<p>这意味着：原本 Discord 端的 AI 对话、命令意图解析、命令执行能力，基本可以直接在 QQ 端复用。</p>
+<h3 id="2-补齐对接配置与启动流程"><a href="#2-补齐对接配置与启动流程" class="headerlink" title="2) 补齐对接配置与启动流程"></a>2) 补齐对接配置与启动流程</h3><ul>
+<li>在 <code>config/config.yaml</code> 中增加 QQ 桥接相关配置项（<code>QQ_BRIDGE_*</code>、<code>NAPCAT_API_ROOT</code>、<code>NAPCAT_ACCESS_TOKEN</code>、<code>ONEBOT_*</code> 等）。</li>
+<li>在 <code>README.md</code> 新增完整的 QQ 对接说明，覆盖网络配置、鉴权、安全建议和已知能力边界。</li>
+<li>新增 <code>start_qq_robot.bat</code>，用于一键启动当前目录下的 QQ 桥接进程（不强依赖自动拉起 NapCat）。</li>
 </ul>
-<p><a href="mailto:&#x79;&#117;&#x78;&#105;&#97;&#111;&#107;&#117;&#110;&#56;&#x39;&#x40;&#x67;&#x6d;&#97;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;">yuxiaokun89@gmail.com</a>:</p>
+<h3 id="3-修复了多轮线上问题（这部分最关键）"><a href="#3-修复了多轮线上问题（这部分最关键）" class="headerlink" title="3) 修复了多轮线上问题（这部分最关键）"></a>3) 修复了多轮线上问题（这部分最关键）</h3><p>接入过程中踩到的坑主要来自 OneBot 鉴权和回调状态码处理，本次已逐一修复：</p>
 <ul>
-<li>shen-ai.de5.net（deep-research）</li>
-<li>shen-intro.de5.net（个人介绍）</li>
-<li>shen-play.de5.net（Nexus-terminal）</li>
-<li>shen-photo.de5.net（处理图片）</li>
-<li>shen-navi.de5.net（导航站）</li>
+<li>修复入站鉴权兼容性：支持多种 token 传递格式（<code>Bearer</code>、<code>Token</code>、原始值、<code>X-Access-Token</code>、query）。</li>
+<li>增加 loopback 放行策略：本机来源请求在缺少 token 时可放行，避免本地部署被 401 卡死。</li>
+<li>修复出站调用鉴权：桥接请求 NapCat API 时同时兼容 Header 与 query token 方式。</li>
+<li>修复 URL 隐性错误：清理 NapCat 上报地址尾部空格导致的不稳定行为。</li>
+<li>修复 retcode 误判：<code>retcode=0</code> 不再被错误识别为失败。</li>
+<li>修复回调噪音：即使内部处理异常，事件回调也返回 200，避免 NapCat 持续报 <code>Unexpected status code: 500</code>。</li>
+<li>增强日志可观测性：鉴权失败日志增加脱敏字段，方便快速定位头部&#x2F;参数不匹配问题。</li>
 </ul>
-<h2 id="（2）us-kg（180天续费）"><a href="#（2）us-kg（180天续费）" class="headerlink" title="（2）us.kg（180天续费）"></a>（2）us.kg（180天续费）</h2><p>这是另一个免费域名，就是用github账户登录，然后点一个star，就可以有两个免费的域名，但是要每隔180续费一下。</p>
-<p>shen806.dpdns.org （个人近期主页）<br>shentv.dpdns.org （信息存储）</p>
-<h2 id="（3）spaceship（十年免费）"><a href="#（3）spaceship（十年免费）" class="headerlink" title="（3）spaceship（十年免费）"></a>（3）spaceship（十年免费）</h2><p>这是数字域名，也算是一级域名了，就是购买了之后40多块，管10年，对于免费一级域名来说，还是比较划算的。</p>
-<p>428806.xyz （二维码小工具）</p>
-<h2 id="（4）付费"><a href="#（4）付费" class="headerlink" title="（4）付费"></a>（4）付费</h2><p>这些都是我在腾讯云或者其他付费网站上面买的域名，都是一年到期，后面我也不打算续费了。</p>
-<p>shen.chat(2026.09.04)<br>shen806.icu(2026.3.18)<br>rainbow-shen.cn(2026.12.04)（四周年纪念）<br>yaoshen806.sys（2026.05.24 不打算续费了）</p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>对于我来说，虽然这些网站大部分都是复刻别人的或者用AI做的，但是在做的过程中，我积累了思路，激发了创意，还是算收获满满的！</p>
+<h3 id="4-当前能力边界"><a href="#4-当前能力边界" class="headerlink" title="4) 当前能力边界"></a>4) 当前能力边界</h3><ul>
+<li>QQ 端已稳定支持：文本对话、自动意图命令执行、图片消息回传。</li>
+<li>暂未完全对齐：Discord 按钮&#x2F;模态等交互式 UI（QQ 不同协议形态，不能 1:1 复刻）。</li>
+<li>非图片文件在 QQ 桥接侧仍有能力边界，需要后续按 OneBot 文件上传接口单独扩展。</li>
+</ul>
+<h2 id="架构变化（简版）"><a href="#架构变化（简版）" class="headerlink" title="架构变化（简版）"></a>架构变化（简版）</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">QQ 用户 -&gt; NapCat -&gt; HTTP POST 事件 -&gt; qq_bridge.py<br>                                   |<br>                                   v<br>                    复用 bot.py 既有 AI/命令核心逻辑<br>                                   |<br>                                   v<br>         qq_bridge.py -&gt; NapCat HTTP API(send_msg) -&gt; QQ 用户<br></code></pre></td></tr></table></figure>
+
+<h2 id="为什么这次改造值得做"><a href="#为什么这次改造值得做" class="headerlink" title="为什么这次改造值得做"></a>为什么这次改造值得做</h2><p>这次不是简单“多加一个平台”，而是把机器人从“单入口应用”升级成“多入口能力内核”：</p>
+<ul>
+<li>平台层（Discord &#x2F; QQ）和业务层（AI、命令、记忆、任务）开始解耦。</li>
+<li>后续再接入新平台时，不需要重写整套能力，只需补新适配层。</li>
+<li>线上问题排查效率明显提升（鉴权、回调、发送链路都有可观测日志）。</li>
+</ul>
+<h2 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h2><ol>
+<li>把更多 Discord 专属交互迁移为跨平台可复用流程（优先文本交互）。</li>
+<li>补齐 QQ 非图片文件上传能力（对接 OneBot 文件相关接口）。</li>
+<li>进一步拆分 <code>bot.py</code>，把平台无关逻辑沉淀到 <code>services/</code>，降低维护成本。</li>
+</ol>
+<hr>
+<p>如果你也在做“从 Discord 到 QQ”的迁移，这次实践的核心经验是：<strong>先保住业务核心，再做协议适配；先把链路跑通，再逐步补齐体验。</strong></p>
 
                 
               </div>
@@ -416,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>个人开发网站的阶段性总结</div>
-      <div>http://example.com/2026/01/20/个人开发网站的阶段性总结/</div>
+      <div>Discord机器人更新记录</div>
+      <div>http://example.com/2026/03/14/Discord机器人更新记录/</div>
     </div>
     <div class="license-meta">
       
@@ -429,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月20日</div>
+          <div>2026年3月14日</div>
         </div>
       
       
@@ -461,18 +417,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/01/30/%E6%96%B0%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D%E9%A1%B5%E6%9B%B4%E6%96%B0/" title="新网站开发与个人介绍页更新">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">新网站开发与个人介绍页更新</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/01/16/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" title="给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件">
-                        <span class="hidden-mobile">给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件</span>
+                      <a href="/2026/02/21/%E5%A4%A7%E5%B9%B4%E5%88%9D%E5%9B%9B%E5%A5%87%E9%81%87%E8%AE%B0/" title="大年初四奇遇记">
+                        <span class="hidden-mobile">大年初四奇遇记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
