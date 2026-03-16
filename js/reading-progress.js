@@ -1,6 +1,6 @@
 (function () {
   function isPostPage() {
-    return document.body.classList.contains('page-post');
+    return !!document.querySelector('.markdown-body');
   }
 
   function getOrCreateBar() {
@@ -32,8 +32,7 @@
       var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       var percent = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
       var val = Math.round(percent * 100);
-      bar.style.transform = 'scaleX(' + percent + ')';
-      bar.style.width = '100%';
+      bar.style.width = (percent * 100).toFixed(2) + '%';
       bar.setAttribute('aria-valuenow', String(val));
     }
 

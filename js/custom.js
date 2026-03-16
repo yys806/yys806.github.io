@@ -3,7 +3,7 @@
   const isHome = document.body.classList.contains('page-home');
 
   function initReadingProgress() {
-    if (!isPost) return;
+    if (!document.querySelector('.markdown-body')) return;
     const bar = document.createElement('div');
     bar.id = 'reading-progress';
     document.body.appendChild(bar);
@@ -12,7 +12,7 @@
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const percent = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      bar.style.transform = `scaleX(${percent})`;
+      bar.style.width = `${(percent * 100).toFixed(2)}%`;
     };
 
     calc();
