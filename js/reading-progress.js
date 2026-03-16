@@ -23,6 +23,10 @@
     if (!isPostPage()) {
       return;
     }
+    if (window.__readingProgressInitialized) {
+      return;
+    }
+    window.__readingProgressInitialized = true;
 
     var bar = getOrCreateBar();
     var ticking = false;

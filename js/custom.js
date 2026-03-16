@@ -3,21 +3,7 @@
   const isHome = document.body.classList.contains('page-home');
 
   function initReadingProgress() {
-    if (!document.querySelector('.markdown-body')) return;
-    const bar = document.createElement('div');
-    bar.id = 'reading-progress';
-    document.body.appendChild(bar);
-
-    const calc = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const percent = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-      bar.style.width = `${(percent * 100).toFixed(2)}%`;
-    };
-
-    calc();
-    window.addEventListener('scroll', calc, { passive: true });
-    window.addEventListener('resize', calc);
+    return;
   }
 
   function initTocButton() {
