@@ -1,9 +1,60 @@
 (function() {
   const isPost = document.body.classList.contains('page-post');
   const isHome = document.body.classList.contains('page-home');
+  let searchEntriesPromise = null;
+  const scrollTasks = new Set();
+  let hasScrollListener = false;
+  let isScrollTicking = false;
 
-  function initReadingProgress() {
-    return;
+  function bindScrollLoop() {
+    if (hasScrollListener) return;
+    hasScrollListener = true;
+    window.addEventListener('scroll', () => {
+      if (isScrollTicking) return;
+      isScrollTicking = true;
+      requestAnimationFrame(() => {
+        isScrollTicking = false;
+        scrollTasks.forEach((task) => {
+          task();
+        });
+      });
+    }, { passive: true });
+  }
+
+  function addScrollTask(task) {
+    if (typeof task !== 'function') {
+      return () => {};
+    }
+    bindScrollLoop();
+    scrollTasks.add(task);
+    return () => {
+      scrollTasks.delete(task);
+    };
+  }
+
+  function loadSearchEntries() {
+    if (searchEntriesPromise) {
+      return searchEntriesPromise;
+    }
+
+    searchEntriesPromise = fetch('/local-search.xml')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('search index load failed');
+        }
+        return res.text();
+      })
+      .then((str) => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(str, 'text/xml');
+        return xml.querySelectorAll('entry');
+      })
+      .catch(() => {
+        searchEntriesPromise = null;
+        return null;
+      });
+
+    return searchEntriesPromise;
   }
 
   function initTocButton() {
@@ -131,8 +182,8 @@
     };
 
     toggle();
-    window.addEventListener('scroll', toggle, { passive: true });
-    window.addEventListener('scroll', highlight, { passive: true });
+    addScrollTask(toggle);
+    addScrollTask(highlight);
     highlight();
   }
 
@@ -176,7 +227,15 @@
     document.body.appendChild(glow);
 
     let visible = false;
-    let mouseX = 0, mouseY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let rafId = 0;
+
+    const updatePosition = () => {
+      rafId = 0;
+      glow.style.left = mouseX + 'px';
+      glow.style.top = mouseY + 'px';
+    };
 
     document.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -185,19 +244,30 @@
         glow.classList.add('active');
         visible = true;
       }
+      if (!rafId) {
+        rafId = requestAnimationFrame(updatePosition);
+      }
     });
 
     document.addEventListener('mouseleave', () => {
       glow.classList.remove('active');
       visible = false;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
     });
 
-    function animate() {
-      glow.style.left = mouseX + 'px';
-      glow.style.top = mouseY + 'px';
-      requestAnimationFrame(animate);
-    }
-    animate();
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        glow.classList.remove('active');
+        visible = false;
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = 0;
+        }
+      }
+    });
   }
 
   function initPageTransition() {
@@ -304,7 +374,7 @@
     };
 
     toggle();
-    window.addEventListener('scroll', toggle, { passive: true });
+    addScrollTask(toggle);
 
     const headings = document.querySelectorAll('.markdown-body h1, .markdown-body h2, .markdown-body h3');
     const tocLinks = sidebar.querySelectorAll('.sidebar-toc-list a');
@@ -326,7 +396,7 @@
       });
     };
 
-    window.addEventListener('scroll', highlight, { passive: true });
+    addScrollTask(highlight);
     highlight();
 
     tocLinks.forEach(link => {
@@ -347,31 +417,38 @@
   function initArticleRecommend() {
     if (!isPost) return;
 
-    fetch('/local-search.xml')
-      .then(res => res.text())
-      .then(str => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(str, 'text/xml');
-        const entries = xml.querySelectorAll('entry');
-        
+    let didInit = false;
+
+    const tryInitRecommendations = () => {
+      if (didInit) return;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      if (total <= 0) return;
+      const percent = window.scrollY / total;
+      if (percent < 0.18) return;
+
+      didInit = true;
+
+      loadSearchEntries().then((entries) => {
+        if (!entries || entries.length === 0) return;
+
         const currentPath = window.location.pathname;
         const articles = [];
-        
-        entries.forEach((entry, i) => {
+
+        entries.forEach((entry) => {
           const url = entry.querySelector('url')?.textContent || '';
           if (url === currentPath) return;
           if (articles.length >= 3) return;
-          
+
           const title = entry.querySelector('title')?.textContent || '未命名';
           const content = entry.querySelector('content')?.textContent || '';
           const imgMatch = content.match(/<img[^>]+src=["']([^"']+)["']/i);
           const img = imgMatch ? imgMatch[1] : '/img/default.png';
-          
-          articles.push({ url, title, img, date: '' });
+
+          articles.push({ url, title, img });
         });
-        
+
         if (articles.length === 0) return;
-        
+
         const float = document.createElement('div');
         float.className = 'article-recommend-float';
         float.innerHTML = `
@@ -402,21 +479,26 @@
 
         const toggle = () => {
           if (closed) return;
-          const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight <= 0) return;
+          const scrollPercent = window.scrollY / docHeight;
           if (scrollPercent > 0.3 && !shown) {
             float.classList.add('show');
             shown = true;
           }
         };
 
-        window.addEventListener('scroll', toggle, { passive: true });
+        addScrollTask(toggle);
 
         float.querySelector('.article-recommend-close').addEventListener('click', () => {
           float.classList.remove('show');
           closed = true;
         });
-      })
-      .catch(() => {});
+      });
+    };
+
+    addScrollTask(tryInitRecommendations);
+    tryInitRecommendations();
   }
 
   function initImageLazyLoad() {
@@ -450,23 +532,7 @@
     }
   }
 
-  function initAnimationThrottle() {
-    let ticking = false;
-    
-    const throttledScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', throttledScroll, { passive: true });
-  }
-
   function bootstrap() {
-    initReadingProgress();
     initTocButton();
     initHomeAvatarCard();
     initCursorGlow();
@@ -475,7 +541,6 @@
     initSidebarToc();
     initArticleRecommend();
     initImageLazyLoad();
-    initAnimationThrottle();
   }
 
   if (document.readyState !== 'loading') {

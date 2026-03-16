@@ -1025,6 +1025,36 @@ footer,
   }
 }
 
+@media (max-width: 991px) {
+  .cursor-glow,
+  .page-transition {
+    display: none;
+  }
+
+  .toc-float-panel,
+  .article-recommend-float,
+  .home-avatar-card,
+  .reward-modal,
+  .reward-modal-content {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .home-avatar-card,
+  .article-recommend-float,
+  .toc-float-panel,
+  .reward-modal-content,
+  .reward-float-btn {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  .index-card:hover,
+  .home-avatar-card:hover,
+  .home-avatar-card .social-links a:hover {
+    animation: none;
+  }
+}
+
 /* ========== 留言板页面 ========== */
 .guestbook-page {
   max-width: 800px;
