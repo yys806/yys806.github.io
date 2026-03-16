@@ -1,5 +1,7 @@
 # Reading progress
-#reading-progress {
+#reading-progress,
+#reading-progress-bar,
+.reading-progress-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -1082,5 +1084,4 @@ footer,
   color: var(--sec-text-color, #718096);
   line-height: 1.8;
 }
-
 

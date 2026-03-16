@@ -1,68 +1,60 @@
-/* global Fluid, CONFIG */
+(function () {
+  function isPostPage() {
+    return document.body.classList.contains('page-post');
+  }
 
-Fluid.plugins = Fluid.plugins || {};
+  function getOrCreateBar() {
+    var bar = document.getElementById('reading-progress') || document.getElementById('reading-progress-bar');
+    if (bar) {
+      return bar;
+    }
+    bar = document.createElement('div');
+    bar.id = 'reading-progress';
+    bar.setAttribute('role', 'progressbar');
+    bar.setAttribute('aria-label', '阅读进度');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', '100');
+    bar.setAttribute('aria-valuenow', '0');
+    document.body.insertBefore(bar, document.body.firstChild);
+    return bar;
+  }
 
-Fluid.plugins.readingProgress = {
-  init: function() {
-    if (!document.body.classList.contains('page-post')) {
+  function init() {
+    if (!isPostPage()) {
       return;
     }
-    this.createProgressBar();
-    this.bindEvents();
-  },
-  
-  createProgressBar: function() {
-    var progressBar = document.createElement('div');
-    progressBar.className = 'reading-progress-bar';
-    progressBar.id = 'reading-progress-bar';
-    progressBar.setAttribute('role', 'progressbar');
-    progressBar.setAttribute('aria-label', '阅读进度');
-    progressBar.setAttribute('aria-valuemin', '0');
-    progressBar.setAttribute('aria-valuemax', '100');
-    progressBar.setAttribute('aria-valuenow', '0');
-    document.body.insertBefore(progressBar, document.body.firstChild);
-  },
-  
-  bindEvents: function() {
-    var self = this;
+
+    var bar = getOrCreateBar();
     var ticking = false;
-    
-    window.addEventListener('scroll', function() {
+
+    function update() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var percent = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+      var val = Math.round(percent * 100);
+      bar.style.transform = 'scaleX(' + percent + ')';
+      bar.style.width = '100%';
+      bar.setAttribute('aria-valuenow', String(val));
+    }
+
+    function onScroll() {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
-          self.updateProgress();
+        window.requestAnimationFrame(function () {
+          update();
           ticking = false;
         });
         ticking = true;
       }
-    }, { passive: true });
-    
-    this.updateProgress();
-  },
-  
-  updateProgress: function() {
-    var progressBar = document.getElementById('reading-progress-bar');
-    if (!progressBar) return;
-    
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    
-    if (docHeight <= 0) {
-      progressBar.style.width = '0%';
-      return;
     }
-    
-    var progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
-    var progressInt = Math.round(progress);
-    
-    progressBar.style.width = progress + '%';
-    progressBar.setAttribute('aria-valuenow', progressInt);
-    progressBar.setAttribute('data-progress', progressInt);
-  }
-};
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof CONFIG !== 'undefined' && CONFIG.reading_progress && CONFIG.reading_progress.enable) {
-    Fluid.plugins.readingProgress.init();
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', update);
   }
-});
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
