@@ -1,6 +1,6 @@
 ---
 title: 给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件
-date: 2026-01-16 16：08：00
+date: 2026-01-16 16:08:00
 categories: 开发
 tags: 公用
 ---
