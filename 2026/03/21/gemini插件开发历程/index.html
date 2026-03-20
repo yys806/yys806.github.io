@@ -15,21 +15,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#f9fafb">
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
     <meta name="description" content="💡 起因：长对话的“迷路”困境作为一名重度 AI 用户，我每天都在 Google Gemini 上进行大量的长文本对话。无论是写代码、分析文档还是头脑风暴，一个 Session 往往会拖得很长。 这时候，DeepSeek 的 UI 设计给了我很大的触动。它的右侧有一个极简的 Minimap（缩略图导航）：平时只是一排低调的刻度，鼠标放上去就能看到所有提问的目录，点击即达。 反观 Gemini，虽">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件">
-<meta property="og:url" content="http://example.com/2026/01/16/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/index.html">
+<meta property="og:url" content="http://example.com/2026/03/21/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/index.html">
 <meta property="og:site_name" content="SHEN-BLOG">
 <meta property="og:description" content="💡 起因：长对话的“迷路”困境作为一名重度 AI 用户，我每天都在 Google Gemini 上进行大量的长文本对话。无论是写代码、分析文档还是头脑风暴，一个 Session 往往会拖得很长。 这时候，DeepSeek 的 UI 设计给了我很大的触动。它的右侧有一个极简的 Minimap（缩略图导航）：平时只是一排低调的刻度，鼠标放上去就能看到所有提问的目录，点击即达。 反观 Gemini，虽">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/260116hide.png">
 <meta property="og:image" content="http://example.com/images/260116active.png">
-<meta property="article:published_time" content="2026-01-16T08:08:00.000Z">
-<meta property="article:modified_time" content="2026-03-19T17:57:06.891Z">
+<meta property="article:published_time" content="2026-03-20T16:31:48.091Z">
+<meta property="article:modified_time" content="2026-03-20T16:31:48.091Z">
 <meta property="article:author" content="Leo shen">
 <meta property="article:tag" content="公用">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,14 +73,13 @@
 
   
 <link rel="stylesheet" href="/css/glass.css">
-<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -93,10 +92,10 @@
 
 
   
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body class="page-post">
+<body>
   
 
   <header>
@@ -202,7 +201,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/images/background.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -219,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-16 16:08" pubdate>
-          2026年1月16日 下午
+        <time datetime="2026-03-21 00:31" pubdate>
+          2026年3月21日 凌晨
         </time>
       </span>
     
@@ -398,7 +397,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件</div>
-      <div>http://example.com/2026/01/16/gemini插件开发历程/</div>
+      <div>http://example.com/2026/03/21/gemini插件开发历程/</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +409,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月16日</div>
+          <div>2026年3月21日</div>
         </div>
       
       
@@ -442,18 +441,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/" title="个人开发网站的阶段性总结">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">个人开发网站的阶段性总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/" title="我有服务器啦">
-                        <span class="hidden-mobile">我有服务器啦</span>
+                      <a href="/2026/03/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E5%91%BD%E4%BB%A4%E5%92%8C%E6%8A%80%E5%B7%A7/" title="开发中遇到的各种命令和技巧（持续更新）">
+                        <span class="hidden-mobile">开发中遇到的各种命令和技巧（持续更新）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -585,22 +578,13 @@
     
 
     
-      <div class="col-lg-7 mx-auto nopadding-x-md">
-        <div class="container custom mx-auto">
-          <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
-        </div>
-      </div>
-    
   </main>
 
   <footer>
     <div class="footer-inner">
   
     <div class="footer-content">
-      <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a>
-<i class="iconfont icon-love"></i>
-<a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a>
-
+       <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a> <i class="iconfont icon-love"></i> <a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a> 
     </div>
   
   
@@ -650,10 +634,6 @@
   
     <script  src="/js/img-lazyload.js" ></script>
   
-
-
-
-  <script  src="/js/reading-progress.js" ></script>
 
 
 
@@ -754,10 +734,6 @@
   <script  src="/js/local-search.js" ></script>
 
 
-
-
-  
-<script src="/js/custom.js"></script>
 
 
 
