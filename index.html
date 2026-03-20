@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#f9fafb">
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
@@ -59,13 +59,14 @@
 
   
 <link rel="stylesheet" href="/css/glass.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true}};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -78,10 +79,10 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+</head>
 
 
-<body>
+<body class="page-home">
   
 
   <header>
@@ -187,7 +188,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/images/background.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -225,31 +226,33 @@
                 
 
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/03/21/test/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="test">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/03/21/test/" target="_self">
           test
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/21/test/" target="_self">
-        <div>
-          这是一个测试
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-21 00:46" pubdate>
-              2026-03-21
-            </time>
+            <span class="pill">
+              <time datetime="2026-03-21 00:46" pubdate>
+                2026-03-21
+              </time>
+            </span>
           </div>
         
         
@@ -258,37 +261,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/03/21/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
+          <img src="/images/260116hide.png" srcset="/img/loading.gif" lazyload alt="给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/03/21/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
           给 Gemini 装上“透视眼”：我如何用 AI 手搓了一个 DeepSeek 风格的侧边导航插件
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/21/gemini%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
-        <div>
-          💡 起因：长对话的“迷路”困境作为一名重度 AI 用户，我每天都在 Google Gemini 上进行大量的长文本对话。无论是写代码、分析文档还是头脑风暴，一个 Session 往往会拖得很长。 这时候，DeepSeek 的 UI 设计给了我很大的触动。它的右侧有一个极简的 Minimap（缩略图导航）：平时只是一排低调的刻度，鼠标放上去就能看到所有提问的目录，点击即达。 反观 Gemini，虽
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-21 00:31" pubdate>
-              2026-03-21
-            </time>
+            <span class="pill">
+              <time datetime="2026-03-21 00:31" pubdate>
+                2026-03-21
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -305,13 +311,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -319,37 +326,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/03/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E5%91%BD%E4%BB%A4%E5%92%8C%E6%8A%80%E5%B7%A7/" target="_self">
+          <img src="https://work-1321607658.cos.ap-guangzhou.myqcloud.com/20260213154450975.png" srcset="/img/loading.gif" lazyload alt="开发中遇到的各种命令和技巧（持续更新）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/03/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E5%91%BD%E4%BB%A4%E5%92%8C%E6%8A%80%E5%B7%A7/" target="_self">
           开发中遇到的各种命令和技巧（持续更新）
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/20/%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E5%90%84%E7%A7%8D%E5%91%BD%E4%BB%A4%E5%92%8C%E6%8A%80%E5%B7%A7/" target="_self">
-        <div>
-          前言这个博客用于介绍我在开发的过程中遇到的各种问题与技巧，命令等，对我比较有帮助的，这个贴子将会持续更新 一、git命令1git init  1git remote add origin XXX  1git add .(git add --all)  1git commit -m &quot;XXX&quot;  1git push origin main  要是不行就：1git pull ori
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-20 23:47" pubdate>
-              2026-03-20
-            </time>
+            <span class="pill">
+              <time datetime="2026-03-20 23:47" pubdate>
+                2026-03-20
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -366,13 +376,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -380,37 +391,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/03/15/2026-03-15-mcp-skills-inventory-guide/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="MCP与Skills全量清单（持续更新）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/03/15/2026-03-15-mcp-skills-inventory-guide/" target="_self">
           MCP与Skills全量清单（持续更新）
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/03/15/2026-03-15-mcp-skills-inventory-guide/" target="_self">
-        <div>
-          这篇是我的 MCP 和 Skills 实战清单。后续新增能力会持续补到这里，避免信息分散。 我现在的 Skills（含新增）本地安装 Skills RedBookSkills：小红书自动发布、登录检查、内容检索与互动。 yt-dlp-downloader：多平台视频下载、提取音频、字幕处理。 blog：Hexo 博客写作、改稿、构建、发布流程。 website-organizer：WebStack
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-03-15 21:30" pubdate>
-              2026-03-15
-            </time>
+            <span class="pill">
+              <time datetime="2026-03-15 21:30" pubdate>
+                2026-03-15
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -427,19 +441,20 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/AI/">#AI</a>
+              <a class="pill" href="/tags/AI/">#AI</a>
             
-              <a href="/tags/MCP/">#MCP</a>
+              <a class="pill" href="/tags/MCP/">#MCP</a>
             
-              <a href="/tags/Skills/">#Skills</a>
+              <a class="pill" href="/tags/Skills/">#Skills</a>
             
-              <a href="/tags/Claude-Code/">#Claude Code</a>
+              <a class="pill" href="/tags/Claude-Code/">#Claude Code</a>
             
           </div>
         
@@ -447,37 +462,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/02/21/%E5%A4%A7%E5%B9%B4%E5%88%9D%E5%9B%9B%E5%A5%87%E9%81%87%E8%AE%B0/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="大年初四奇遇记">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/02/21/%E5%A4%A7%E5%B9%B4%E5%88%9D%E5%9B%9B%E5%A5%87%E9%81%87%E8%AE%B0/" target="_self">
           大年初四奇遇记
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/02/21/%E5%A4%A7%E5%B9%B4%E5%88%9D%E5%9B%9B%E5%A5%87%E9%81%87%E8%AE%B0/" target="_self">
-        <div>
-          生命中的某些事情是真的奇妙，就比如昨天，就是奇妙的一天。 昨天不知道是不是不宜出行，我也没有看过运势什么的，但是现在回想起来，确实是不宜。 吃过早饭，爸爸说带我去洗头，本来应该开门的理发店都关了门，我们只能回家。 后来，爸妈要去做客，奶奶前面提醒过他们注意一个岔路口要往左手边走，但是他们往了右边，结果直接看到了澜沧江，后面才找到了去做客的路。 晌午时分，我们接到了爷爷的通知，爷爷在澜沧江外拉货的时
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-02-21 02:07" pubdate>
-              2026-02-21
-            </time>
+            <span class="pill">
+              <time datetime="2026-02-21 02:07" pubdate>
+                2026-02-21
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -494,13 +512,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -508,37 +527,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/02/18/discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
+          <img src="/images/260218-1.png" srcset="/img/loading.gif" lazyload alt="discord机器人开发历程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/02/18/discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
           discord机器人开发历程
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/02/18/discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" target="_self">
-        <div>
-          前言前面了解到可以做discord机器人，可以直接使用命令聊天，我就做了一个，基本上复现了我前面在服务器上面部署的AStrBot的QQ机器人，包含多种功能，而且这个我可以自己DIY，添加自己想要的功能，而不用被插件市场限制住，我前面也做了一个机器人，但是当时vibe coding还不是很成熟，我自己也不是很精通代码，所以就搁置了，随着各种code工具和AI的兴起，我也应着openclaw的热潮做了
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-02-18 07:47" pubdate>
-              2026-02-18
-            </time>
+            <span class="pill">
+              <time datetime="2026-02-18 07:47" pubdate>
+                2026-02-18
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -555,13 +577,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -569,37 +592,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/02/18/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" target="_self">
+          <img src="https://work-1321607658.cos.ap-guangzhou.myqcloud.com/f725644fedc6914c4692222fabf5b6ba.jpg" srcset="/img/loading.gif" lazyload alt="AI工具使用指南（持续更新）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/02/18/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" target="_self">
           AI工具使用指南（持续更新）
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/02/18/AI%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" target="_self">
-        <div>
-          前言本篇博客用于记录我使用新发行的各种AI工具的详细教程，比如前面的claude code， open code以及openclaw，这篇同样会持续更新，以便我跟上AI时代的节奏。 一、claude code（1）开始结束指令claude code开始：claude claude code router开始：ccr start&#x2F;ccr code 结束：ccr stop （2）Config
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-02-18 07:45" pubdate>
-              2026-02-18
-            </time>
+            <span class="pill">
+              <time datetime="2026-02-18 07:45" pubdate>
+                2026-02-18
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -616,13 +642,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -630,37 +657,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/02/05/%E9%AD%94%E6%96%B9%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="魔方公式总结">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/02/05/%E9%AD%94%E6%96%B9%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93/" target="_self">
           魔方公式总结
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/02/05/%E9%AD%94%E6%96%B9%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93/" target="_self">
-        <div>
-          玩了好多年的魔方，有时候总是在假期回来玩的时候就忘记了，而没有系统地总结过，现在就总结一下我用的魔方公式。 写在前面对于正方形的魔方，他的正常的颜色顺序应该是（以白色在底来看）：黄色在上，然后侧面依次是蓝、红、绿、橙。如果不是这个顺序，大概率是弄错了（尤其是四阶魔方和六阶魔方）。 二阶魔方 拼底层：上 左 下 右  拼小鱼（顶层左上角）：下右 上右 下右 右上    顶层有两个黄色，黄色放在左前方
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-02-05 15:20" pubdate>
-              2026-02-05
-            </time>
+            <span class="pill">
+              <time datetime="2026-02-05 15:20" pubdate>
+                2026-02-05
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -677,13 +707,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -691,37 +722,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/01/30/%E5%81%87%E6%9C%9F%E4%BB%A5%E6%9D%A5%E5%A4%8D%E5%88%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/" target="_self">
+          <img src="/images/260130-9.png" srcset="/img/loading.gif" lazyload alt="假期以来复刻的小项目">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/01/30/%E5%81%87%E6%9C%9F%E4%BB%A5%E6%9D%A5%E5%A4%8D%E5%88%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/" target="_self">
           假期以来复刻的小项目
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/01/30/%E5%81%87%E6%9C%9F%E4%BB%A5%E6%9D%A5%E5%A4%8D%E5%88%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/" target="_self">
-        <div>
-          这个假期在放假前，我就物色好了两个项目，一个是语音开关灯，一个是嘉立创卡片。本来还有一个小车的项目，但是感觉做科研，空闲时间不太够，就搁置了。 一、语音开关灯我是在b站上面看到的，教程是https://www.bilibili.com/video/BV1ADmbYEEGp/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=b328f
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-01-30 10:51" pubdate>
-              2026-01-30
-            </time>
+            <span class="pill">
+              <time datetime="2026-01-30 10:51" pubdate>
+                2026-01-30
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -738,13 +772,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -752,37 +787,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/01/30/%E6%96%B0%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D%E9%A1%B5%E6%9B%B4%E6%96%B0/" target="_self">
+          <img src="/images/260130-1.png" srcset="/img/loading.gif" lazyload alt="新网站开发与个人介绍页更新">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/01/30/%E6%96%B0%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D%E9%A1%B5%E6%9B%B4%E6%96%B0/" target="_self">
           新网站开发与个人介绍页更新
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/01/30/%E6%96%B0%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%AA%E4%BA%BA%E4%BB%8B%E7%BB%8D%E9%A1%B5%E6%9B%B4%E6%96%B0/" target="_self">
-        <div>
-          一、新网站开发由于我要进行科研，我的科研项目是PG-MAD-GAIL (Progressive Guided Multi-Agent Diffusion for Robust Traffic Generation)。我是25年11月开始的这个项目，找了老师，但是后面由于期末考和其他的大作业，就一直拖到了放假才开始，但是我途中萌生了退出的想法，因为看不到希望。 但是我后面又想想，即使发不出来论文，但
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-01-30 10:03" pubdate>
-              2026-01-30
-            </time>
+            <span class="pill">
+              <time datetime="2026-01-30 10:03" pubdate>
+                2026-01-30
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -799,13 +837,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -861,13 +900,22 @@
     
 
     
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+        </div>
+      </div>
+    
   </main>
 
   <footer>
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a> <i class="iconfont icon-love"></i> <a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a> 
+      <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a>
+<i class="iconfont icon-love"></i>
+<a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a>
+
     </div>
   
   
@@ -920,10 +968,18 @@
 
 
 
+  <script  src="/js/reading-progress.js" ></script>
+
+
+
 
   <script  src="/js/local-search.js" ></script>
 
 
+
+
+  
+<script src="/js/custom.js"></script>
 
 
 

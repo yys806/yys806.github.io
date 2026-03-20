@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#f9fafb">
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
@@ -59,13 +59,14 @@
 
   
 <link rel="stylesheet" href="/css/glass.css">
+<link rel="stylesheet" href="/css/custom.css">
 
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true}};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -78,10 +79,10 @@
 
 
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+</head>
 
 
-<body>
+<body class="page-home">
   
 
   <header>
@@ -187,7 +188,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/images/background.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -225,37 +226,40 @@
                 
 
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/" target="_self">
+          <img src="/images/260120-1.png" srcset="/img/loading.gif" lazyload alt="个人开发网站的阶段性总结">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/" target="_self">
           个人开发网站的阶段性总结
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2026/01/20/%E4%B8%AA%E4%BA%BA%E5%BC%80%E5%8F%91%E7%BD%91%E7%AB%99%E7%9A%84%E9%98%B6%E6%AE%B5%E6%80%A7%E6%80%BB%E7%BB%93/" target="_self">
-        <div>
-          总述从2025年3月份开始，我就已经开始开发个人网站，说是开发，其实更确切的是复刻，我时常看见B站上面的一些有趣的东西，就想自己动手开发看看； 后来，随着google的build模式的推出，我更加迷上了网站开发，一方面是提升自己的能力，另一方面也是感觉比较好玩，而且确实有点用处。 这些网站都是直接部署在netlify上面，我前面用的都是Vercel，但是Vercel对我的自定义免费域名不是很友好，
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2026-01-20 14:07" pubdate>
-              2026-01-20
-            </time>
+            <span class="pill">
+              <time datetime="2026-01-20 14:07" pubdate>
+                2026-01-20
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -272,13 +276,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -286,37 +291,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/" target="_self">
+          <img src="/images/%E8%85%BE%E8%AE%AF%E4%BA%91.png" srcset="/img/loading.gif" lazyload alt="我有服务器啦">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/" target="_self">
           我有服务器啦
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/" target="_self">
-        <div>
-          一、前言在最近，我购买了一个腾讯云的服务器，一年99元，而且第二年续费同价，本来我想买便宜一点的服务器，但是便宜的第二年续费都巨贵，所以为了我的这些服务能够更加长久，我就选择了这个服务器。 服务器的IP是101.35.157.169，配置是2核2g的，4M带宽，系统盘是50GB，对于我的基本需求是够用了。  二、这个服务器的用途为了使用这个服务器，我使用了宝塔面板这个平台，这样搭建各种服务都会更加
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-25 00:28" pubdate>
-              2025-09-25
-            </time>
+            <span class="pill">
+              <time datetime="2025-09-25 00:28" pubdate>
+                2025-09-25
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -333,13 +341,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -347,37 +356,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2025/09/06/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%8C%87%E5%8D%97/" target="_self">
+          <img src="/images/hugo.jpg" srcset="/img/loading.gif" lazyload alt="个人网站维护指南">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2025/09/06/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%8C%87%E5%8D%97/" target="_self">
           个人网站维护指南
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/09/06/%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4%E6%8C%87%E5%8D%97/" target="_self">
-        <div>
-          1.MP1（个人介绍网站）1git status 1git add . 1git commit -m “update name and headline”(自定义) 1git push origin main  2.Hugo（个人导航站） 3.Hexo（个人博客）三合一1hexo clean 1hexo generate 1hexo deploy 新博客1hexo new post xxx  新的
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-06 15:29" pubdate>
-              2025-09-06
-            </time>
+            <span class="pill">
+              <time datetime="2025-09-06 15:29" pubdate>
+                2025-09-06
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -394,13 +406,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%87%AA%E7%94%A8/">#自用</a>
+              <a class="pill" href="/tags/%E8%87%AA%E7%94%A8/">#自用</a>
             
           </div>
         
@@ -408,37 +421,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2025/09/04/Claude%20Code%E5%91%BD%E4%BB%A4%E6%95%99%E7%A8%8B/" target="_self">
+          <img src="/img/default.png" srcset="/img/loading.gif" lazyload alt="Claude Code命令教程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2025/09/04/Claude%20Code%E5%91%BD%E4%BB%A4%E6%95%99%E7%A8%8B/" target="_self">
           Claude Code命令教程
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/09/04/Claude%20Code%E5%91%BD%E4%BB%A4%E6%95%99%E7%A8%8B/" target="_self">
-        <div>
-          一、开始结束指令claude code开始：claude claude code router开始：ccr start&#x2F;ccr code结束：ccr stop 二、Config配置（Router）1.Qwen3:12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-09-04 19:07" pubdate>
-              2025-09-04
-            </time>
+            <span class="pill">
+              <time datetime="2025-09-04 19:07" pubdate>
+                2025-09-04
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -455,13 +471,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -469,37 +486,40 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+    
+    
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
+        <a href="/2025/05/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
+          <img src="/images/1.jpg" srcset="/img/loading.gif" lazyload alt="我的第一篇博客">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         
         <a href="/2025/05/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
           我的第一篇博客
         </a>
       </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2025/05/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
-        <div>
-          你们好呀！ 这是我第一次做博客，我也不知道怎么写，就随便写写吧！ 写这篇博客时，我是一名大二在读学生，就读于同济大学人工智能专业 开这个博客网站主要是因为兴趣，也希望能在上面记录一些有用的，好玩的东西，不光是给自己看，也希望能给别人带来一些帮助。
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2025-05-07 19:51" pubdate>
-              2025-05-07
-            </time>
+            <span class="pill">
+              <time datetime="2025-05-07 19:51" pubdate>
+                2025-05-07
+              </time>
+            </span>
           </div>
         
         
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            
+            <span class="pill">
+              
 
 <span class="category-chains">
   
@@ -516,13 +536,14 @@
   
 </span>
 
+            </span>
           </div>
         
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
+              <a class="pill" href="/tags/%E5%85%AC%E7%94%A8/">#公用</a>
             
           </div>
         
@@ -578,13 +599,22 @@
     
 
     
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+        </div>
+      </div>
+    
   </main>
 
   <footer>
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a> <i class="iconfont icon-love"></i> <a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a> 
+      <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a>
+<i class="iconfont icon-love"></i>
+<a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a>
+
     </div>
   
   
@@ -637,10 +667,18 @@
 
 
 
+  <script  src="/js/reading-progress.js" ></script>
+
+
+
 
   <script  src="/js/local-search.js" ></script>
 
 
+
+
+  
+<script src="/js/custom.js"></script>
 
 
 
