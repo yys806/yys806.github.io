@@ -125,6 +125,11 @@ fun_features:
     # See: https://github.com/rstacruz/nprogress
     options: { showSpinner: false, trickleSpeed: 100 }
 
+# 阅读进度条，固定在页面顶部显示阅读进度
+# Reading progress bar at the top of the page
+reading_progress:
+  enable: true
+
 # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
 # Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
 dark_mode:
@@ -138,21 +143,17 @@ dark_mode:
 # Theme color, please use custom CSS to solve other colors, color schema can be inspired by the links below
 # See: https://www.webdesignrankings.com/resources/lolcolors/
 color:
-  # body 背景色
-  # Color of body background
-  body_bg_color: "#eee"
-  # 暗色模式下的 body 背景色，下同
-  # Color in dark mode, the same below
-  body_bg_color_dark: "#181c27"
+  body_bg_color: "#e7ecf5"
+  body_bg_color_dark: "#0b1220"
 
   # 顶部菜单背景色
   # Color of navigation bar background
-  navbar_bg_color: "#2f4154"
+  navbar_bg_color: "#f9fafb"
   navbar_bg_color_dark: "#1f3144"
 
   # 顶部菜单字体色
   # Color of navigation bar text
-  navbar_text_color: "#fff"
+  navbar_text_color: "#1f2d3d"
   navbar_text_color_dark: "#d0d0d0"
 
   # 副标题字体色
@@ -227,7 +228,7 @@ color:
 # Font
 font:
   font_size: 16px
-  font_family:
+  font_family: "'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
   letter_spacing: 0.02em
   code_font_size: 85%
 
@@ -238,6 +239,7 @@ custom_js:
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
 custom_css:
+  - /css/glass.css
 
 # 网页访问统计
 # Analysis of website visitors
@@ -353,16 +355,9 @@ navbar:
   # 导航栏毛玻璃特效，实验性功能，可能会造成页面滚动掉帧和抖动，部分浏览器不支持会自动不生效
   # Navigation bar frosted glass special animation. It is an experimental feature
   ground_glass:
-    enable: false
-
-    # 模糊像素，只能为数字，数字越大模糊度越高
-    # Number of blurred pixel. the larger the number, the higher the blur
-    px: 3
-
-    # 不透明度，数字越大透明度越低，注意透明过度可能看不清菜单字体
-    # Ratio of opacity, 1.0 is completely opaque
-    # available: 0 - 1.0
-    alpha: 0.7
+    enable: true
+    px: 18
+    alpha: 0.68
 
   # 导航栏菜单，可自行增减，key 用来关联 languages/*.yml，如不存在关联则显示 key 本身的值；icon 是 css class，可以省略；增加 name 可以强制显示指定名称
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
@@ -445,11 +440,10 @@ open_graph:
 footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
-  content: '
+  content: |
     <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a>
-  '
 
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics

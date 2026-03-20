@@ -8,16 +8,18 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
 %>
 
 <% page.posts.each(function (post) { %>
-  <div class="row mx-auto index-card">
+  <div class="row mx-auto index-card align-items-center flex-md-nowrap">
     <% var post_url = url_for(post.path), index_img = post.index_img || theme.post.default_index_img %>
+    <% if (!index_img && post.content) { var m = post.content.match(/<img[^>]+src=["']([^"']+)["']/i); if (m) { index_img = m[1]; } } %>
+    <% if (!index_img) { index_img = '/img/default.png'; } %>
     <% if (index_img) { %>
-      <div class="col-12 col-md-4 m-auto index-img">
+      <div class="col-12 col-md-4 d-flex align-items-center justify-content-end index-img order-2 order-md-2">
         <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
           <img src="<%= url_for(index_img) %>" alt="<%= post.title %>">
         </a>
       </div>
     <% } %>
-    <article class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info">
+    <article class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info order-1 order-md-1">
       <h2 class="index-header">
         <% if (theme.index.post_sticky && theme.index.post_sticky.enable && post.sticky > 0) { %>
           <i class="index-pin <%= theme.index.post_sticky && theme.index.post_sticky.icon %>" title="Pin on top"></i>
@@ -26,34 +28,30 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           <%= post.title %>
         </a>
       </h2>
-
-      <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && !post.encrypt && post.content) %>
-      <a class="index-excerpt <%= index_img ? '' : 'index-excerpt__noimg' %>" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
-        <div>
-          <%- strip_html(excerpt).substring(0, 200).trim().replace(/\n/g, ' ') %>
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         <% if (theme.index.post_meta.date) { %>
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
-              <%- date(post.date, config.date_format) %>
-            </time>
+            <span class="pill">
+              <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
+                <%- date(post.date, config.date_format) %>
+              </time>
+            </span>
           </div>
         <% } %>
         <% if (theme.index.post_meta.category && post.categories.length > 0) { %>
           <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
-            <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
+            <span class="pill">
+              <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
+            </span>
           </div>
         <% } %>
         <% if (theme.index.post_meta.tag && post.tags.length > 0) { %>
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             <% post.tags.each(function(tag){ %>
-              <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
+              <a class="pill" href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
             <% }) %>
           </div>
         <% } %>

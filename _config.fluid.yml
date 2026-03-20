@@ -7,8 +7,15 @@ navbar:
     px: 18
     alpha: 0.68
 
+custom_js:
+  - /js/custom.js
+
 custom_css:
   - /css/glass.css
+  - /css/custom.css
+
+custom_html:
+  - <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 font:
   font_family: "'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
@@ -16,3 +23,49 @@ font:
 color:
   body_bg_color: "#e7ecf5"
   body_bg_color_dark: "#0b1220"
+
+index:
+  banner_img: /images/background.png
+  banner_img_height: 100
+  banner_mask_alpha: 0.3
+
+post:
+  banner_img: /images/background.png
+  banner_img_height: 70
+  banner_mask_alpha: 0.3
+
+archive:
+  banner_img: /images/background.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+
+category:
+  banner_img: /images/background.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+
+tag:
+  banner_img: /images/background.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+
+about:
+  banner_img: /images/background.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+  avatar: /images/avatar.gif
+  name: "珅哥"
+  intro: "欢迎来到我的博客"
+  icons:
+    - { class: "iconfont icon-github-fill", link: "https://github.com/yys806", tip: "GitHub" }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/images/微信.jpg" }
+
+page:
+  banner_img: /images/background.png
+  banner_img_height: 80
+  banner_mask_alpha: 0.3
+
+page404:
+  banner_img: /images/background.png
+  banner_img_height: 85
+  banner_mask_alpha: 0.3

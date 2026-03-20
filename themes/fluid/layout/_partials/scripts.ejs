@@ -16,6 +16,10 @@
   <% } %>
 <% } %>
 
+<% if (theme.reading_progress && theme.reading_progress.enable) { %>
+  <%- js_ex(theme.static_prefix.internal_js, 'reading-progress.js') %>
+<% } %>
+
 <% var script_snippets = deduplicate(page.script_snippets) %>
 <% for (var idx = 0; idx < script_snippets.length; idx++) { %>
   <%- script_snippets[idx] %>
