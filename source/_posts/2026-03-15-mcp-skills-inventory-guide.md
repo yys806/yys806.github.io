@@ -1,8 +1,8 @@
 ---
 title: MCP与Skills全量清单（持续更新）
 date: 2026-03-15 21:30:00
-categories: 教程
-tags: [AI, MCP, Skills, Claude Code]
+categories: 开发
+tags: 公用
 ---
 
 这篇是我的 MCP 和 Skills 实战清单。后续新增能力会持续补到这里，避免信息分散。
@@ -11,10 +11,7 @@ tags: [AI, MCP, Skills, Claude Code]
 
 ### 本地安装 Skills
 
-- `RedBookSkills`：小红书自动发布、登录检查、内容检索与互动。
 - `yt-dlp-downloader`：多平台视频下载、提取音频、字幕处理。
-- `blog`：Hexo 博客写作、改稿、构建、发布流程。
-- `website-organizer`：WebStack-Hugo 导航站条目维护与构建。
 - `xlsx`：表格处理、公式、分析与格式整理。
 - `pdf`：PDF 提取、拆分、合并、表单处理。
 - `docx`：Word 文档编辑、修订、批注与格式保留。
@@ -25,8 +22,8 @@ tags: [AI, MCP, Skills, Claude Code]
 - `skill-creator`：创建和迭代 skill 的标准流程。
 - `planning-with-files`：复杂任务文件化计划管理。
 - `netlify-auto-deploy`：Netlify 自动部署。
-- `inspiration-generator`（新增）：面向网页/App/博客创意生成，要求先查最新信息，再给结构化方案。
-- `极客日报 / geek-daily`（新增）：自动抓取 AI/科技最新新闻、生成稿件与配图方案，接入小红书发布流程。
+- `paper-experiment`：论文中的实验助手。
+- `paper-literature` ：论文中的写作助手。
 
 ### 内置 Skills
 
