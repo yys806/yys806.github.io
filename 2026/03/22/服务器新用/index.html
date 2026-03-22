@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/images/260322-5.png">
 <meta property="og:image" content="http://example.com/images/260322-6.png">
 <meta property="article:published_time" content="2026-03-22T07:18:51.000Z">
-<meta property="article:modified_time" content="2026-03-22T08:22:11.287Z">
+<meta property="article:modified_time" content="2026-03-22T08:23:54.956Z">
 <meta property="article:author" content="Leo shen">
 <meta property="article:tag" content="公用">
 <meta name="twitter:card" content="summary_large_image">
@@ -291,13 +291,13 @@
                 <p>最近由于我的原有的机器人的最重要的功能，搬史插件的QQ群失效了，所以我重新清理了一下我的腾讯云的服务器，并且购入了新的海外服务器。</p>
 <h1 id="一、国内服务器-腾讯云"><a href="#一、国内服务器-腾讯云" class="headerlink" title="一、国内服务器-腾讯云"></a>一、国内服务器-腾讯云</h1><p>这个服务器是我在去年的9月22日买的，2核2G，这我在前面的一篇文章也写到过:<a href="/2025/09/25/%E6%88%91%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%95%A6/" title="我有服务器啦">我有服务器啦</a>，主要做了情侣博客，openlist网盘和QQ机器人，其中情侣博客我是迁移到本地了，网盘也不怎么用得上，所以就都删除了，然后从一个相对空的服务器从新做起，主要是部署了两个东西：</p>
 <h2 id="1-Halo博客"><a href="#1-Halo博客" class="headerlink" title="1.Halo博客"></a>1.Halo博客</h2><p>以前就是想在服务器上面部署博客，但是我又担心数据在服务器到期的时候会丢失，所以就没有部署，但是现在为了让我的服务器用起来，我还是部署了一下，本来是在halo和wordpress这两个框架中选择，后面还是选择了halo，因为wordpress大部分都是英文，而halo中文友好一些，而且好用一点（个人感觉），其中我用了一个主题，特别好看，叫做theme-Ideaflow</p>
-<p>用户页面大概长这样：（<a target="_blank" rel="noopener" href="http://101.35.157.169:8080/%EF%BC%89">http://101.35.157.169:8080/）</a></p>
+<p>用户页面大概长这样：<a target="_blank" rel="noopener" href="http://101.35.157.169:8080/">http://101.35.157.169:8080/</a></p>
 <p><img src="/images/260322-1.png" srcset="/img/loading.gif" lazyload alt="halo博客用户页面"></p>
-<p>然后后端管理界面长这样：（<a target="_blank" rel="noopener" href="http://101.35.157.169:8080/console/dashboard%EF%BC%89">http://101.35.157.169:8080/console/dashboard）</a></p>
+<p>然后后端管理界面长这样：<a target="_blank" rel="noopener" href="http://101.35.157.169:8080/console/dashboard">http://101.35.157.169:8080/console/dashboard</a></p>
 <p><img src="/images/260322-2.png" srcset="/img/loading.gif" lazyload alt="halo博客后端"></p>
 <h2 id="2-n8n工作流"><a href="#2-n8n工作流" class="headerlink" title="2.n8n工作流"></a>2.n8n工作流</h2><p>这个是我前面在本地的docker中部署过，但是个人的PC无法24h运行，所以还是有点鸡肋，所以这次我就部署在服务器里面，这样就可以实时监听，收集我需要的信息，然后发给我，地址是：<a target="_blank" rel="noopener" href="http://101.35.157.169:5678/">http://101.35.157.169:5678/</a></p>
 <p><img src="/images/260322-3.png" srcset="/img/loading.gif" lazyload alt="n8n控制面板"></p>
-<p>我主要做了两个工作流，一个是自动每隔1h扫描我关注的b站up主有没有更新，如果更新了就发邮件通知我，为此我还专门在我的服务器上面搭建了RSShub，因为现有的hub访问量太大了，所以我都无法获取，而自己搭建一个就很方便（地址是：<a target="_blank" rel="noopener" href="http://101.35.157.169:5678/%EF%BC%89%E3%80%82">http://101.35.157.169:5678/）。</a></p>
+<p>我主要做了两个工作流，一个是自动每隔1h扫描我关注的b站up主有没有更新，如果更新了就发邮件通知我，为此我还专门在我的服务器上面搭建了RSShub，因为现有的hub访问量太大了，所以我都无法获取，而自己搭建一个就很方便，地址是：<a target="_blank" rel="noopener" href="http://101.35.157.169:5678/%E3%80%82">http://101.35.157.169:5678/。</a></p>
 <p>我主要是关注了秋芝2046，技术爬爬虾，极客湾这三个博主；还有一个就是用AI早报，我主要加了何夕2077以及Ker36这两个信息源，因为两个工作流是同样的逻辑，所以我就直接只放出一个的截图，都是RSS trigger触发，然后AI agent来进行资源的整合，然后通过markdown转为html，然后再发给我的邮箱：</p>
 <p><img src="/images/260322-4.png" srcset="/img/loading.gif" lazyload alt="n8n工作流"></p>
 <h1 id="二、海外服务器-clonecone"><a href="#二、海外服务器-clonecone" class="headerlink" title="二、海外服务器-clonecone"></a>二、海外服务器-clonecone</h1><p>这个服务器的购买的一开始的目的是为了跑我的Discord机器人，具体可以见这篇文章：<a href="/2026/02/18/discord%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/" title="discord机器人开发历程">discord机器人开发历程</a>，因为Discord是海外环境，我也尝试用我的自己的国内服务器跑，结果就是网络原因跑不起来，所以我就购入了一个口碑比较好的海外服务器，就是很实惠的。</p>
