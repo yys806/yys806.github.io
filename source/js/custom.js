@@ -204,7 +204,7 @@
       <div class="contact-info">
         <span>QQ: <a href="http://wpa.qq.com/msgrd?v=3&uin=3492675568&site=qq&menu=yes" target="_blank">3492675568</a></span>
         <span>微信: yys08060910</span>
-        <span>邮箱: <a href="mailto:3492675568@qq.com">3492675568@qq.com</a></span>
+        <span>邮箱: <a href="mailto:yaoshen806@qq.com">yaoshen806@qq.com</a></span>
       </div>
       <div class="social-links">
         <a href="https://github.com/yys806" target="_blank" title="GitHub">
