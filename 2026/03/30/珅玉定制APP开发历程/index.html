@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#f9fafb">
+  <meta name="author" content="Leo shen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="《珅玉定制》APP 功能开发历程（课程大作业版）这篇内容是我的《中国玉石与玉文化鉴赏》课程大作业说明文档。老师要求我不仅展示结果，还要说明选题背景、功能设计思路、实现路径与最终落地效果。 所以我采用“模块化功能说明”的方式来写：每个模块都讲清楚我做了什么、怎么实现、解决了什么问题。 课程背景与作业要求课程背景《中国玉石与玉文化鉴赏》这门课关注的不只是玉器本身，也包括玉文化在审美、礼仪、寓意与现代传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="珅玉定制APP开发历程">
+<meta property="og:url" content="http://example.com/2026/03/30/%E7%8F%85%E7%8E%89%E5%AE%9A%E5%88%B6APP%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/index.html">
+<meta property="og:site_name" content="SHEN-BLOG">
+<meta property="og:description" content="《珅玉定制》APP 功能开发历程（课程大作业版）这篇内容是我的《中国玉石与玉文化鉴赏》课程大作业说明文档。老师要求我不仅展示结果，还要说明选题背景、功能设计思路、实现路径与最终落地效果。 所以我采用“模块化功能说明”的方式来写：每个模块都讲清楚我做了什么、怎么实现、解决了什么问题。 课程背景与作业要求课程背景《中国玉石与玉文化鉴赏》这门课关注的不只是玉器本身，也包括玉文化在审美、礼仪、寓意与现代传">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/260330-1.png">
+<meta property="og:image" content="http://example.com/images/260330-2.png">
+<meta property="og:image" content="http://example.com/images/260330-4.png">
+<meta property="og:image" content="http://example.com/images/260330-3.png">
+<meta property="og:image" content="http://example.com/images/260330-5.png">
+<meta property="og:image" content="http://example.com/images/260330-6.png">
+<meta property="og:image" content="http://example.com/images/260330-7.png">
+<meta property="og:image" content="http://example.com/images/260330-8.png">
+<meta property="og:image" content="http://example.com/images/260330-9.png">
+<meta property="og:image" content="http://example.com/images/260330-10.png">
+<meta property="og:image" content="http://example.com/images/260330-11.png">
+<meta property="og:image" content="http://example.com/images/260330-12.png">
+<meta property="og:image" content="http://example.com/images/260330-13.png">
+<meta property="og:image" content="http://example.com/images/260330-14.png">
+<meta property="og:image" content="http://example.com/images/260330-15.png">
+<meta property="article:published_time" content="2026-03-30T09:08:37.000Z">
+<meta property="article:modified_time" content="2026-03-30T11:02:32.236Z">
+<meta property="article:author" content="Leo shen">
+<meta property="article:tag" content="公用">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/images/260330-1.png">
+  
+  
+  
+  <title>珅玉定制APP开发历程 - SHEN-BLOG</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/glass.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true,"reading_progress":{"enable":true}};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+</head>
+
+
+<body class="page-post">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>shen&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="珅玉定制APP开发历程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-30 17:08" pubdate>
+          2026年3月30日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">珅玉定制APP开发历程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="《珅玉定制》APP-功能开发历程（课程大作业版）"><a href="#《珅玉定制》APP-功能开发历程（课程大作业版）" class="headerlink" title="《珅玉定制》APP 功能开发历程（课程大作业版）"></a>《珅玉定制》APP 功能开发历程（课程大作业版）</h1><p>这篇内容是我的《中国玉石与玉文化鉴赏》课程大作业说明文档。老师要求我不仅展示结果，还要说明选题背景、功能设计思路、实现路径与最终落地效果。</p>
+<p>所以我采用“模块化功能说明”的方式来写：每个模块都讲清楚我做了什么、怎么实现、解决了什么问题。</p>
+<h2 id="课程背景与作业要求"><a href="#课程背景与作业要求" class="headerlink" title="课程背景与作业要求"></a>课程背景与作业要求</h2><h3 id="课程背景"><a href="#课程背景" class="headerlink" title="课程背景"></a>课程背景</h3><p>《中国玉石与玉文化鉴赏》这门课关注的不只是玉器本身，也包括玉文化在审美、礼仪、寓意与现代传播中的延展。</p>
+<p>我做《珅玉定制》APP 的出发点，是把课程里的文化理解转成一个可交互、可体验、可展示的数字化产品。</p>
+<h3 id="本次大作业要求（我在文档中逐项对应）"><a href="#本次大作业要求（我在文档中逐项对应）" class="headerlink" title="本次大作业要求（我在文档中逐项对应）"></a>本次大作业要求（我在文档中逐项对应）</h3><ul>
+<li>选题要与玉文化主题相关；</li>
+<li>要有清晰的功能设计，不只是概念展示；</li>
+<li>要体现实现过程与功能落地方式；</li>
+<li>要能展示最终效果与应用价值。</li>
+</ul>
+<p>下面我会按“用户端四大模块 + 管理后台模块”展开，重点放在功能实现。</p>
+<hr>
+<h2 id="一、用户端四大模块（珅玉定制）"><a href="#一、用户端四大模块（珅玉定制）" class="headerlink" title="一、用户端四大模块（珅玉定制）"></a>一、用户端四大模块（珅玉定制）</h2><h2 id="模块-1：灵感首页模块"><a href="#模块-1：灵感首页模块" class="headerlink" title="模块 1：灵感首页模块"></a>模块 1：灵感首页模块</h2><h3 id="功能目标"><a href="#功能目标" class="headerlink" title="功能目标"></a>功能目标</h3><p>这个模块要解决两个问题：</p>
+<ul>
+<li>新用户进入后，不知道从哪里开始；</li>
+<li>老用户需要快速回到常用风格。</li>
+</ul>
+<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>首页轮播内容运营化（后台可配置）；</li>
+<li>「猜你想做」推荐卡片；</li>
+<li>从首页一键跳转到定制流程。</li>
+</ul>
+<h3 id="我怎么实现"><a href="#我怎么实现" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li>首页轮播数据改为后台配置读取，不再硬编码在前端。</li>
+<li>对轮播资源做 URL 合法性校验，只接受 <code>http/https</code>。</li>
+<li>当后台清空轮播时，前台保持空态展示，不再回退旧图，保证“后台即线上”。</li>
+<li>推荐模块基于模板预设与历史线索进行轻量排序，提升命中率。</li>
+</ul>
+<h3 id="用户价值"><a href="#用户价值" class="headerlink" title="用户价值"></a>用户价值</h3><p>用户打开 APP 后可以立即得到“可点击、可生成”的入口，不会卡在第一步。</p>
+<p><img src="/images/260330-1.png" srcset="/img/loading.gif" lazyload alt="首页轮播与推荐"></p>
+<hr>
+<h2 id="模块-2：定制表单模块"><a href="#模块-2：定制表单模块" class="headerlink" title="模块 2：定制表单模块"></a>模块 2：定制表单模块</h2><h3 id="功能目标-1"><a href="#功能目标-1" class="headerlink" title="功能目标"></a>功能目标</h3><p>把用户模糊需求转成结构化输入，让 AI 生成更稳定。</p>
+<h3 id="核心功能-1"><a href="#核心功能-1" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>材质、纹样、形制、预算、送礼对象等参数输入；</li>
+<li>模板中心一键填参；</li>
+<li>推荐卡片点击后自动带入参数并进入定制页。</li>
+</ul>
+<h3 id="我怎么实现-1"><a href="#我怎么实现-1" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li>用统一状态对象管理全部输入字段，提交时单次打包，避免参数遗漏或错位。</li>
+<li>建立 <code>TEMPLATE_PRESETS</code> 预设集合，作为推荐与模板中心的共同数据源。</li>
+<li>应用模板时同时更新表单与页面跳转状态，减少用户手动操作。</li>
+</ul>
+<h3 id="用户价值-1"><a href="#用户价值-1" class="headerlink" title="用户价值"></a>用户价值</h3><p>用户从“有想法”到“可提交”的路径更短，输入成本大幅下降。</p>
+<p><img src="/images/260330-2.png" srcset="/img/loading.gif" lazyload alt="定制表单页"></p>
+<hr>
+<h2 id="模块-3：AI-生成与评级模块"><a href="#模块-3：AI-生成与评级模块" class="headerlink" title="模块 3：AI 生成与评级模块"></a>模块 3：AI 生成与评级模块</h2><h3 id="功能目标-2"><a href="#功能目标-2" class="headerlink" title="功能目标"></a>功能目标</h3><p>把一次定制请求做成完整链路：文本设计 -&gt; 图片生成 -&gt; AI 评级。</p>
+<h3 id="核心功能-2"><a href="#核心功能-2" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>生成设计说明与方案文案；</li>
+<li>生成玉雕效果图；</li>
+<li>输出 AI 评级结果与解释。</li>
+</ul>
+<h3 id="我怎么实现-2"><a href="#我怎么实现-2" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li>后端按阶段串联生成逻辑，前端统一调度请求流程。</li>
+<li>进度反馈采用三阶段：<code>plan -&gt; image -&gt; rating</code>。</li>
+<li>进度条做了阶段动画与节奏调优，避免“卡住感”和“瞬间跳满”。</li>
+<li>根据用户反馈延长图像阶段感知时长，使等待体验更自然。</li>
+</ul>
+<h3 id="用户价值-2"><a href="#用户价值-2" class="headerlink" title="用户价值"></a>用户价值</h3><p>用户可以清楚知道系统当前在做哪一步，结果不仅有图，还有可解释的评级。</p>
+<p><img src="/images/260330-4.png" srcset="/img/loading.gif" lazyload alt="进度条页面"><br><img src="/images/260330-3.png" srcset="/img/loading.gif" lazyload alt="成品界面"></p>
+<hr>
+<h2 id="模块-4：玉苑模块"><a href="#模块-4：玉苑模块" class="headerlink" title="模块 4：玉苑模块"></a>模块 4：玉苑模块</h2><h3 id="功能目标-3"><a href="#功能目标-3" class="headerlink" title="功能目标"></a>功能目标</h3><p>这个模块下存放了课程中提到的多种自然玉石的真实照片，以及多个玉雕大师的真实玉雕作品，旨在让用户能够更好地领略到玉石之美！</p>
+<h3 id="核心功能-3"><a href="#核心功能-3" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>分为两个大的模块：自然玉石，玉雕作品</li>
+<li>点击之后可以查看具体地大图和介绍</li>
+<li>用户可以在搜索框搜索想要的玉石或者玉雕作品，就可以快速筛选</li>
+</ul>
+<p><img src="/images/260330-5.png" srcset="/img/loading.gif" lazyload alt="玉苑界面"></p>
+<h2 id="模块-5：作品管理模块（查看、收藏、历史）"><a href="#模块-5：作品管理模块（查看、收藏、历史）" class="headerlink" title="模块 5：作品管理模块（查看、收藏、历史）"></a>模块 5：作品管理模块（查看、收藏、历史）</h2><h3 id="功能目标-4"><a href="#功能目标-4" class="headerlink" title="功能目标"></a>功能目标</h3><p>让用户对生成结果可复看、可比较、可沉淀，而不是“一次性产物”。</p>
+<h3 id="核心功能-4"><a href="#核心功能-4" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>当前作品详情查看；</li>
+<li>历史作品列表与详情；</li>
+<li>收藏列表与详情；</li>
+<li>图片点击放大预览与保存。</li>
+</ul>
+<h3 id="我怎么实现-3"><a href="#我怎么实现-3" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li>用统一预览弹层覆盖当前作品、历史详情、收藏详情三类入口。</li>
+<li>图片支持点击放大，移动端可长按保存，并保留下载入口。</li>
+<li>预览态独立管理，切换页面后自动清理，避免旧图残留。</li>
+<li>生成过程中的页面交互做约束：只在必要阶段锁定滚动，不影响非生成场景。</li>
+</ul>
+<h3 id="用户价值-3"><a href="#用户价值-3" class="headerlink" title="用户价值"></a>用户价值</h3><p>用户可以持续回看和复用成果，提升作品资产沉淀能力。</p>
+<p><img src="/images/260330-6.png" srcset="/img/loading.gif" lazyload alt="我的页面"></p>
+<p><img src="/images/260330-7.png" srcset="/img/loading.gif" lazyload alt="申请额度页面"></p>
+<p><img src="/images/260330-8.png" srcset="/img/loading.gif" lazyload alt="历史记录页面"></p>
+<p><img src="/images/260330-9.png" srcset="/img/loading.gif" lazyload alt="大图页面"></p>
+<hr>
+<h2 id="二、管理后台模块"><a href="#二、管理后台模块" class="headerlink" title="二、管理后台模块"></a>二、管理后台模块</h2><h2 id="后台模块-1：事项审批模块"><a href="#后台模块-1：事项审批模块" class="headerlink" title="后台模块 1：事项审批模块"></a>后台模块 1：事项审批模块</h2><h3 id="核心功能-5"><a href="#核心功能-5" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>对用户的申请进行审批</li>
+</ul>
+<p><img src="/images/260330-10.png" srcset="/img/loading.gif" lazyload alt="事项审批"></p>
+<hr>
+<h2 id="后台模块-2：用户管理模块"><a href="#后台模块-2：用户管理模块" class="headerlink" title="后台模块 2：用户管理模块"></a>后台模块 2：用户管理模块</h2><h3 id="核心功能-6"><a href="#核心功能-6" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>用户存在性校验；</li>
+<li>用户额度调整</li>
+</ul>
+<h3 id="我怎么实现-4"><a href="#我怎么实现-4" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li><code>check-user-exists</code> 改为循环分页查询，避免用户量变大后漏查。</li>
+<li>增加分页上限和超时保护，防止异常循环。</li>
+<li>对关键管理接口做身份与角色校验，限制非管理员访问。</li>
+</ul>
+<h3 id="价值"><a href="#价值" class="headerlink" title="价值"></a>价值</h3><p>后台数据和操作权限更可靠，降低误操作与越权风险。</p>
+<p><img src="/images/260330-11.png" srcset="/img/loading.gif" lazyload alt="用户管理"></p>
+<hr>
+<h2 id="后台模块-3：公告发布与活动发布"><a href="#后台模块-3：公告发布与活动发布" class="headerlink" title="后台模块 3：公告发布与活动发布"></a>后台模块 3：公告发布与活动发布</h2><h3 id="核心功能-7"><a href="#核心功能-7" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>配置变更后前后端联动生效；</li>
+<li>发布后快速校验核心功能。</li>
+<li>可以选择对单个或者所有用户发布。</li>
+<li>可以选择发布公告或者活动的优先级。</li>
+</ul>
+<h3 id="我怎么实现-5"><a href="#我怎么实现-5" class="headerlink" title="我怎么实现"></a>我怎么实现</h3><ul>
+<li>把前台需要的动态参数集中到配置层管理。</li>
+<li>每次变更后执行“功能验证 -&gt; 构建验证 -&gt; 线上核对”的固定流程。</li>
+<li>前端与函数服务分别部署，但通过统一数据契约保持一致。</li>
+</ul>
+<h3 id="价值-1"><a href="#价值-1" class="headerlink" title="价值"></a>价值</h3><p>配置可持续迭代，且不会因为联动失配影响线上稳定性。</p>
+<p><img src="/images/260330-12.png" srcset="/img/loading.gif" lazyload alt="公告发布"></p>
+<p><img src="/images/260330-13.png" srcset="/img/loading.gif" lazyload alt="活动发布"></p>
+<hr>
+<h2 id="后台模块-4：评级概率调整"><a href="#后台模块-4：评级概率调整" class="headerlink" title="后台模块 4：评级概率调整"></a>后台模块 4：评级概率调整</h2><h3 id="核心功能-8"><a href="#核心功能-8" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>支持直接调整卡片的评级概率。</li>
+</ul>
+<p><img src="/images/260330-14.png" srcset="/img/loading.gif" lazyload alt="概率调整"></p>
+<hr>
+<h2 id="后台模块-5：玉苑管理模块"><a href="#后台模块-5：玉苑管理模块" class="headerlink" title="后台模块 5：玉苑管理模块"></a>后台模块 5：玉苑管理模块</h2><h3 id="核心功能-9"><a href="#核心功能-9" class="headerlink" title="核心功能"></a>核心功能</h3><ul>
+<li>可以通过这里粘贴图片链接来直接发布到用户的玉苑界面。</li>
+<li>可以添加最多6张轮播图到首页。</li>
+<li>方便后续有更多的图片的时候可以正常添加使用。</li>
+</ul>
+<p><img src="/images/260330-15.png" srcset="/img/loading.gif" lazyload alt="概率调整"></p>
+<hr>
+<h2 id="三、总结：珅玉定制当前能力版图"><a href="#三、总结：珅玉定制当前能力版图" class="headerlink" title="三、总结：珅玉定制当前能力版图"></a>三、总结：珅玉定制当前能力版图</h2><p>我把《珅玉定制》做成了“前台四模块 + 后台五模块”的完整功能体系：</p>
+<ul>
+<li>前台负责获客、输入、生成、沉淀；</li>
+<li>后台负责运营、校验、配置、演进；</li>
+<li>两端通过统一数据与发布流程保持一致。</li>
+</ul>
+<p>接下来我会继续围绕“功能可用性 + 体验精细化 + 后台可运营性”推进，让每个模块都更稳定、更顺滑。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%85%AC%E7%94%A8/" class="print-no-link">#公用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>珅玉定制APP开发历程</div>
+      <div>http://example.com/2026/03/30/珅玉定制APP开发历程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Leo shen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年3月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/03/30/2026-03-15-mcp-skills-inventory-guide/" title="MCP与Skills全量清单（持续更新）">
+                        <span class="hidden-mobile">MCP与Skills全量清单（持续更新）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'syuanyuan708/syuanyuan708.github.io');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+          <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+        </div>
+      </div>
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <a href="https://github.com/yys806?tab=repositories" target="_blank" rel="nofollow noopener"><span>github主页</span></a>
+<i class="iconfont icon-love"></i>
+<a href="https://shen-intro.de5.net/" target="_blank" rel="nofollow noopener"><span>作者个人介绍网站</span></a>
+
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="/js/reading-progress.js" ></script>
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
