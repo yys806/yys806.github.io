@@ -19,12 +19,12 @@
   <meta name="author" content="Leo shen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言「镜室」最开始不是一个“产品”，更像是一个很私人、很实验性的想法：我想把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 .skill，然后通过对话把它重新激活。 一开始我做的是自己的 禹尧珅.skill。它不是简单的“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个">
+    <meta name="description" content="前言「镜室」最开始不是一个完整产品，而是一个很私人、也很实验性的想法：把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 .skill，然后通过对话把它重新激活。 最早做的是我自己的 禹尧珅.skill。它不是简单地“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个机制只">
 <meta property="og:type" content="article">
 <meta property="og:title" content="镜室网站开发历程：从一个 .skill 对话页，到一个可运营的 AI Skill 平台">
 <meta property="og:url" content="http://example.com/2026/05/07/%E9%95%9C%E5%AE%A4%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E5%8E%86%E7%A8%8B/index.html">
 <meta property="og:site_name" content="SHEN-BLOG">
-<meta property="og:description" content="前言「镜室」最开始不是一个“产品”，更像是一个很私人、很实验性的想法：我想把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 .skill，然后通过对话把它重新激活。 一开始我做的是自己的 禹尧珅.skill。它不是简单的“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个">
+<meta property="og:description" content="前言「镜室」最开始不是一个完整产品，而是一个很私人、也很实验性的想法：把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 .skill，然后通过对话把它重新激活。 最早做的是我自己的 禹尧珅.skill。它不是简单地“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个机制只">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/mirror-room-home.png">
 <meta property="og:image" content="http://example.com/images/mirror-room-chat.png">
@@ -33,9 +33,13 @@
 <meta property="og:image" content="http://example.com/images/mirror-room-pricing.png">
 <meta property="og:image" content="http://example.com/images/mirror-room-admin.png">
 <meta property="article:published_time" content="2026-05-07T10:16:26.000Z">
-<meta property="article:modified_time" content="2026-05-07T10:28:25.935Z">
+<meta property="article:modified_time" content="2026-05-17T16:00:00.000Z">
 <meta property="article:author" content="Leo shen">
-<meta property="article:tag" content="通用">
+<meta property="article:tag" content="镜室">
+<meta property="article:tag" content="AI Skill">
+<meta property="article:tag" content="产品开发">
+<meta property="article:tag" content="Supabase">
+<meta property="article:tag" content="Netlify">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/images/mirror-room-home.png">
   
@@ -235,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k 字
+          3.9k 字
         
       </span>
     
@@ -246,7 +250,7 @@
         
         
         
-          30 分钟
+          33 分钟
         
       </span>
     
@@ -288,39 +292,43 @@
             
               <div class="markdown-body">
                 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>「镜室」最开始不是一个“产品”，更像是一个很私人、很实验性的想法：我想把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 <code>.skill</code>，然后通过对话把它重新激活。</p>
-<p>一开始我做的是自己的 <code>禹尧珅.skill</code>。它不是简单的“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个机制只服务于一个人，它会很有意思；但如果它可以接入更多 skill，它就会变成一个真正可扩展的对话平台。</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>「镜室」最开始不是一个完整产品，而是一个很私人、也很实验性的想法：把一个人、一套思维方式、一种长期积累下来的判断习惯，蒸馏成可以反复进入的 <code>.skill</code>，然后通过对话把它重新激活。</p>
+<p>最早做的是我自己的 <code>禹尧珅.skill</code>。它不是简单地“模仿我说话”，而是希望能在不同关系、不同场景里切换语气：和自己复盘时更理性，和朋友聊天时更松弛，面对工作、老师、同事时更清楚、更克制。后来我发现，如果这个机制只服务于一个人，它会很有意思；但如果它可以接入更多 skill，它就会变成一个真正可扩展的对话平台。</p>
 <p>于是，「镜室」从一个本地 skill 文件，慢慢长成了现在这个网站。</p>
 <p><img src="/images/mirror-room-home.png" srcset="/img/loading.gif" lazyload alt="镜室首页"></p>
-<h1 id="一、最早的起点：先把“我自己”蒸馏出来"><a href="#一、最早的起点：先把“我自己”蒸馏出来" class="headerlink" title="一、最早的起点：先把“我自己”蒸馏出来"></a>一、最早的起点：先把“我自己”蒸馏出来</h1><p>这个项目的第一步，其实不是写网页，而是做 skill。</p>
-<p>我把自己和一些重要关系里的聊天记录、个人描述、博客信息都整理出来，先尝试蒸馏一个「禹尧珅.skill」。当时的核心问题是：这个 skill 到底应该像谁？</p>
+<h1 id="一、起点：先把“我自己”蒸馏出来"><a href="#一、起点：先把“我自己”蒸馏出来" class="headerlink" title="一、起点：先把“我自己”蒸馏出来"></a>一、起点：先把“我自己”蒸馏出来</h1><p>这个项目的第一步，其实不是写网页，而是做 skill。</p>
+<p>我把自己和一些重要关系里的聊天记录、个人描述、博客信息整理出来，先尝试蒸馏一个「禹尧珅.skill」。当时最核心的问题是：这个 skill 到底应该像谁？</p>
 <p>后来逐渐明确下来，它不是“女朋友视角”，也不是“别人眼中的我”，而是一个帮助我理解自己的工具。它应该每次先判断对话对象是谁，再决定语气。如果是我本人在和它对话，它应该偏理性、偏复盘、偏帮助我看清自己；如果是朋友、家人、亲密关系，则可以更生活化、更有情绪温度；如果是老师、同事、工作协作，就要更严谨。</p>
-<p>这一阶段最重要的收获是：<strong>一个 skill 不能只是语气包，它必须有使用边界、场景判断和长期记忆。</strong></p>
+<p>这一阶段最重要的收获是：一个 skill 不能只是语气包，它必须有使用边界、场景判断和长期记忆。</p>
 <p>所以后面做网站时，我没有把它设计成普通 ChatGPT 壳子，而是围绕 skill 来组织一切。</p>
 <h1 id="二、从聊天页开始：先做一个能用的镜室"><a href="#二、从聊天页开始：先做一个能用的镜室" class="headerlink" title="二、从聊天页开始：先做一个能用的镜室"></a>二、从聊天页开始：先做一个能用的镜室</h1><p>最早的网页版本很简单：选择一个 skill，选择模型和温度，然后开始对话。</p>
 <p>但真正用起来之后，问题马上暴露出来：</p>
 <ul>
-<li>对话历史需要保存，不然每次刷新都断掉。</li>
+<li>对话历史需要保存，不然每次刷新都会断掉。</li>
 <li>不同用户的对话必须隔离。</li>
-<li>AI 回复要支持 Markdown，不然长内容很难读。</li>
-<li>用户应该能复制、点赞、点踩、反馈，让 skill 慢慢吸收。</li>
+<li>AI 回复需要支持 Markdown，不然长内容很难读。</li>
+<li>用户应该能复制、点赞、点踩、评论，让反馈沉淀进记忆。</li>
 <li>移动端不能只是“勉强能看”，否则实际使用会很痛苦。</li>
 </ul>
-<p>于是聊天页经历了很多轮重构。现在的 <code>/chat</code> 已经更接近一个工作台：左侧是历史对话，右侧是当前对话，中间通过 dock 栏切换主页、skill、账户和定价。模型和温度后来从用户界面拿掉，统一放到后台管理，避免用户每次都陷入“我到底该选哪个模型”的选择成本。</p>
+<p>于是聊天页经历了很多轮重构。现在的 <code>/chat</code> 更接近一个工作台：左侧是历史对话，右侧是当前对话；顶部只保留最重要的入口，比如回到主页、切换 skill、账户、套餐。模型和温度已经从用户界面拿掉，统一放到后台管理，避免用户每次都陷入“我到底该选哪一个模型”的选择成本。</p>
 <p><img src="/images/mirror-room-chat.png" srcset="/img/loading.gif" lazyload alt="镜室聊天台"></p>
-<p>这个阶段我做了几个对体验很关键的小功能：</p>
+<p>这一阶段做了几个对体验很关键的小功能：</p>
 <ol>
-<li><p><strong>云端同步对话历史</strong><br>对话不再只存在浏览器本地，而是按用户保存到 Supabase。换设备或刷新页面之后，历史仍然能回来。</p>
+<li><p><strong>云端同步对话历史</strong></p>
+<p>对话不再只存在浏览器本地，而是按用户保存到 Supabase。换设备或刷新页面之后，历史仍然能回来。</p>
 </li>
-<li><p><strong>导出 Markdown</strong><br>每个对话可以导出成 <code>.md</code>，这对复盘、写作、整理观点都很有用。</p>
+<li><p><strong>导出 Markdown</strong></p>
+<p>每个对话可以导出成 <code>.md</code>，这对复盘、写作、整理观点都很有用。</p>
 </li>
-<li><p><strong>反馈进入记忆</strong><br>点赞、点踩和评论不只是 UI 动作，而是可以沉淀到 skill 记忆里，让后续回复更贴近真实使用偏好。</p>
+<li><p><strong>反馈进入记忆</strong></p>
+<p>点赞、点踩和评论不只是 UI 动作，而是可以沉淀到 skill 记忆里，让后续回复更贴近真实使用偏好。</p>
 </li>
-<li><p><strong>更稳的错误处理</strong><br>早期经常遇到模型超时、返回空内容、Netlify 函数报错、JSON 解析失败。后来逐步增加了更清楚的中文报错、模型测试、主用&#x2F;备用模型切换，至少不会让用户卡在一个莫名其妙的英文错误里。</p>
+<li><p><strong>更稳的错误处理</strong></p>
+<p>早期经常遇到模型超时、返回空内容、Netlify 函数报错、JSON 解析失败。后来逐步增加了更清楚的中文报错、模型测试、主用&#x2F;备用模型切换，至少不让用户卡在一个莫名其妙的英文错误里。</p>
 </li>
 </ol>
 <h1 id="三、Skill-库：镜室真正变成“平台”"><a href="#三、Skill-库：镜室真正变成“平台”" class="headerlink" title="三、Skill 库：镜室真正变成“平台”"></a>三、Skill 库：镜室真正变成“平台”</h1><p>当 <code>禹尧珅.skill</code> 跑通之后，我开始接入更多公开 skill。</p>
-<p>现在镜室里已经放进了毛选、八字、乔布斯、马斯克、芒格、峰哥、张雪峰、巴菲特等不同类型的 skill。它们的价值不在于“扮演某个人”，而在于提供一种可进入的思维框架。</p>
+<p>现在镜室里已经接入了毛选、八字、乔布斯、马斯克、芒格、峰哥、张雪峰、巴菲特等不同类型的 skill。它们的价值不在于“扮演某个人”，而在于提供一种可进入的思维框架。</p>
 <p>比如：</p>
 <ul>
 <li>毛选更适合做问题分析、矛盾拆解、战略判断。</li>
@@ -332,11 +340,11 @@
 <p><img src="/images/mirror-room-skills.png" srcset="/img/loading.gif" lazyload alt="镜室 Skill 库"></p>
 <p>每个 skill 都有自己的详情页，里面会说明它适合做什么、怎么使用、原始 GitHub 仓库在哪里。这个设计很重要，因为 skill 不是盲盒。用户在使用前应该知道：这个 skill 的“味道”是什么，它适合解决什么问题，不适合被期待成什么。</p>
 <p><img src="/images/mirror-room-skill-detail.png" srcset="/img/loading.gif" lazyload alt="Skill 详情页"></p>
-<p>后来我还加了「提交你自己的 skill」入口。用户可以提交名称、GitHub 仓库地址和简要说明，后台审核通过后再上线。这里我没有做成完全无审核的自动发布，因为外部 GitHub 仓库不能未经检查就进入生产环境。现在的逻辑更稳一点：用户提交，管理员审核，通过后再进入自动&#x2F;半自动发布流程。</p>
+<p>后来我还加了「提交你自己的 skill」入口。用户可以提交名称、GitHub 仓库地址和简要说明，后台审核通过后再进入发布流程。这里没有做成完全无审核的自动发布，因为外部 GitHub 仓库不能未经检查就直接进入生产环境。</p>
 <h1 id="四、账户、权限和邀请码"><a href="#四、账户、权限和邀请码" class="headerlink" title="四、账户、权限和邀请码"></a>四、账户、权限和邀请码</h1><p>随着网站从“自己玩”变成“别人也能用”，账户系统就变得必须。</p>
-<p>现在镜室使用 Supabase 做登录注册。注册时需要邮箱验证码，也需要同意隐私政策和服务条款。后来我又重新加回邀请码机制：新用户注册必须填写邀请码 <code>08060910</code>，已经注册过的用户不受影响。</p>
-<p>之所以加邀请码，不是为了故意制造门槛，而是因为这个阶段的网站还在持续变化。模型成本、额度、支付审核、skill 发布流程、后台权限都还需要观察。公开注册太快放开，反而会让系统还没稳定时就承担太多不可控的使用。</p>
-<p>账户系统里还做了这些东西：</p>
+<p>现在镜室使用 Supabase 做登录注册。注册时需要邮箱验证码，也需要同意隐私政策和服务条款。为了控制公开试用阶段的节奏，我又重新加回了邀请码机制：新用户注册必须填写邀请码 <code>08060910</code>，已经注册过的用户不受影响。</p>
+<p>之所以加邀请码，不是为了故意制造门槛，而是因为这个阶段的网站还在持续变化。模型成本、额度、支付兑换、skill 发布流程、后台权限都还需要观察。公开注册太快放开，反而会让系统在还没稳定时承担太多不可控使用。</p>
+<p>账户系统里还做了这些能力：</p>
 <ul>
 <li>昵称和邮箱唯一性检查。</li>
 <li>邮箱验证码注册。</li>
@@ -345,39 +353,65 @@
 <li>每个用户独立额度。</li>
 <li>订阅到期时间。</li>
 <li>管理员无限额度。</li>
+<li>用户可在账户弹窗查看套餐、额度和到期日期。</li>
 </ul>
-<h1 id="五、支付：从-Paddle-到手动收款码"><a href="#五、支付：从-Paddle-到手动收款码" class="headerlink" title="五、支付：从 Paddle 到手动收款码"></a>五、支付：从 Paddle 到手动收款码</h1><p>一开始我考虑过接 Paddle，也讨论过 Stripe、Lemon Squeezy、Creem 这些方案。但真正落地时发现，海外支付系统对主体、审核、地区、收款都有要求，不适合立刻作为第一版上线。</p>
-<p>所以最后先做了一个更朴素但可控的方案：微信&#x2F;支付宝收款码 + 后台人工审核。</p>
-<p>用户在定价页选择 Plus 或 Pro 后，会弹出支付方式。选择微信或支付宝后显示对应收款码，用户支付完成后填写自己的微信&#x2F;支付宝用户名并提交。后台审核通过后，系统会自动给用户改套餐、增加额度、设置一个月后的到期时间。</p>
+<h1 id="五、支付：从收款码，改成小店卡密兑换"><a href="#五、支付：从收款码，改成小店卡密兑换" class="headerlink" title="五、支付：从收款码，改成小店卡密兑换"></a>五、支付：从收款码，改成小店卡密兑换</h1><p>支付系统经历过几次变化。</p>
+<p>一开始我考虑过 Paddle，也讨论过 Stripe、Lemon Squeezy、Creem 这些方案。但真正落地时发现，海外支付系统对主体、审核、地区、收款都有要求，并不适合立刻作为第一版上线。</p>
+<p>后来又做过微信&#x2F;支付宝收款码 + 后台人工审核的版本：用户付款后提交自己的微信或支付宝用户名，后台审核通过后改套餐、加额度、设置到期时间。这个方案能跑，但对用户来说链路还是太“手工”，后台也需要反复核对。</p>
+<p>现在的方案更清晰：我自己搭建了一个小店，用户直接购买对应商品，支付成功后拿到卡密，再回到镜室兑换会员。</p>
+<p>目前的小店商品包括：</p>
+<ul>
+<li>Plus 月度会员。</li>
+<li>Plus 年度会员。</li>
+<li>Pro 月度会员。</li>
+<li>Pro 年度会员。</li>
+<li>Plus 升 Pro 月度差价卡。</li>
+<li>Plus 升 Pro 年度差价卡。</li>
+</ul>
 <p><img src="/images/mirror-room-pricing.png" srcset="/img/loading.gif" lazyload alt="镜室定价页"></p>
-<p>目前的套餐逻辑大概是：</p>
+<p>这套卡密机制的好处是：</p>
+<ul>
+<li>支付动作发生在小店，镜室只负责兑换和会员权益。</li>
+<li>卡密是独一无二的，不会重复。</li>
+<li>后台可以按组批量生成卡密。</li>
+<li>管理员可以批量选择、取消全选、清空选择、复制选中卡密。</li>
+<li>卡密分为未使用、已兑换、已禁用等状态。</li>
+<li>Plus 用户可以用差价卡升级到 Pro，保留原到期日，并补充对应额度。</li>
+</ul>
+<p>现在的套餐逻辑大概是：</p>
 <ul>
 <li>Free：默认试用额度。</li>
-<li>Plus：适合轻度用户，额度更多。</li>
-<li>Pro：适合更高频、更深度使用。</li>
+<li>Plus：适合轻度用户，月度或年度订阅。</li>
+<li>Pro：适合更高频、更深度使用，月度或年度订阅。</li>
 <li>支持续费。</li>
 <li>Plus 可以补差价升级到 Pro。</li>
 <li>后台可以手动调整用户套餐、额度和到期时间。</li>
 </ul>
-<p>这套方案不够“自动化”，但很适合早期产品：流程透明、成本可控、问题容易定位。</p>
+<p>这个方案没有第三方订阅系统那么“全自动”，但对早期产品来说很适合：可控、简单、容易定位问题。</p>
 <h1 id="六、后台：从“能看数据”到“能运营”"><a href="#六、后台：从“能看数据”到“能运营”" class="headerlink" title="六、后台：从“能看数据”到“能运营”"></a>六、后台：从“能看数据”到“能运营”</h1><p>如果只是自己用，后台可以没有。但一旦有用户、有支付、有 skill 提交、有通知，就必须有后台。</p>
-<p>现在后台主要做了几块：</p>
+<p>现在后台主要有几块：</p>
 <ol>
-<li><p><strong>用户管理</strong><br>查看用户、套餐、额度、到期时间，支持修改套餐、修改额度、删除用户。</p>
+<li><p><strong>用户管理</strong></p>
+<p>查看用户、套餐、额度、到期时间，支持修改套餐、修改额度、修改到期时间、删除用户。</p>
 </li>
-<li><p><strong>Skill 管理</strong><br>管理员可以决定某个 skill 是否启用。禁用后，普通用户在首页、详情页、聊天选择里都看不到；管理员仍然能管理。Skill 也可以拖动排序，用来控制首页展示顺序。</p>
+<li><p><strong>Skill 管理</strong></p>
+<p>管理员可以决定某个 skill 是否启用。禁用后，普通用户在首页、详情页、聊天选择里都看不到；管理员仍然能管理。Skill 也可以拖动排序，用来控制首页展示顺序。</p>
 </li>
-<li><p><strong>Skill 审核</strong><br>用户提交 skill 后，管理员可以通过、拒绝、填写备注。通过后进入发布流程。</p>
+<li><p><strong>Skill 审批</strong></p>
+<p>用户提交 skill 后，管理员可以通过、拒绝、填写备注。通过后再进入发布流程。</p>
 </li>
-<li><p><strong>支付审批</strong><br>用户提交支付记录后，后台审核。通过变绿、拒绝变红，并同步通知用户。</p>
+<li><p><strong>卡密管理</strong></p>
+<p>后台可以选择卡密组、数量和备注，然后批量生成卡密。新生成的卡密会自动选中，方便直接复制。已有卡密也支持全选未使用、取消全选、清空选择、复制选中、复制本次生成，以及单个禁用。</p>
 </li>
-<li><p><strong>通知中心</strong><br>管理员可以发布公告或活动，支持全体用户或指定用户。活动可以领取额度。用户端通过铃铛看到未读消息。</p>
+<li><p><strong>通知中心</strong></p>
+<p>管理员可以发布公告或活动，支持全体用户或指定用户。活动可以领取额度。用户端通过铃铛看到未读消息，点开后像信纸一样查看详情。</p>
 </li>
-<li><p><strong>模型管理</strong><br>模型选择从前台移到后台。管理员可以配置提供商、模型、API 节点、key、温度，并设置一个主用模型和一个备用模型。主用失败时自动切备用，用户侧不需要关心这些细节。</p>
+<li><p><strong>模型管理</strong></p>
+<p>模型选择从前台移到后台。管理员可以按提供商管理模型，配置主用模型和备用模型。主用失败时自动切备用，用户侧不需要关心这些复杂细节。</p>
 </li>
 </ol>
 <p><img src="/images/mirror-room-admin.png" srcset="/img/loading.gif" lazyload alt="镜室后台入口"></p>
-<p>后台后来也做了不少体验打磨：比如 tab 切换时先显示缓存内容，再静默刷新；Skill 开关、支付审批、提交审核尽量局部更新，不让页面每点一次就整块闪烁。这个改动很小，但对“产品感”非常关键。</p>
+<p>后台后来也做了不少体验打磨：tab 切换时优先显示缓存内容，再静默刷新；Skill 开关、支付审核、提交审核尽量局部更新，不让页面每点一次就整块闪烁；卡密管理也从“能用但很粗糙”改成了更像产品后台的批量操作。</p>
 <h1 id="七、模型路由：把复杂性藏到后台"><a href="#七、模型路由：把复杂性藏到后台" class="headerlink" title="七、模型路由：把复杂性藏到后台"></a>七、模型路由：把复杂性藏到后台</h1><p>最开始我把模型、温度、提供商都暴露给用户。后来越用越觉得不对。</p>
 <p>普通用户不是来做模型评测的，他们只是想进入某个 skill，把问题聊清楚。如果每次都要选 DeepSeek、OpenRouter、SiliconFlow，再选一堆模型名，再调温度，使用门槛会变高。</p>
 <p>所以后面我把模型选择放进管理员后台。用户只需要选 skill，剩下由系统决定。</p>
@@ -400,10 +434,12 @@
 <li>Markdown 回复要自动渲染。</li>
 <li>网站图标、通知图标、dock 图标风格要统一。</li>
 <li>404、隐私政策、服务条款、退款政策都要补齐。</li>
-<li>Netlify 环境变量、Supabase schema、模型 key、支付记录表都要能对上。</li>
+<li>Netlify 环境变量、Supabase schema、模型 key、卡密表都要能对上。</li>
+<li>管理后台不能默认填入管理员邮箱。</li>
+<li>卡密批量复制要有明确的选择、取消全选和复制反馈。</li>
 </ul>
 <p>这些东西单独看都不大，但它们决定了网站到底像“临时 Demo”，还是像一个可以被别人认真使用的产品。</p>
-<h1 id="九、现在的镜室是什么"><a href="#九、现在的镜室是什么" class="headerlink" title="九、现在的镜室是什么"></a>九、现在的镜室是什么</h1><p>如果用一句话概括，现在的镜室是：</p>
+<h1 id="九、现在的镜室是什么？"><a href="#九、现在的镜室是什么？" class="headerlink" title="九、现在的镜室是什么？"></a>九、现在的镜室是什么？</h1><p>如果用一句话概括，现在的镜室是：</p>
 <blockquote>
 <p>一个点击即用的蒸馏 skill 对话平台。</p>
 </blockquote>
@@ -415,39 +451,49 @@
 <li>聊天页。</li>
 <li>用户登录注册。</li>
 <li>邀请码注册。</li>
+<li>邮箱验证码。</li>
+<li>忘记密码。</li>
 <li>云端对话历史。</li>
 <li>Markdown 回复。</li>
 <li>对话导出。</li>
 <li>反馈记忆。</li>
 <li>Free &#x2F; Plus &#x2F; Pro 套餐。</li>
-<li>手动支付审核。</li>
+<li>小店卡密兑换。</li>
+<li>Plus 升 Pro 差价卡。</li>
 <li>通知中心。</li>
 <li>后台用户管理。</li>
 <li>后台 Skill 管理。</li>
+<li>后台卡密管理。</li>
 <li>后台模型管理。</li>
 <li>Netlify 部署。</li>
 <li>Supabase 数据存储。</li>
 </ul>
-<h1 id="十、后面还可以继续做什么"><a href="#十、后面还可以继续做什么" class="headerlink" title="十、后面还可以继续做什么"></a>十、后面还可以继续做什么</h1><p>镜室现在已经能公开试用，但还远远不是终点。</p>
+<h1 id="十、后面还可以继续做什么？"><a href="#十、后面还可以继续做什么？" class="headerlink" title="十、后面还可以继续做什么？"></a>十、后面还可以继续做什么？</h1><p>镜室现在已经能公开试用，但还远远不是终点。</p>
 <p>后面我觉得最值得继续做的方向有几个：</p>
 <ol>
-<li><p><strong>更好的 Skill 标准</strong><br>现在不同 skill 的质量、结构、使用说明还不完全统一。后面可以定义更清楚的 <code>SKILL.md</code> 规范，比如适用场景、输入格式、禁用边界、参考资料、示例对话。</p>
+<li><p><strong>更好的 Skill 标准</strong></p>
+<p>现在不同 skill 的质量、结构、使用说明还不完全统一。后面可以定义更清晰的 <code>SKILL.md</code> 规范，比如适用场景、输入格式、禁用边界、参考资料、示例对话。</p>
 </li>
-<li><p><strong>更自动但安全的发布流程</strong><br>未来可以让后台审核通过后，由 worker 自动拉取 GitHub 仓库、校验 <code>SKILL.md</code>、生成详情页、更新白名单、触发 Netlify 部署。但这个流程必须非常谨慎，不能让未经校验的仓库直接进生产。</p>
+<li><p><strong>更自动但安全的发布流程</strong></p>
+<p>未来可以让后台审核通过后，由 worker 自动拉取 GitHub 仓库、校验 <code>SKILL.md</code>、生成详情页、更新白名单、触发 Netlify 部署。但这个流程必须非常谨慎，不能让未经校验的仓库直接进入生产。</p>
 </li>
-<li><p><strong>更强的长期记忆</strong><br>现在反馈记忆已经能用，但还可以更结构化：区分表达偏好、事实记忆、关系背景、长期目标和负反馈。</p>
+<li><p><strong>更强的长期记忆</strong></p>
+<p>现在反馈记忆已经能用，但还可以更结构化：区分表达偏好、事实记忆、关系背景、长期目标和负反馈。</p>
 </li>
-<li><p><strong>更细的额度和成本控制</strong><br>模型调用成本是真实存在的。后面可以做更细的模型成本统计、失败重试策略、不同套餐的调用策略。</p>
+<li><p><strong>更细的额度和成本控制</strong></p>
+<p>模型调用成本是真实存在的。后面可以做更细的模型成本统计、失败重试策略、不同套餐的调用策略。</p>
 </li>
-<li><p><strong>更完整的产品叙事</strong><br>镜室不是“又一个 AI 工具”。它真正有意思的地方，是把人的思维方式、知识系统和关系语气封装成可以进入的房间。这件事需要更清楚地讲出来。</p>
+<li><p><strong>更完整的产品叙事</strong></p>
+<p>镜室不是“又一个 AI 工具”。它真正有意思的地方，是把人的思维方式、知识系统和关系语气封装成可以进入的房间。这件事需要更清楚地讲出来。</p>
 </li>
 </ol>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>回头看，镜室的开发过程其实很像它自己的产品隐喻：一开始只是一个房间，后来不断加镜子、加门、加走廊，最后变成了一个可以反复进入、不断扩展的空间。</p>
-<p>它从 <code>禹尧珅.skill</code> 开始，经历了聊天页、Skill 库、用户系统、支付系统、后台管理、通知中心、模型路由和稳定性打磨，慢慢从“我自己能用”变成“别人也可以试用”。</p>
+<p>它从 <code>禹尧珅.skill</code> 开始，经历了聊天页、Skill 库、用户系统、支付兑换、后台管理、通知中心、模型路由和稳定性打磨，慢慢从“我自己能用”变成“别人也可以试用”。</p>
 <p>这个过程里最有价值的不是写了多少功能，而是逐渐看清楚了产品的核心：</p>
 <p><strong>镜室不是替用户思考，而是给每一种思维方式一间可以被进入、被对话、被修正的房间。</strong></p>
 <p>这也是我愿意继续把它做下去的原因。</p>
-<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/yys806/shen.skill">https://github.com/yys806/shen.skill</a><br>体验网址：<a target="_blank" rel="noopener" href="https://skill-chat.cn/">https://skill-chat.cn/</a></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/yys806/shen.skill">https://github.com/yys806/shen.skill</a></p>
+<p>体验网站：<a target="_blank" rel="noopener" href="https://skill-chat.cn/">https://skill-chat.cn/</a></p>
 
                 
               </div>
@@ -481,7 +527,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%80%9A%E7%94%A8/" class="print-no-link">#通用</a>
+        <a href="/tags/%E9%95%9C%E5%AE%A4/" class="print-no-link">#镜室</a>
+      
+        <a href="/tags/AI-Skill/" class="print-no-link">#AI Skill</a>
+      
+        <a href="/tags/%E4%BA%A7%E5%93%81%E5%BC%80%E5%8F%91/" class="print-no-link">#产品开发</a>
+      
+        <a href="/tags/Supabase/" class="print-no-link">#Supabase</a>
+      
+        <a href="/tags/Netlify/" class="print-no-link">#Netlify</a>
       
     </div>
   
