@@ -33,6 +33,10 @@ post:
   banner_img: /images/background.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
+  # 文章评论(Fluid 实际读取的是主题配置,此处覆盖主题内遗留的旧仓库设置)
+  comments:
+    enable: true
+    type: utterances
 
 archive:
   banner_img: /images/background.png
@@ -69,3 +73,13 @@ page404:
   banner_img: /images/background.png
   banner_img_height: 85
   banner_mask_alpha: 0.3
+
+# utterances 评论(基于 GitHub Issues)
+# 需在 yys806/yys806.github.io 仓库安装 utterances App 并开启 Issues 功能
+utterances:
+  repo: yys806/yys806.github.io
+  issue_term: title
+  label: utterances
+  theme: github-light
+  theme_dark: github-dark
+  crossorigin: anonymous
