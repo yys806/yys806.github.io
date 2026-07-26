@@ -13,7 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://yys806.github.io
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -105,17 +106,16 @@ deploy:
   repository: git@github.com:yys806/yys806.github.io.git
   branch: main
 
-## discuss
-## discuss
+# Comments
 post:
-  comments:
-  enable: true
-  type: utterances
+  comments:
+    enable: true
+    type: utterances
 
 utterances:
-  repo: syuanyuan708/syuanyuan708.github.io
-  issue_term: title
-  label: utterances
-  theme: github-light
-  theme_dark: github-dark
-  crossorigin: anonymous
+  repo: yys806/yys806.github.io
+  issue_term: title
+  label: utterances
+  theme: github-light
+  theme_dark: github-dark
+  crossorigin: anonymous
