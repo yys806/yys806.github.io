@@ -2,7 +2,7 @@
 title: Discord 机器人开发历程
 date: 2026-05-18 21:17:58
 categories: 开发
-tags: 通用
+tags: 公用
 ---
 
 # 前言
