@@ -18,8 +18,8 @@ custom_html:
   - <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 font:
-  # 2026-11-10 用户指定：与 Claude 官网一致 —— 英文 Inter，中文优先苹方/微软雅黑（无衬线，干净）
-  font_family: "'Inter Variable', 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
+  # 2026-11-10 用户指定：照抄 Obsidian「Claude Warm」主题正文栈（衬线体）
+  font_family: "ui-serif, Georgia, Cambria, 'Times New Roman', 'Songti SC', SimSun, serif"
 
 color:
   body_bg_color: "#e7ecf5"
