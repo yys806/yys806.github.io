@@ -209,7 +209,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -226,7 +226,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bf4692935835a174",
+  "active": "542a5aff37144aa8",
   "lastOpenFiles": [
     "images/202611-测试.png",
     "_templates/文章模板.md",
