@@ -209,7 +209,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -226,7 +226,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "4e2a73932ed5e8c3",
+  "active": "bd3445acac78ef3c",
   "lastOpenFiles": [
     "images/Pasted image 20261110210617.png",
     "_posts/Claude Code命令教程.md",

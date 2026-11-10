@@ -6,7 +6,6 @@ tags: 公用
 ---
 ## 1. 我安装了哪些 MCP？它们分别有什么用？
 我确认 MCP 配置来源文件是：
-
 - `C:/Users/Lenovo/.config/opencode/opencode.json`
 我当前一共配置了 9 个 MCP：
 1. Framelink MCP for Figma
