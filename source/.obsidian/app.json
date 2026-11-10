@@ -1,0 +1,11 @@
+{
+  "attachmentFolderPath": "images",
+  "newLinkFormat": "absolute",
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "_posts",
+  "showUnsupportedFiles": false,
+  "promptDelete": true,
+  "trashOption": "local"
+}
