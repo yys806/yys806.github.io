@@ -18,8 +18,8 @@ custom_html:
   - <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 font:
-  # 2026-11-10 用户指定：英文 Times New Roman，中文方正小标宋简体；访客没装该字体时回落到衬线体
-  font_family: "'Times New Roman', 'FZXiaoBiaoSong-B05S', '方正小标宋简体', 'SimSun', serif"
+  # 2026-11-10 用户指定：与 Claude 官网一致 —— 英文 Inter，中文优先苹方/微软雅黑（无衬线，干净）
+  font_family: "'Inter Variable', 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif"
 
 color:
   body_bg_color: "#e7ecf5"
