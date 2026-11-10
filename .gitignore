@@ -2,9 +2,9 @@
 图片/
 
 # Obsidian 本地运行态（配置与插件要提交，工作区状态不提交）
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache/
+source/.obsidian/workspace.json
+source/.obsidian/workspace-mobile.json
+source/.obsidian/cache/
 .trash/
 
 .DS_Store
