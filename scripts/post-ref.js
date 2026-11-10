@@ -24,7 +24,7 @@ hexo.extend.tag.register('post_ref', function (args) {
   }
   if (!raw) return '';
 
-  var posts = hexo.locals.get('posts');
+  var posts = hexo.model('Post');
   var post = posts.findOne({ title: raw });
   if (!post) post = posts.findOne({ slug: raw });
   if (!post) {
@@ -41,5 +41,7 @@ hexo.extend.tag.register('post_ref', function (args) {
   }
 
   var text = label || post.title || post.slug;
-  return '<a href="' + this.url_for(post.path) + '" title="' + (post.title || post.slug) + '">' + text + '</a>';
+  var urlFor = hexo.extend.helper.get('url_for');
+  var href = urlFor.call(hexo, post.path);
+  return '<a href="' + href + '" title="' + (post.title || post.slug) + '">' + text + '</a>';
 });
