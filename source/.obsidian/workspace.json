@@ -226,8 +226,9 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "bd3445acac78ef3c",
+  "active": "bf4692935835a174",
   "lastOpenFiles": [
+    "images/202611-测试.png",
     "_templates/文章模板.md",
     "_posts/202603-服务器新用.md",
     "_posts/202603-开发中遇到的各种命令和技巧.md",
@@ -253,7 +254,6 @@
     "_posts/202509-个人网站维护指南.md",
     "_posts/202601-个人开发网站的阶段性总结.md",
     "_posts/202601-gemini插件开发历程.md",
-    "_posts/202602-AI工具使用指南.md",
     "images/Pasted image 20261110210617.png"
   ]
 }
