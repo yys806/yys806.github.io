@@ -18,7 +18,8 @@ custom_html:
   - <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
 font:
-  font_family: "'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
+  # 2026-11-10 用户指定：英文 Times New Roman，中文方正小标宋简体；访客没装该字体时回落到衬线体
+  font_family: "'Times New Roman', 'FZXiaoBiaoSong-B05S', '方正小标宋简体', 'SimSun', serif"
 
 color:
   body_bg_color: "#e7ecf5"
@@ -33,6 +34,11 @@ post:
   banner_img: /images/background.png
   banner_img_height: 70
   banner_mask_alpha: 0.3
+  # 数学公式（2026-11-10 开启）：行内 $...$ 与行间 $$...$$ 都用 MathJax 渲染
+  math:
+    enable: true
+    specific: false
+    engine: mathjax
   # 文章评论(Fluid 实际读取的是主题配置,此处覆盖主题内遗留的旧仓库设置)
   comments:
     enable: true
