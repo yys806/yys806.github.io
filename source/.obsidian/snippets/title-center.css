@@ -1,0 +1,4 @@
+/* 编辑区标题居中（只此一条，不涉及配色，2026-11-10） */
+.markdown-preview-view h1 { text-align: center; }
+.markdown-rendered h1 { text-align: center; }
+.cm-s-obsidian .HyperMD-header-1 { text-align: center; }

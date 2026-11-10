@@ -1111,3 +1111,9 @@ footer,
   color: var(--sec-text-color, #718096);
   line-height: 1.8;
 }
+
+
+/* ===== 文章页标题居中（2026-11-10 用户要求）===== */
+#board article.post-content > h1#seo-header {
+  text-align: center;
+}

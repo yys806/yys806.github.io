@@ -1,7 +1,7 @@
 {
   "cssTheme": "",
   "enabledCssSnippets": [
-    "blog-style"
+    "title-center"
   ],
   "baseFontSize": 16
 }
