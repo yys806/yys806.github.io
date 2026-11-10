@@ -1126,3 +1126,21 @@ footer,
 .markdown-body mjx-container[display="true"] {
   margin: 1.1em 0;
 }
+
+
+/* ===== 代码块右上角：只保留复制图标（2026-11-10 用户要求） ===== */
+.markdown-body .code-widget {
+  font-size: 0 !important;          /* 隐藏 PYTHON / HLJS 之类的语言文字 */
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 4px 6px !important;
+  opacity: .55;
+  transition: opacity .2s ease;
+}
+.markdown-body .code-widget:hover { opacity: 1; }
+.markdown-body .code-widget i {
+  font-size: 15px !important;
+  line-height: 1;
+  vertical-align: middle;
+}
