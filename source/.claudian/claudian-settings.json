@@ -6,7 +6,7 @@
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationLocale": "",
-  "titleGenerationModel": "",
+  "titleGenerationModel": "pi:tongji/DeepSeek-V4.1-Flash",
   "excludedTags": [],
   "mediaFolder": "",
   "systemPrompt": "",
@@ -75,12 +75,16 @@
       ]
     },
     "codex": {
-      "enabled": false,
+      "enabled": true,
       "safeMode": "workspace-write",
       "cliPath": "",
       "cliPathsByHost": {},
       "modelAliases": {},
-      "visibleModels": [],
+      "visibleModels": [
+        "gpt-6.1-sol",
+        "gpt-6-astra",
+        "gpt-6.1-terra"
+      ],
       "enableUltraEffort": false,
       "responseStyle": "pragmatic",
       "responseVerbosity": "default",
@@ -90,7 +94,143 @@
       "sessionEnvironmentHash": "runtime-input:v1:cf4a613a63a895356fbc95544817979656506c93b9fb3fe1c76833522e1c19fc",
       "installationMethodsByHost": {},
       "wslDistroOverridesByHost": {},
-      "selectedModels": []
+      "selectedModels": [
+        {
+          "model": "gpt-6.1-sol",
+          "displayName": "GPT-6.1 Sol",
+          "description": "Latest workhorse model for coding and everyday work.",
+          "supportedReasoningEfforts": [
+            {
+              "value": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "value": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "value": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "value": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "value": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "value": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ],
+          "defaultReasoningEffort": "low",
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "2x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "isDefault": true
+        },
+        {
+          "model": "gpt-6-astra",
+          "displayName": "GPT-6 Astra",
+          "description": "Frontier intelligence for the most demanding work.",
+          "supportedReasoningEfforts": [
+            {
+              "value": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "value": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "value": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "value": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "value": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "value": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ],
+          "defaultReasoningEffort": "low",
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "2x speed, increased usage"
+            }
+          ],
+          "defaultServiceTier": null,
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "isDefault": false
+        },
+        {
+          "model": "gpt-6.1-terra",
+          "displayName": "GPT-6.1 Terra",
+          "description": "GPT-6.1 Terra Codex model.",
+          "supportedReasoningEfforts": [
+            {
+              "value": "low",
+              "description": "Fast responses with lighter reasoning"
+            },
+            {
+              "value": "medium",
+              "description": "Balances speed and reasoning depth for everyday tasks"
+            },
+            {
+              "value": "high",
+              "description": "Greater reasoning depth for complex problems"
+            },
+            {
+              "value": "xhigh",
+              "description": "Extra high reasoning depth for complex problems"
+            },
+            {
+              "value": "max",
+              "description": "Maximum reasoning depth for the hardest problems"
+            },
+            {
+              "value": "ultra",
+              "description": "Maximum reasoning with automatic task delegation"
+            }
+          ],
+          "defaultReasoningEffort": "low",
+          "serviceTiers": [
+            {
+              "id": "priority",
+              "name": "Fast",
+              "description": "1.5x speed"
+            }
+          ],
+          "defaultServiceTier": null,
+          "inputModalities": [
+            "text",
+            "image"
+          ],
+          "isDefault": false
+        }
+      ]
     },
     "deepseek": {
       "installationMethodsByHost": {},
@@ -140,14 +280,80 @@
       "wslDistroOverridesByHost": {},
       "cliPath": "",
       "cliPathsByHost": {},
-      "enabled": false,
+      "enabled": true,
       "environmentHash": "",
       "environmentVariables": "",
       "modelAliases": {},
       "preferredThinkingByModel": {},
       "sessionEnvironmentHash": "",
-      "visibleModels": [],
-      "selectedModels": []
+      "visibleModels": [
+        "pi:tongji/DeepSeek-V4.1-Flash",
+        "pi:tongji/GLM-5.3-Flash",
+        "pi:tongji/MiniMax-M3.1-Flash"
+      ],
+      "selectedModels": [
+        {
+          "api": "openai-completions",
+          "contextWindow": 1000000,
+          "encodedId": "pi:tongji/DeepSeek-V4.1-Flash",
+          "id": "DeepSeek-V4.1-Flash",
+          "input": [
+            "text",
+            "image"
+          ],
+          "label": "DeepSeek-V4.1-Flash",
+          "maxTokens": 384000,
+          "provider": "tongji",
+          "reasoning": true,
+          "thinkingLevels": [
+            "off",
+            "low",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        },
+        {
+          "api": "openai-completions",
+          "contextWindow": 1000000,
+          "encodedId": "pi:tongji/GLM-5.3-Flash",
+          "id": "GLM-5.3-Flash",
+          "input": [
+            "text",
+            "image"
+          ],
+          "label": "GLM-5.3-Flash",
+          "maxTokens": 131000,
+          "provider": "tongji",
+          "reasoning": true,
+          "thinkingLevels": [
+            "low",
+            "high",
+            "max"
+          ]
+        },
+        {
+          "api": "openai-completions",
+          "contextWindow": 512000,
+          "encodedId": "pi:tongji/MiniMax-M3.1-Flash",
+          "id": "MiniMax-M3.1-Flash",
+          "input": [
+            "text",
+            "image"
+          ],
+          "label": "MiniMax-M3.1-Flash",
+          "maxTokens": 128000,
+          "provider": "tongji",
+          "reasoning": true,
+          "thinkingLevels": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ]
+        }
+      ]
     }
   },
   "settingsProvider": "claude",
@@ -162,7 +368,7 @@
   },
   "pendingProviderSessionInvalidations": {},
   "enableAutoScroll": true,
-  "showMessageTimestamps": false,
+  "showMessageTimestamps": true,
   "deferMathRenderingDuringStreaming": true,
   "pluginRenderedFenceLanguages": [],
   "expandFileEditsByDefault": false,
