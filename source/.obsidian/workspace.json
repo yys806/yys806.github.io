@@ -209,7 +209,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -226,7 +226,7 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "542a5aff37144aa8",
+  "active": "bd3445acac78ef3c",
   "lastOpenFiles": [
     "_templates/文章模板.md",
     "_posts/202603-服务器新用.md",
