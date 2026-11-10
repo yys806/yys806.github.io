@@ -456,7 +456,7 @@
   "ai": {
     "enabled": false,
     "showAIContextMenu": true,
-    "consentAccepted": false,
+    "consentAccepted": true,
     "onboardingShown": true,
     "providerMode": "pkmer-first",
     "enableInlineCompletion": true,
