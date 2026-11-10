@@ -4,16 +4,11 @@ date: 2026-03-30 17:06:00
 categories: 开发
 tags: 公用
 ---
-
-
 ## 1. 我安装了哪些 MCP？它们分别有什么用？
-
 我确认 MCP 配置来源文件是：
 
 - `C:/Users/Lenovo/.config/opencode/opencode.json`
-
 我当前一共配置了 9 个 MCP：
-
 1. Framelink MCP for Figma
 2. chrome-devtools
 3. github
@@ -45,17 +40,18 @@ tags: 公用
 
 ## 2. 我的 MCP 逐项说明（我装了什么、有什么用、从哪来）
 
-| 我安装的 MCP | 我主要拿它做什么 | 我的接入形态 | 我的下载/接入来源 | GitHub/官方链接 | 归类 |
-|---|---|---|---|---|---|
-| Framelink MCP for Figma | 我用它读取 Figma 设计数据、下载设计素材，辅助前端还原 | 本地 `npx` 命令 | NPM 包 `figma-developer-mcp` | GitHub: https://github.com/GLips/Figma-Context-MCP | 互联网下载（第三方） |
-| chrome-devtools | 我用它做页面操作、抓快照、看网络和性能 | 本地 `npx` 命令 | NPM 包 `chrome-devtools-mcp` | GitHub: https://github.com/ChromeDevTools/chrome-devtools-mcp | 互联网下载（官方/开源） |
-| github | 我用它做 GitHub 相关交互（issue/PR/repo） | 远程 URL | `https://api.githubcopilot.com/mcp/` | 官方入口: https://docs.github.com/copilot | 互联网接入（云端服务） |
-| neon | 我用它做 Neon 项目、分支、SQL 操作 | 远程 URL | `https://mcp.neon.tech/mcp` | 官网: https://neon.com | 互联网接入（云端服务） |
-| pencil | 我用它操作 `.pen` 设计文件（读写、布局、导出） | 本地 EXE | 本地二进制 `D:/Pencil/.../mcp-server-windows-x64.exe` | 待核验（本机配置未写上游仓库） | 本地安装（来源待核验） |
-| puppeteer | 我用它做浏览器自动化（导航、点击、填表、截图） | 本地 Node 模块命令 | `@modelcontextprotocol/server-puppeteer` | GitHub: https://github.com/modelcontextprotocol/servers | 互联网下载（开源） |
-| replicate-flux-mcp | 我用它做文生图/图像生成（Flux） | 本地 `npx` 命令 | NPM 包 `replicate-flux-mcp` | 待核验（需以包仓库字段复核） | 互联网下载（第三方） |
-| semgrep | 我用它做 SAST/SCA 安全扫描与规则匹配 | 本地 Python 可执行 | `pysemgrep.exe mcp`（Semgrep 体系） | GitHub: https://github.com/semgrep/semgrep | 互联网下载（开源） |
-| stripe | 我用它做 Stripe 支付对象查询和操作 | 远程 URL | `https://mcp.stripe.com` | 官方文档: https://docs.stripe.com | 互联网接入（云端服务） |
+| 我安装的 MCP                | 我主要拿它做什么                        | 我的接入形态        | 我的下载/接入来源                                        | GitHub/官方链接                                                   | 归类           |
+| ----------------------- | ------------------------------- | ------------- | ------------------------------------------------ | ------------------------------------------------------------- | ------------ |
+| Framelink MCP for Figma | 我用它读取 Figma 设计数据、下载设计素材，辅助前端还原  | 本地 `npx` 命令   | NPM 包 `figma-developer-mcp`                      | GitHub: https://github.com/GLips/Figma-Context-MCP            | 互联网下载（第三方）   |
+| chrome-devtools         | 我用它做页面操作、抓快照、看网络和性能             | 本地 `npx` 命令   | NPM 包 `chrome-devtools-mcp`                      | GitHub: https://github.com/ChromeDevTools/chrome-devtools-mcp | 互联网下载（官方/开源） |
+| github                  | 我用它做 GitHub 相关交互（issue/PR/repo） | 远程 URL        | `https://api.githubcopilot.com/mcp/`             | 官方入口: https://docs.github.com/copilot                         | 互联网接入（云端服务）  |
+| neon                    | 我用它做 Neon 项目、分支、SQL 操作          | 远程 URL        | `https://mcp.neon.tech/mcp`                      | 官网: https://neon.com                                          | 互联网接入（云端服务）  |
+| pencil                  | 我用它操作 `.pen` 设计文件（读写、布局、导出）     | 本地 EXE        | 本地二进制 `D:/Pencil/.../mcp-server-windows-x64.exe` | 待核验（本机配置未写上游仓库）                                               | 本地安装（来源待核验）  |
+| puppeteer               | 我用它做浏览器自动化（导航、点击、填表、截图）         | 本地 Node 模块命令  | `@modelcontextprotocol/server-puppeteer`         | GitHub: https://github.com/modelcontextprotocol/servers       | 互联网下载（开源）    |
+| replicate-flux-mcp      | 我用它做文生图/图像生成（Flux）              | 本地 `npx` 命令   | NPM 包 `replicate-flux-mcp`                       | 待核验（需以包仓库字段复核）                                                | 互联网下载（第三方）   |
+| semgrep                 | 我用它做 SAST/SCA 安全扫描与规则匹配         | 本地 Python 可执行 | `pysemgrep.exe mcp`（Semgrep 体系）                  | GitHub: https://github.com/semgrep/semgrep                    | 互联网下载（开源）    |
+| stripe                  | 我用它做 Stripe 支付对象查询和操作           | 远程 URL        | `https://mcp.stripe.com`                         | 官方文档: https://docs.stripe.com                                 | 互联网接入（云端服务）  |
+|                         |                                 |               |                                                  |                                                               |              |
 
 ### 2.1 哪些是我从网上下载/接入的？哪些是我自己做的？
 
@@ -69,13 +65,9 @@ tags: 公用
 - replicate-flux-mcp
 - semgrep
 - stripe
-
 #### 我暂时不能直接判定为“我自己开发”的
-
 - pencil（我目前只在本机看到 exe 路径，没看到我自己的上游仓库指针）
-
 > 结论（按现有证据）：我的 MCP 层里没有发现可以直接下结论为“我从零自研”的项目；`pencil` 目前只能定性为“本地部署，来源待核验”。
-
 ---
 
 ## 3. 我安装了哪些 Skills？

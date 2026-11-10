@@ -6,15 +6,12 @@ tags: 公用
 ---
 # 一、开始结束指令
 ## claude code
-
 开始：claude
 ## claude code router
-
 开始：ccr start/ccr code
 结束：ccr stop
 
 # 二、Config配置（Router）
-
 ## 1.Qwen3:
 ```
 {
