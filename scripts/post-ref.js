@@ -28,6 +28,15 @@ hexo.extend.tag.register('post_ref', function (args) {
   var post = posts.findOne({ title: raw });
   if (!post) post = posts.findOne({ slug: raw });
   if (!post) {
+    // 模糊兜底：忽略空格、全半角标点差异（标题改一个冒号也不至于断链）
+    var norm = function (s) {
+      return String(s || '').replace(/\s+/g, '')
+        .replace(/[：:]/g, ':').replace(/[，,]/g, ',').replace(/[（(]/g, '(').replace(/[）)]/g, ')');
+    };
+    var target = norm(raw);
+    post = posts.filter(function (p) { return norm(p.title) === target; }).first();
+  }
+  if (!post) {
     post = posts.filter(function (p) {
       var src = (p.source || '').replace(/\\/g, '/');
       var base = src.split('/').pop().replace(/\.md$/i, '');
