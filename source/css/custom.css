@@ -1117,3 +1117,12 @@ footer,
 #board article.post-content > h1#seo-header {
   text-align: center;
 }
+
+
+/* ===== 公式可读性（2026-11-10）===== */
+.markdown-body mjx-container {
+  font-size: 108%;
+}
+.markdown-body mjx-container[display="true"] {
+  margin: 1.1em 0;
+}
