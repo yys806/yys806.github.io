@@ -4,6 +4,11 @@
   "positionStyle": "top",
   "menuCommands": [
     {
+      "id": "editing-toolbar:ai-tools",
+      "name": "AI Tools",
+      "icon": "lucide-sparkles"
+    },
+    {
       "id": "editing-toolbar:editor-undo",
       "name": "Undo Edit",
       "icon": "undo-glyph"
@@ -389,10 +394,34 @@
       "icon": "exit-fullscreen"
     }
   ],
-  "followingCommands": [],
-  "topCommands": [],
-  "fixedCommands": [],
-  "mobileCommands": [],
+  "followingCommands": [
+    {
+      "id": "editing-toolbar:ai-tools",
+      "name": "AI Tools",
+      "icon": "lucide-sparkles"
+    }
+  ],
+  "topCommands": [
+    {
+      "id": "editing-toolbar:ai-tools",
+      "name": "AI Tools",
+      "icon": "lucide-sparkles"
+    }
+  ],
+  "fixedCommands": [
+    {
+      "id": "editing-toolbar:ai-tools",
+      "name": "AI Tools",
+      "icon": "lucide-sparkles"
+    }
+  ],
+  "mobileCommands": [
+    {
+      "id": "editing-toolbar:ai-tools",
+      "name": "AI Tools",
+      "icon": "lucide-sparkles"
+    }
+  ],
   "enableMultipleConfig": false,
   "enableTopToolbar": true,
   "enableFollowingToolbar": false,
@@ -454,7 +483,7 @@
   "toolbarIconSize": 18,
   "useCurrentLineForRegex": false,
   "ai": {
-    "enabled": false,
+    "enabled": true,
     "showAIContextMenu": true,
     "consentAccepted": true,
     "onboardingShown": true,
@@ -479,12 +508,12 @@
       "tokenExpiresAt": 0,
       "userInfo": null
     },
-    "enableCustomModel": false,
+    "enableCustomModel": true,
     "customModel": {
       "apiFormat": "openai-compatible",
-      "baseUrl": "",
+      "baseUrl": "http://111.228.38.104:3065/v1",
       "apiKey": "",
-      "model": "",
+      "model": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "temperature": 0.2
     },
     "frontmatterPrompt": {
